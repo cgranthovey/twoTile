@@ -19,7 +19,6 @@ class PostCell: UITableViewCell {
     }
     
     func configureCell(scrabWord: ScrabbleWord) {
-        print (scrabWord.word)
         self.word.text = scrabWord.word
         self.definition.text = scrabWord.definition
     }

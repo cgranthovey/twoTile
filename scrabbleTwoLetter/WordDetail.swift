@@ -17,6 +17,11 @@ class WordDetail: UIViewController {
     
     @IBOutlet weak var progressBar: UIActivityIndicatorView!
     
+    @IBOutlet weak var greyView: UIView!
+    @IBOutlet weak var containerView: UIView!
+    
+    
+    
     var tappedWord: ScrabbleWord!
     
     override func viewDidLoad() {
@@ -26,6 +31,7 @@ class WordDetail: UIViewController {
         definition.text = tappedWord.definition
         partOfSpeech.text = tappedWord.partOfSpeech
         
+        image.clipsToBounds = true
         
         ImageLoader.sharedLoader.imageForUrl(tappedWord.image, completionHandler:{(image: UIImage?, url: String) in
             self.image.image = image!
@@ -34,11 +40,21 @@ class WordDetail: UIViewController {
         progressBar.startAnimating()
         progressBar.color = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0)
         
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: ("handleSwipe:"))
+        downSwipe.direction = .Down
+        view.addGestureRecognizer(downSwipe)
+        
     }
     
-    @IBAction func backBtn(sender: AnyObject){
-        dismissViewControllerAnimated(true, completion: nil)
+    func handleSwipe(sender: UISwipeGestureRecognizer){
+        if sender.direction == .Down{
+            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
-
-
+    
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateWithDuration(0.3, animations: {
+            self.greyView.alpha = 0.4
+        })
+    }
 }

@@ -39,9 +39,27 @@ class StoreWord {
     private var _em = ScrabbleWord(word: "Em", partOfSpeech: "noun", definition: "a unit used by printers to measure width", image: "http://publiclibrariesonline.org/wp-content/uploads/2013/12/printingpress2.jpg")
     private var _en = ScrabbleWord(word: "En", partOfSpeech: "noun", definition: "half an em", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Hoe's_one_cylinder_printing_press.png/1280px-Hoe's_one_cylinder_printing_press.png")
     private var _er = ScrabbleWord(word: "Er", partOfSpeech: "exclamation", definition: "Sound used when expressing hesitation", image: "https://media.licdn.com/mpr/mpr/p/8/005/08d/3b4/1f91364.jpg")
-
+    private var _es = ScrabbleWord(word: "Es", partOfSpeech: "noun", definition: "The letter s", image: "http://etc.usf.edu/presentations/extras/letters/varsity_letters/39/31/s-400.png")
+    private var _et = ScrabbleWord(word: "Et", partOfSpeech: "verb", definition: "Past tense of eat", image: "http://a.abcnews.go.com/images/GMA/151018_dvo_pop_cupcake_33x16_1600.jpg")
+    private var _ex = ScrabbleWord(word: "Ex", partOfSpeech: "noun", definition: "The letter x", image: "http://etc.usf.edu/presentations/extras/letters/fridge_magnets/orange/34/x-400.png")
+    private var _fa = ScrabbleWord(word: "Fa", partOfSpeech: "noun", definition: "musical note", image: "http://mickji.altervista.org/wp-content/uploads/2013/09/syllab.png")
+    private var _fe = ScrabbleWord(word: "Fe", partOfSpeech: "noun", definition: "hebrew letter", image: "http://jewishstudies.washington.edu/wp-content/uploads/2014/07/biblical_hebrew_modern_hebrew.jpg")
+    private var _fy = ScrabbleWord(word: "Fy", partOfSpeech: "expression", definition: "an interjection which represents disgust", image: "http://img.lum.dolimg.com/v1/images/au_character_insideout_bio_disgust_b2c9b79d.jpeg?region=0,0,600,600&width=320")
+    private var _gi = ScrabbleWord(word: "Gi", partOfSpeech: "noun", definition: "clothing worn while practicing Judo", image: "http://judogi.co.uk/1612-thickbox_default/adidas-club-judo-gi.jpg")
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     func getWord() -> [ScrabbleWord]{
-        return [_aa, _ab, _ad, _ae, _ag, _ah, _ai, _al, _am, _an, _ar, _as, _at, _aw, _ax, _ay, _ba, _be, _bi, _bo, _by, _de, _do, _ed, _ef, _eh, _el, _em, _en, _er]
+        return [_aa, _ab, _ad, _ae, _ag, _ah, _ai, _al, _am, _an, _ar, _as, _at, _aw, _ax, _ay, _ba, _be, _bi, _bo, _by, _de, _do, _ed, _ef, _eh, _el, _em, _en, _er, _es, _et, _ex, _fa, _fe, _fy, _gi]
     }
 }

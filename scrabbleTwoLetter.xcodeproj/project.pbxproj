@@ -19,6 +19,7 @@
 		A111B9D01CBC4A7400A9104F /* REFUSETR.TTF in Resources */ = {isa = PBXBuildFile; fileRef = A111B9CF1CBC4A7400A9104F /* REFUSETR.TTF */; };
 		A111B9D41CBC524900A9104F /* WordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111B9D31CBC524900A9104F /* WordDetail.swift */; };
 		A111B9D61CBC54D400A9104F /* imgLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111B9D51CBC54D400A9104F /* imgLoader.swift */; };
+		A1D70B441CBEBBCF00EDD7FB /* roundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */; };
 		A1D919FC1CBD7679006D9D4D /* collectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D919FB1CBD7679006D9D4D /* collectionVC.swift */; };
 		A1D919FE1CBD7900006D9D4D /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D919FD1CBD7900006D9D4D /* WordCell.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		A111B9CF1CBC4A7400A9104F /* REFUSETR.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = REFUSETR.TTF; sourceTree = "<group>"; };
 		A111B9D31CBC524900A9104F /* WordDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetail.swift; sourceTree = "<group>"; };
 		A111B9D51CBC54D400A9104F /* imgLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imgLoader.swift; sourceTree = "<group>"; };
+		A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roundedCornersView.swift; sourceTree = "<group>"; };
 		A1D919FB1CBD7679006D9D4D /* collectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectionVC.swift; sourceTree = "<group>"; };
 		A1D919FD1CBD7900006D9D4D /* WordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 			children = (
 				A111B9CA1CBC2C2200A9104F /* PostCell.swift */,
 				A1D919FD1CBD7900006D9D4D /* WordCell.swift */,
+				A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */,
 			);
 			name = View;
 			path = ..;
@@ -196,6 +199,7 @@
 				A111B9BA1CBC209500A9104F /* scrabbleTwoLetter.xcdatamodeld in Sources */,
 				A111B9CE1CBC334400A9104F /* StoreWord.swift in Sources */,
 				A111B9C81CBC26B900A9104F /* ScrabbleWord.swift in Sources */,
+				A1D70B441CBEBBCF00EDD7FB /* roundedCornersView.swift in Sources */,
 				A111B9D61CBC54D400A9104F /* imgLoader.swift in Sources */,
 				A1D919FE1CBD7900006D9D4D /* WordCell.swift in Sources */,
 				A1D919FC1CBD7679006D9D4D /* collectionVC.swift in Sources */,

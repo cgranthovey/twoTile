@@ -15,15 +15,24 @@ class WordCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         layer.cornerRadius = 5.0
+
     }
+    
+    func addImageToCell(word: ScrabbleWord){
+        ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
+            self.img.image = image!
+        })
+    }
+
+    
     
     func configureCell(word: ScrabbleWord){
         cell.text = word.word
-//        print (word.image)
 //        ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
 //            self.img.image = image!
 //        })
         
     }
+
 }
 

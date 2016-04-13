@@ -67,7 +67,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             inSearchMode = true
             let lower = searchBar.text!.lowercaseString
-            print(lower)
             filteredWords = words.filter({$0.word.lowercaseString.rangeOfString(lower) != nil})
             tableView.reloadData()
         }
