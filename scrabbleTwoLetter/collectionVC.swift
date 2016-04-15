@@ -8,10 +8,9 @@
 
 import UIKit
 
-class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
     var savedWords = [ScrabbleWord]()
     var deletedWords = [ScrabbleWord]()
 
@@ -25,9 +24,8 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-    }
-    
+ 
+    }    
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -73,9 +71,12 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         } else {
             return UICollectionViewCell()
         }
-        
-
 }
+    
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        print(item)
+    }
+    
     
     func addImage(sender: UISwipeGestureRecognizer) {
         let cell = sender.view as! UICollectionViewCell as? WordCell
@@ -94,8 +95,10 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         for var x in 0..<deletedWords.count{
             print(deletedWords[x].word)
         }
-
-        
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
     }
     
     var collectionViewCell: UICollectionViewCell!

@@ -89,10 +89,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    @IBAction func basketPress(sender: AnyObject){
-        performSegueWithIdentifier("collectionVC", sender: nil)
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "WordDetail" {
             if let detailsVC = segue.destinationViewController as? WordDetail{

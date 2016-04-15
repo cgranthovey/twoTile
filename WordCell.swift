@@ -7,31 +7,58 @@
 //
 
 import UIKit
+import Foundation
+
 
 class WordCell: UICollectionViewCell {
     @IBOutlet weak var cell: UILabel!
     @IBOutlet weak var img: UIImageView!
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        layer.cornerRadius = 5.0
+    @IBOutlet weak var shadow: UIView!
 
-    }
+    
+//    override func awakeFromNib() {
+//        self.layer.shadowColor = UIColor.blackColor().CGColor
+//        self.layer.shadowOffset = CGSizeMake(0, 0)
+//        self.layer.shadowOpacity = 0.8
+//        self.layer.shadowRadius = 1.0
+//        
+//        self.layer.masksToBounds = false
+//        
+//        img.clipsToBounds = true
+//        img.layer.cornerRadius = 5.0
+//        
+//    }
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
     
     func addImageToCell(word: ScrabbleWord){
-        ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
-            self.img.image = image!
-        })
+
     }
 
     
     
     func configureCell(word: ScrabbleWord){
         cell.text = word.word
-//        ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
-//            self.img.image = image!
-//        })
-        
+
+        ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
+            self.img.image = image!
+        })
+            
     }
 
 }

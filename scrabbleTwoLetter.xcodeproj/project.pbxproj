@@ -20,6 +20,7 @@
 		A111B9D41CBC524900A9104F /* WordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111B9D31CBC524900A9104F /* WordDetail.swift */; };
 		A111B9D61CBC54D400A9104F /* imgLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111B9D51CBC54D400A9104F /* imgLoader.swift */; };
 		A1D70B441CBEBBCF00EDD7FB /* roundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */; };
+		A1D883F51CC14219007F3F06 /* DeletedCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */; };
 		A1D919FC1CBD7679006D9D4D /* collectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D919FB1CBD7679006D9D4D /* collectionVC.swift */; };
 		A1D919FE1CBD7900006D9D4D /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D919FD1CBD7900006D9D4D /* WordCell.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		A111B9D31CBC524900A9104F /* WordDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetail.swift; sourceTree = "<group>"; };
 		A111B9D51CBC54D400A9104F /* imgLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imgLoader.swift; sourceTree = "<group>"; };
 		A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roundedCornersView.swift; sourceTree = "<group>"; };
+		A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletedCollectionVC.swift; sourceTree = "<group>"; };
 		A1D919FB1CBD7679006D9D4D /* collectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectionVC.swift; sourceTree = "<group>"; };
 		A1D919FD1CBD7900006D9D4D /* WordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +118,7 @@
 				A111B9B31CBC209500A9104F /* ViewController.swift */,
 				A111B9D31CBC524900A9104F /* WordDetail.swift */,
 				A1D919FB1CBD7679006D9D4D /* collectionVC.swift */,
+				A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				A111B9C81CBC26B900A9104F /* ScrabbleWord.swift in Sources */,
 				A1D70B441CBEBBCF00EDD7FB /* roundedCornersView.swift in Sources */,
 				A111B9D61CBC54D400A9104F /* imgLoader.swift in Sources */,
+				A1D883F51CC14219007F3F06 /* DeletedCollectionVC.swift in Sources */,
 				A1D919FE1CBD7900006D9D4D /* WordCell.swift in Sources */,
 				A1D919FC1CBD7679006D9D4D /* collectionVC.swift in Sources */,
 				A111B9CB1CBC2C2200A9104F /* PostCell.swift in Sources */,
