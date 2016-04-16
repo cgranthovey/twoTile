@@ -16,16 +16,17 @@ class DeletedCollectionVC: UIViewController, UICollectionViewDataSource, UIColle
     
     
     override func viewDidLoad() {
-        deletedScrabbleWords = StoreWord().getWord()
+        deletedScrabbleWords = [ScrabbleWord]()
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        deletedScrabbleWords = DataService.instance.deletedWords
     }
 
     override func viewDidAppear(animated: Bool) {
-        print("I appeared!")
+        collectionView.reloadData()
+        deletedScrabbleWords = DataService.instance.deletedWords
+
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

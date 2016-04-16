@@ -16,18 +16,19 @@ class WordCell: UICollectionViewCell {
     @IBOutlet weak var shadow: UIView!
 
     
-//    override func awakeFromNib() {
-//        self.layer.shadowColor = UIColor.blackColor().CGColor
-//        self.layer.shadowOffset = CGSizeMake(0, 0)
-//        self.layer.shadowOpacity = 0.8
-//        self.layer.shadowRadius = 1.0
-//        
-//        self.layer.masksToBounds = false
-//        
-//        img.clipsToBounds = true
-//        img.layer.cornerRadius = 5.0
-//        
-//    }
+    override func awakeFromNib() {
+        self.layer.shadowColor = UIColor.blackColor().CGColor
+        self.layer.shadowOffset = CGSizeMake(0, 0)
+        self.layer.shadowOpacity = 0.8
+        self.layer.shadowRadius = 1.0
+        
+        self.layer.masksToBounds = false
+        
+        img.clipsToBounds = true
+        img.layer.cornerRadius = 5.0
+        
+        img.alpha = 0.5
+    }
 
     
 

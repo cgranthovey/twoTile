@@ -63,6 +63,7 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
             cell.configureCell(DataService.instance.savedWords[indexPath.row])
             
+
             
             let cSelector = Selector("reset:")
             let leftSwipe = UISwipeGestureRecognizer(target: self, action: cSelector )
