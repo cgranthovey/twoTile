@@ -11,6 +11,7 @@ import UIKit
 class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    var allWords = [ScrabbleWord]()
     var savedWords = [ScrabbleWord]()
     var deletedWords = [ScrabbleWord]()
 
@@ -18,12 +19,20 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewDidLoad() {
         
-        savedWords = StoreWord().getWord()
+        allWords = StoreWord().getWord()
         
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        DataService.instance.loadPosts()
+        if DataService.instance.deletedWords.count == 0{
+
+            DataService.instance.addWords(allWords, deletedWord: [ScrabbleWord]())
+        }
+        savedWords = DataService.instance.savedWords
+        deletedWords = DataService.instance.deletedWords
  
     }    
     
@@ -32,11 +41,11 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return savedWords.count
+        return DataService.instance.savedWords.count
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("collectionToWordDetail", sender: savedWords[indexPath.row])
+        performSegueWithIdentifier("collectionToWordDetail", sender: DataService.instance.savedWords[indexPath.row])
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -52,7 +61,7 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
-            cell.configureCell(savedWords[indexPath.row])
+            cell.configureCell(DataService.instance.savedWords[indexPath.row])
             
             
             let cSelector = Selector("reset:")
@@ -74,27 +83,28 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 }
     
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        print(item)
     }
     
     
     func addImage(sender: UISwipeGestureRecognizer) {
         let cell = sender.view as! UICollectionViewCell as? WordCell
         let i = self.collectionView.indexPathForCell(cell!)!.item
-        cell!.addImageToCell(savedWords[i])
+        cell!.addImageToCell(DataService.instance.savedWords[i])
     }
     
     func reset(sender: UISwipeGestureRecognizer) {
         let cell = sender.view as! UICollectionViewCell
         let i = self.collectionView.indexPathForCell(cell)!.item
+        
         deletedWords.append(savedWords[i])
         savedWords.removeAtIndex(i)
-        collectionView.reloadData()
         
         deletedWords.sortInPlace({$0.word < $1.word})
-        for var x in 0..<deletedWords.count{
-            print(deletedWords[x].word)
-        }
+
+        DataService.instance.addWords(savedWords, deletedWord: deletedWords)
+        
+        collectionView.reloadData()
+
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {

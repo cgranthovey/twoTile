@@ -349,6 +349,7 @@
                                         <rect key="frame" x="170" y="23" width="261" height="60"/>
                                         <connections>
                                             <action selector="popToRoot:" destination="Oig-Qd-gam" eventType="touchUpInside" id="W2v-vc-5S4"/>
+                                            <action selector="titleButton:" destination="AWE-9s-rVC" eventType="touchUpInside" id="qwC-NO-0Xp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -456,6 +457,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabBar" destination="omB-cN-crk" id="X5l-Sd-2Xp"/>
                         <segue destination="Oig-Qd-gam" kind="relationship" relationship="viewControllers" id="lZN-g0-EZL"/>
                         <segue destination="AWE-9s-rVC" kind="relationship" relationship="viewControllers" id="FCN-ra-LYZ"/>
                         <segue destination="9HV-P5-dgY" kind="relationship" relationship="viewControllers" id="g1c-sK-wBT"/>
@@ -605,6 +607,6 @@
         <image name="picnic2" width="400" height="399"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ckf-ee-xI3"/>
+        <segue reference="MP0-Qr-5mL"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,6 +21,7 @@
 		A111B9D61CBC54D400A9104F /* imgLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111B9D51CBC54D400A9104F /* imgLoader.swift */; };
 		A1D70B441CBEBBCF00EDD7FB /* roundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */; };
 		A1D883F51CC14219007F3F06 /* DeletedCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */; };
+		A1D883F81CC168CA007F3F06 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D883F71CC168CA007F3F06 /* DataService.swift */; };
 		A1D919FC1CBD7679006D9D4D /* collectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D919FB1CBD7679006D9D4D /* collectionVC.swift */; };
 		A1D919FE1CBD7900006D9D4D /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D919FD1CBD7900006D9D4D /* WordCell.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		A111B9D51CBC54D400A9104F /* imgLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imgLoader.swift; sourceTree = "<group>"; };
 		A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roundedCornersView.swift; sourceTree = "<group>"; };
 		A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletedCollectionVC.swift; sourceTree = "<group>"; };
+		A1D883F71CC168CA007F3F06 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		A1D919FB1CBD7679006D9D4D /* collectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectionVC.swift; sourceTree = "<group>"; };
 		A1D919FD1CBD7900006D9D4D /* WordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 		A111B9B01CBC209500A9104F /* scrabbleTwoLetter */ = {
 			isa = PBXGroup;
 			children = (
+				A1D883F61CC168AD007F3F06 /* Services */,
 				A111B9C61CBC269800A9104F /* Model */,
 				A111B9B11CBC209500A9104F /* AppDelegate.swift */,
 				A111B9C91CBC2BC500A9104F /* View */,
@@ -121,6 +124,14 @@
 				A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		A1D883F61CC168AD007F3F06 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A1D883F71CC168CA007F3F06 /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A111B9D41CBC524900A9104F /* WordDetail.swift in Sources */,
+				A1D883F81CC168CA007F3F06 /* DataService.swift in Sources */,
 				A111B9B41CBC209500A9104F /* ViewController.swift in Sources */,
 				A111B9B21CBC209500A9104F /* AppDelegate.swift in Sources */,
 				A111B9BA1CBC209500A9104F /* scrabbleTwoLetter.xcdatamodeld in Sources */,

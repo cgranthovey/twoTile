@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ScrabbleWord {
+class ScrabbleWord: NSObject, NSCoding {
     private var _word: String!
     private var _partOfSpeech: String!
     private var _definition: String!
@@ -35,5 +35,24 @@ class ScrabbleWord {
         self._partOfSpeech = partOfSpeech
         self._definition = definition
         self._image = image
+    }
+    
+    override init(){
+        
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+        self._word = aDecoder.decodeObjectForKey("word") as? String
+        self._partOfSpeech = aDecoder.decodeObjectForKey("partOfSpeech") as? String
+        self._definition = aDecoder.decodeObjectForKey("def") as? String
+        self._image = aDecoder.decodeObjectForKey("img") as? String
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self._word, forKey: "word")
+        aCoder.encodeObject(self.partOfSpeech, forKey: "partOfSpeech")
+        aCoder.encodeObject(self._definition, forKey: "def")
+        aCoder.encodeObject(self._image, forKey: "img")
     }
 }

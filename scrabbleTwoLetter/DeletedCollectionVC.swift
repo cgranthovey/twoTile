@@ -21,6 +21,11 @@ class DeletedCollectionVC: UIViewController, UICollectionViewDataSource, UIColle
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        deletedScrabbleWords = DataService.instance.deletedWords
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        print("I appeared!")
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -43,6 +48,10 @@ class DeletedCollectionVC: UIViewController, UICollectionViewDataSource, UIColle
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
+    }
+    
+    @IBAction func titleButton(sender: AnyObject){
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
