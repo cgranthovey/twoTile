@@ -134,9 +134,15 @@ class ImageGameVC: UIViewController {
                 self.thirdImg.hidden = true
                 self.fourthImg.hidden = true
             })
+            
+            firstWord.dropTarget = firstImg
+            
+            
         } else if chooseArray[2] == savedWords.count{
             print("2 is called")
 
+            firstWord.text = savedWords[chooseArray[0]].word
+            secondWord.text = savedWords[chooseArray[1]].word
             thirdWord.text = ""
             fourthWord.text = ""
             
@@ -157,9 +163,24 @@ class ImageGameVC: UIViewController {
                 })
             }
             
+            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[0]].word{
+                firstWord.dropTarget = firstImg
+            }
+            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[1]].word{
+                firstWord.dropTarget = secondImg
+            }
+            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[0]].word{
+                secondWord.dropTarget = firstImg
+            }
+            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[1]].word{
+                secondWord.dropTarget = secondImg
+            }
+            
         } else if chooseArray[3] == savedWords.count{
             print("3 is called")
-
+            firstWord.text = savedWords[chooseArray[0]].word
+            secondWord.text = savedWords[chooseArray[1]].word
+            thirdWord.text = savedWords[chooseArray[2]].word
             fourthWord.text = ""
             
             randChooseArray = chooseArray
@@ -177,6 +198,33 @@ class ImageGameVC: UIViewController {
                     }
                 })
             }
+                if savedWords[chooseArray[0]].word == savedWords[randChooseArray[0]].word{
+                    firstWord.dropTarget = firstImg
+                }
+                if savedWords[chooseArray[0]].word == savedWords[randChooseArray[1]].word{
+                    firstWord.dropTarget = secondImg
+                }
+                if savedWords[chooseArray[0]].word == savedWords[randChooseArray[2]].word{
+                    firstWord.dropTarget = thirdImg
+                }
+                if savedWords[chooseArray[1]].word == savedWords[randChooseArray[0]].word{
+                    secondWord.dropTarget = firstImg
+                }
+                if savedWords[chooseArray[1]].word == savedWords[randChooseArray[1]].word{
+                    secondWord.dropTarget = secondImg
+                }
+                if savedWords[chooseArray[1]].word == savedWords[randChooseArray[2]].word{
+                    secondWord.dropTarget = thirdImg
+                }
+                if savedWords[chooseArray[2]].word == savedWords[randChooseArray[0]].word{
+                    thirdWord.dropTarget = firstImg
+                }
+                if savedWords[chooseArray[2]].word == savedWords[randChooseArray[1]].word{
+                    thirdWord.dropTarget = secondImg
+                }
+                if savedWords[chooseArray[2]].word == savedWords[randChooseArray[2]].word{
+                    thirdWord.dropTarget = thirdImg
+                    }
         } else {
             firstWord.text = savedWords[chooseArray[0]].word
             secondWord.text = savedWords[chooseArray[1]].word
@@ -197,82 +245,56 @@ class ImageGameVC: UIViewController {
                     }
                 })
             }
-            
-            
-            
+            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[0]].word{
+                firstWord.dropTarget = firstImg
+            }
+            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[1]].word{
+                firstWord.dropTarget = secondImg
+            }
+            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[2]].word{
+                firstWord.dropTarget = thirdImg
+            }
+            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[3]].word{
+                firstWord.dropTarget = fourthImg
+            }
+            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[0]].word{
+                secondWord.dropTarget = firstImg
+            }
+            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[1]].word{
+                secondWord.dropTarget = secondImg
+            }
+            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[2]].word{
+                secondWord.dropTarget = thirdImg
+            }
+            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[3]].word{
+                secondWord.dropTarget = fourthImg
+            }
+            if savedWords[chooseArray[2]].word == savedWords[randChooseArray[0]].word{
+                thirdWord.dropTarget = firstImg
+            }
+            if savedWords[chooseArray[2]].word == savedWords[randChooseArray[1]].word{
+                thirdWord.dropTarget = secondImg
+            }
+            if savedWords[chooseArray[2]].word == savedWords[randChooseArray[2]].word{
+                thirdWord.dropTarget = thirdImg
+            }
+            if savedWords[chooseArray[2]].word == savedWords[randChooseArray[3]].word{
+                thirdWord.dropTarget = fourthImg
+            }
+            if savedWords[chooseArray[3]].word == savedWords[randChooseArray[0]].word{
+                fourthWord.dropTarget = firstImg
+            }
+            if savedWords[chooseArray[3]].word == savedWords[randChooseArray[1]].word{
+                fourthWord.dropTarget = secondImg
+            }
+            if savedWords[chooseArray[3]].word == savedWords[randChooseArray[2]].word{
+                fourthWord.dropTarget = thirdImg
+            }
+            if savedWords[chooseArray[3]].word == savedWords[randChooseArray[3]].word{
+                fourthWord.dropTarget = fourthImg
+            }
         }
-        
-        
-        
-        
-        
 
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        if savedWords[chooseArray[0]].word == savedWords[randChooseArray[0]].word{
-            firstWord.dropTarget = firstImg
-        }
-        if savedWords[chooseArray[0]].word == savedWords[randChooseArray[1]].word{
-            firstWord.dropTarget = secondImg
-        }
-        if savedWords[chooseArray[0]].word == savedWords[randChooseArray[2]].word{
-            firstWord.dropTarget = thirdImg
-        }
-        if savedWords[chooseArray[0]].word == savedWords[randChooseArray[3]].word{
-            firstWord.dropTarget = fourthImg
-        }
-        if savedWords[chooseArray[1]].word == savedWords[randChooseArray[0]].word{
-            secondWord.dropTarget = firstImg
-        }
-        if savedWords[chooseArray[1]].word == savedWords[randChooseArray[1]].word{
-            secondWord.dropTarget = secondImg
-        }
-        if savedWords[chooseArray[1]].word == savedWords[randChooseArray[2]].word{
-            secondWord.dropTarget = thirdImg
-        }
-        if savedWords[chooseArray[1]].word == savedWords[randChooseArray[3]].word{
-            secondWord.dropTarget = fourthImg
-        }
-        if savedWords[chooseArray[2]].word == savedWords[randChooseArray[0]].word{
-            thirdWord.dropTarget = firstImg
-        }
-        if savedWords[chooseArray[2]].word == savedWords[randChooseArray[1]].word{
-            thirdWord.dropTarget = secondImg
-        }
-        if savedWords[chooseArray[2]].word == savedWords[randChooseArray[2]].word{
-            thirdWord.dropTarget = thirdImg
-        }
-        if savedWords[chooseArray[2]].word == savedWords[randChooseArray[3]].word{
-            thirdWord.dropTarget = fourthImg
-        }
-        if savedWords[chooseArray[3]].word == savedWords[randChooseArray[0]].word{
-            fourthWord.dropTarget = firstImg
-        }
-        if savedWords[chooseArray[3]].word == savedWords[randChooseArray[1]].word{
-            fourthWord.dropTarget = secondImg
-        }
-        if savedWords[chooseArray[3]].word == savedWords[randChooseArray[2]].word{
-            fourthWord.dropTarget = thirdImg
-        }
-        if savedWords[chooseArray[3]].word == savedWords[randChooseArray[3]].word{
-            fourthWord.dropTarget = fourthImg
-        }
 
 
     }

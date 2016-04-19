@@ -27,6 +27,7 @@
 		A1D919FE1CBD7900006D9D4D /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D919FD1CBD7900006D9D4D /* WordCell.swift */; };
 		A1DBA51A1CC58A8F004659B2 /* matchImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DBA5191CC58A8F004659B2 /* matchImg.swift */; };
 		A1DBA51C1CC58FAE004659B2 /* DragLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DBA51B1CC58FAE004659B2 /* DragLabel.swift */; };
+		A1DBA51E1CC6C8D9004659B2 /* ChooseCorrectWordGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DBA51D1CC6C8D9004659B2 /* ChooseCorrectWordGameVC.swift */; };
 		A1DC84861CC2FCFA006C630D /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84851CC2FCFA006C630D /* GameVC.swift */; };
 		A1DC84881CC542A7006C630D /* GameBtnImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84871CC542A7006C630D /* GameBtnImg.swift */; };
 		A1DC848A1CC55C05006C630D /* ImageGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84891CC55C05006C630D /* ImageGameVC.swift */; };
@@ -55,6 +56,7 @@
 		A1D919FD1CBD7900006D9D4D /* WordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 		A1DBA5191CC58A8F004659B2 /* matchImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchImg.swift; sourceTree = "<group>"; };
 		A1DBA51B1CC58FAE004659B2 /* DragLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragLabel.swift; sourceTree = "<group>"; };
+		A1DBA51D1CC6C8D9004659B2 /* ChooseCorrectWordGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCorrectWordGameVC.swift; sourceTree = "<group>"; };
 		A1DC84851CC2FCFA006C630D /* GameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		A1DC84871CC542A7006C630D /* GameBtnImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBtnImg.swift; sourceTree = "<group>"; };
 		A1DC84891CC55C05006C630D /* ImageGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGameVC.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */,
 				A1DC84851CC2FCFA006C630D /* GameVC.swift */,
 				A1DC84891CC55C05006C630D /* ImageGameVC.swift */,
+				A1DBA51D1CC6C8D9004659B2 /* ChooseCorrectWordGameVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			files = (
 				A111B9D41CBC524900A9104F /* WordDetail.swift in Sources */,
 				A1D883F81CC168CA007F3F06 /* DataService.swift in Sources */,
+				A1DBA51E1CC6C8D9004659B2 /* ChooseCorrectWordGameVC.swift in Sources */,
 				A1DBA51C1CC58FAE004659B2 /* DragLabel.swift in Sources */,
 				A111B9B41CBC209500A9104F /* ViewController.swift in Sources */,
 				A1DC848A1CC55C05006C630D /* ImageGameVC.swift in Sources */,
