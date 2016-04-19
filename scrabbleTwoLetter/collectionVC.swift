@@ -34,7 +34,11 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
  
-    }    
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        collectionView.reloadData()
+    }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -63,6 +67,7 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
             cell.configureCell(DataService.instance.savedWords[indexPath.row])
             
+            
 
             
             let cSelector = Selector("reset:")
@@ -70,9 +75,7 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             leftSwipe.direction = UISwipeGestureRecognizerDirection.Left
             cell.addGestureRecognizer(leftSwipe)
                 
-                
-            let iSelector = Selector("addImage:")
-            let rightSwipe = UISwipeGestureRecognizer(target: self, action: iSelector)
+            let rightSwipe = UISwipeGestureRecognizer(target: self, action: cSelector)
             rightSwipe.direction = .Right
             cell.addGestureRecognizer(rightSwipe)
             
@@ -85,26 +88,33 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
     }
+
     
     
-    func addImage(sender: UISwipeGestureRecognizer) {
-        let cell = sender.view as! UICollectionViewCell as? WordCell
-        let i = self.collectionView.indexPathForCell(cell!)!.item
-        cell!.addImageToCell(DataService.instance.savedWords[i])
-    }
     
     func reset(sender: UISwipeGestureRecognizer) {
-        let cell = sender.view as! UICollectionViewCell
-        let i = self.collectionView.indexPathForCell(cell)!.item
         
-        deletedWords.append(savedWords[i])
-        savedWords.removeAtIndex(i)
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
+            
+            sender.view?.alpha = 0
+            
+            }) { (finished: Bool) -> Void in
+                
+                let cell = sender.view as! UICollectionViewCell
+                let i = self.collectionView.indexPathForCell(cell)!.item
+                
+                self.deletedWords.append(self.savedWords[i])
+                self.savedWords.removeAtIndex(i)
+                
+                self.deletedWords.sortInPlace({$0.word < $1.word})
+                
+                DataService.instance.addWords(self.savedWords, deletedWord: self.deletedWords)
+                
+                self.collectionView.reloadData()
+                
+        }
         
-        deletedWords.sortInPlace({$0.word < $1.word})
 
-        DataService.instance.addWords(savedWords, deletedWord: deletedWords)
-        
-        collectionView.reloadData()
 
     }
     
