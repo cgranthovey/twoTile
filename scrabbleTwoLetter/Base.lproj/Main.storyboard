@@ -21,12 +21,12 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Italic</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
         </mutableArray>
         <mutableArray key="REFUSETR.TTF">
             <string>RefuseTrip</string>
@@ -722,8 +722,8 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="g0I-1w-kpI"/>
-                                        <exclude reference="teI-te-pR7"/>
                                         <exclude reference="chm-8f-gYw"/>
+                                        <exclude reference="teI-te-pR7"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -807,8 +807,8 @@
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="Lj3-ql-z5I"/>
                                         <exclude reference="IbK-Ir-hP2"/>
+                                        <exclude reference="Lj3-ql-z5I"/>
                                     </mask>
                                 </variation>
                                 <connections>
