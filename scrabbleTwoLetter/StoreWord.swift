@@ -12,13 +12,13 @@ class StoreWord {
     private var _aa = ScrabbleWord(word: "Aa", partOfSpeech: "noun", definition: "A dry form of Lava", image: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Aa_large.jpg")
     private var _ab = ScrabbleWord(word: "Ab", partOfSpeech: "noun", definition: "Muscles in the stomach", image: "https://s-media-cache-ak0.pinimg.com/236x/a4/18/45/a418454e46ee5e0bf308e8378ce9e3ba.jpg")
     private var _ad = ScrabbleWord(word: "Ad", partOfSpeech: "noun", definition: "Short for advertisement", image: "http://s.wsj.net/public/resources/images/OB-RM283_paull3_DV_20120122234629.jpg")
-//    private var _ae = ScrabbleWord(word: "Ae", partOfSpeech: "adjective", definition: "One", image: "http://images.clipartpanda.com/one-clipart-number-one-gray-md.png")
-//    private var _ag = ScrabbleWord(word: "Ag", partOfSpeech: "adjective", definition: "relating to agriculture", image: "http://howafrica.com/wp-content/uploads/2015/06/Agriculture-chemical.jpg")
-//    private var _ah = ScrabbleWord(word: "Ah", partOfSpeech: "interjection", definition: "an exclamation used to express realization or happiness", image: "http://previews.123rf.com/images/unkreatives/unkreatives1208/unkreatives120800003/14850837-illustration-of-a-comic-style-light-bulb-Stock-Vector-lightbulb.jpg")
-//    private var _ai = ScrabbleWord(word: "Ai", partOfSpeech: "noun", definition: "Three clawed sloth", image: "https://upload.wikimedia.org/wikipedia/commons/1/18/Bradypus.jpg")
-//    private var _al = ScrabbleWord(word: "Al", partOfSpeech: "noun", definition: "Indian shrub", image: "http://whangareiflora.weebly.com/uploads/8/4/3/9/8439522/3531261_orig.jpg")
-//    private var _am = ScrabbleWord(word: "Am", partOfSpeech: "verb", definition: "To exist", image: "https://upload.wikimedia.org/wikipedia/commons/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg")
-//    private var _an = ScrabbleWord(word: "An", partOfSpeech: "indefinite article", definition: "indefinite article placed before words making a vowel sound", image: "http://phandroid.s3.amazonaws.com/wp-content/uploads/2015/02/galaxy-wallpaper-11.jpg")
+    private var _ae = ScrabbleWord(word: "Ae", partOfSpeech: "adjective", definition: "One", image: "http://images.clipartpanda.com/one-clipart-number-one-gray-md.png")
+    private var _ag = ScrabbleWord(word: "Ag", partOfSpeech: "adjective", definition: "relating to agriculture", image: "http://howafrica.com/wp-content/uploads/2015/06/Agriculture-chemical.jpg")
+    private var _ah = ScrabbleWord(word: "Ah", partOfSpeech: "interjection", definition: "an exclamation used to express realization or happiness", image: "http://previews.123rf.com/images/unkreatives/unkreatives1208/unkreatives120800003/14850837-illustration-of-a-comic-style-light-bulb-Stock-Vector-lightbulb.jpg")
+    private var _ai = ScrabbleWord(word: "Ai", partOfSpeech: "noun", definition: "Three clawed sloth", image: "https://upload.wikimedia.org/wikipedia/commons/1/18/Bradypus.jpg")
+    private var _al = ScrabbleWord(word: "Al", partOfSpeech: "noun", definition: "Indian shrub", image: "http://whangareiflora.weebly.com/uploads/8/4/3/9/8439522/3531261_orig.jpg")
+    private var _am = ScrabbleWord(word: "Am", partOfSpeech: "verb", definition: "To exist", image: "https://upload.wikimedia.org/wikipedia/commons/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg")
+    private var _an = ScrabbleWord(word: "An", partOfSpeech: "indefinite article", definition: "indefinite article placed before words making a vowel sound", image: "http://phandroid.s3.amazonaws.com/wp-content/uploads/2015/02/galaxy-wallpaper-11.jpg")
 //    private var _ar = ScrabbleWord(word: "Ar", partOfSpeech: "noun", definition: "The letter R", image: "https://upload.wikimedia.org/wikipedia/commons/b/be/Bonney%2C_Anne_%281697-1720%29.jpg")
 //    private var _as = ScrabbleWord(word: "As", partOfSpeech: "noun", definition: "Norse God", image: "https://s-media-cache-ak0.pinimg.com/736x/e5/b2/ec/e5b2ec9c6d28db57d0a6ef7efc38129f.jpg")
 //    private var _at = ScrabbleWord (word: "At", partOfSpeech: "preposition", definition: "denoting time", image: "http://www.freeimageslive.com/galleries/objects/watch/pics/pocketwatch0837.jpg")
@@ -67,7 +67,7 @@ class StoreWord {
     
     
     func getWord() -> [ScrabbleWord]{
-        return [_aa, _ab, _ad]
-        //, _ae, _ag, _ah, _ai, _al, _am, _an, _ar, _as, _at, _aw, _ax, _ay, _ba, _be, _bi, _bo, _by, _de, _do, _ed, _ef, _eh, _el, _em, _en, _er, _es, _et, _ex, _fa, _fe, _fy, _gi, _go, _gu, _ha, _he, _hi, _hm, _ho
+        return [_aa, _ab, _ad, _ae, _ag, _ah, _ai, _al, _am, _an]
+        //, _ar, _as, _at, _aw, _ax, _ay, _ba, _be, _bi, _bo, _by, _de, _do, _ed, _ef, _eh, _el, _em, _en, _er, _es, _et, _ex, _fa, _fe, _fy, _gi, _go, _gu, _ha, _he, _hi, _hm, _ho
     }
 }

@@ -27,6 +27,7 @@ class ImageGameVC: UIViewController {
     
     var savedWords = [ScrabbleWord]()
     var x: Int!
+    var y: Int!
     var chooseArray = [Int]()
     var randChooseArray = [Int]()
     var numberOfCorrectDrops: Int!
@@ -57,13 +58,22 @@ class ImageGameVC: UIViewController {
         savedWords.shuffleInPlace()
         numberOfWords = savedWords.count
         x = 0
+        y = 0
         chooseArray = [x, x+1, x+2, x+3]
         chooseWords()
         numberOfCorrectDrops = 0
     }
     
+    func 
+    
     func reset() {
-        if numberOfCorrectDrops == 3{
+        if numberOfCorrectDrops == 3 || numberOfCorrectDrops == 2 && fourthImg.hidden == true || numberOfCorrectDrops == 1 && fourthImg.hidden == true && thirdImg.hidden == true || numberOfCorrectDrops == 0 && fourthImg.hidden == true && thirdImg.hidden == true && secondImg.hidden == true{
+            
+            if y >= savedWords.count{
+                
+                return
+            }
+            
             
             CATransaction.begin()
 
@@ -109,6 +119,9 @@ class ImageGameVC: UIViewController {
     }
     
     func chooseWords(){
+        
+        
+        
         
         if chooseArray[0] == savedWords.count{
             print("great job")
@@ -296,7 +309,7 @@ class ImageGameVC: UIViewController {
         }
 
 
-
+        y = y+4
     }
     
     func random(x: Int) -> Int {
@@ -304,6 +317,9 @@ class ImageGameVC: UIViewController {
         return randNumber
     }
 
+    @IBAction func homeButton(sender: AnyObject){
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
 
 
 

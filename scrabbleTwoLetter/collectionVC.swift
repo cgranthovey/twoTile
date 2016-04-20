@@ -123,7 +123,8 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     var collectionViewCell: UICollectionViewCell!
-    @IBAction func popToRoot(sender: AnyObject){
-        dismissViewControllerAnimated(true, completion: nil)
+    
+    @IBAction func homeButton(sender: AnyObject){
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }

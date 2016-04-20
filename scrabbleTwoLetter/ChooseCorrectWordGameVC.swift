@@ -162,11 +162,21 @@ class ChooseCorrectWordGameVC: UIViewController {
     }
     
     @IBAction func gameScreen(sender: AnyObject){
-        dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
+    @IBAction func homeButton(sender: AnyObject){
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
     
-    
+    @IBAction func removeSomeWords(sender: AnyObject){
+        print("i'm here")
+        print(self.navigationController?.viewControllers)
+        
+        var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
+        self.navigationController?.popToViewController((jumpVC)!, animated: true)
+        jumpVC?.selectedIndex = 0
+    }
     
     
     

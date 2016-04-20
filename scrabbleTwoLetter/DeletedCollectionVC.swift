@@ -71,8 +71,8 @@ class DeletedCollectionVC: UIViewController, UICollectionViewDataSource, UIColle
         return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
     }
     
-    @IBAction func titleButton(sender: AnyObject){
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func homeButton(sender: AnyObject){
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
 }

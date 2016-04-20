@@ -16,8 +16,11 @@ class GameVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func homeBtn(){
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func homeButton(sender: AnyObject){
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
+    
+    
+
 
 }
