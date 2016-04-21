@@ -118,7 +118,7 @@ class ChooseCorrectWordGameVC: UIViewController {
     
     func correctAnswer(button: UIButton){
         button.backgroundColor = UIColor(red: 20.0/255.0, green: 255.0/255.0, blue: 34.0/255.0, alpha: 1.0)
-        var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "resetGame", userInfo: nil, repeats: false)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "resetGame", userInfo: nil, repeats: false)
     }
     
     
@@ -170,9 +170,6 @@ class ChooseCorrectWordGameVC: UIViewController {
     }
     
     @IBAction func removeSomeWords(sender: AnyObject){
-        print("i'm here")
-        print(self.navigationController?.viewControllers)
-        
         var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
         self.navigationController?.popToViewController((jumpVC)!, animated: true)
         jumpVC?.selectedIndex = 0

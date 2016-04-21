@@ -25,18 +25,17 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Italic</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
         </mutableArray>
         <mutableArray key="REFUSETR.TTF">
-            <string>RefuseTrip</string>
             <string>RefuseTrip</string>
             <string>RefuseTrip</string>
             <string>RefuseTrip</string>
@@ -638,13 +637,53 @@
                                     <constraint firstAttribute="width" constant="70" id="yBf-nK-2P8"/>
                                 </constraints>
                             </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cm0-m1-mFv">
+                                <rect key="frame" x="20" y="156" width="560" height="152"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Job!  You've reviewed all unknown words!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TJ-zc-iB6">
+                                        <rect key="frame" x="45" y="0.0" width="471" height="26"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ae0-eg-tNb">
+                                        <rect key="frame" x="240" y="36" width="81" height="32"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Play Again"/>
+                                        <connections>
+                                            <action selector="playAgain:" destination="NBM-Y1-vM3" eventType="touchUpInside" id="Ecp-GK-QG6"/>
+                                            <action selector="playAgain:" destination="L2d-Lx-up2" eventType="touchUpInside" id="YME-ED-6cg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQi-VR-8ZA">
+                                        <rect key="frame" x="237" y="78" width="86" height="32"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Games List"/>
+                                        <connections>
+                                            <action selector="gameScreen:" destination="NBM-Y1-vM3" eventType="touchUpInside" id="Ip9-fn-Ebp"/>
+                                            <action selector="gameScreen:" destination="L2d-Lx-up2" eventType="touchUpInside" id="ZZG-ba-CYf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLT-E0-myH">
+                                        <rect key="frame" x="200" y="120" width="161" height="32"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Remove some words"/>
+                                        <connections>
+                                            <action selector="removeSomeWords:" destination="L2d-Lx-up2" eventType="touchUpInside" id="Gli-Os-5JT"/>
+                                            <action selector="removeSomeWords:" destination="NBM-Y1-vM3" eventType="touchUpInside" id="Nk7-9V-uxy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YU8-xV-V7v" firstAttribute="leading" secondItem="j9j-2n-EVM" secondAttribute="trailing" constant="80" id="1IV-WE-Rc0"/>
                             <constraint firstItem="YU8-xV-V7v" firstAttribute="trailing" secondItem="osK-hP-Kfe" secondAttribute="trailingMargin" id="1fp-lz-2Wh"/>
                             <constraint firstItem="j9j-2n-EVM" firstAttribute="top" secondItem="Ncl-db-hcK" secondAttribute="bottom" constant="10" id="3hf-gS-WdJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cm0-m1-mFv" secondAttribute="trailing" id="DAR-D1-aA9"/>
                             <constraint firstItem="YU8-xV-V7v" firstAttribute="top" secondItem="Ncl-db-hcK" secondAttribute="bottom" constant="10" id="ICA-Mf-6Cb"/>
+                            <constraint firstItem="Cm0-m1-mFv" firstAttribute="top" secondItem="Ncl-db-hcK" secondAttribute="bottom" constant="66" id="Ley-aM-JQi"/>
                             <constraint firstItem="YU8-xV-V7v" firstAttribute="width" secondItem="osK-hP-Kfe" secondAttribute="width" multiplier="3/5" id="ODk-N1-oms"/>
                             <constraint firstItem="Ncl-db-hcK" firstAttribute="top" secondItem="osK-hP-Kfe" secondAttribute="top" id="Oe5-vT-qft"/>
                             <constraint firstItem="rpV-OQ-qZM" firstAttribute="top" secondItem="j9j-2n-EVM" secondAttribute="bottom" constant="10" id="PJq-IA-WL0"/>
@@ -652,6 +691,7 @@
                             <constraint firstItem="Ncl-db-hcK" firstAttribute="leading" secondItem="osK-hP-Kfe" secondAttribute="leading" id="Qms-rU-owY"/>
                             <constraint firstAttribute="trailing" secondItem="Ncl-db-hcK" secondAttribute="trailing" id="Rhv-k9-aSn"/>
                             <constraint firstItem="rpV-OQ-qZM" firstAttribute="top" secondItem="YU8-xV-V7v" secondAttribute="bottom" constant="10" id="cyK-Ka-bjR"/>
+                            <constraint firstItem="Cm0-m1-mFv" firstAttribute="leading" secondItem="osK-hP-Kfe" secondAttribute="leadingMargin" id="kwB-m3-2wF"/>
                             <constraint firstItem="j9j-2n-EVM" firstAttribute="leading" secondItem="osK-hP-Kfe" secondAttribute="leadingMargin" id="lxT-XO-fQ7"/>
                         </constraints>
                         <variation key="default">
@@ -666,118 +706,18 @@
                         <outlet property="firstWord" destination="Qca-hN-Nfg" id="7Dg-Sx-0FZ"/>
                         <outlet property="fourthImg" destination="kEX-Rn-YNA" id="ej1-Tq-kyg"/>
                         <outlet property="fourthWord" destination="KKX-b3-oha" id="mai-IX-qQH"/>
+                        <outlet property="gameEnd" destination="Cm0-m1-mFv" id="Skv-Tb-nZ8"/>
                         <outlet property="imageStack" destination="YU8-xV-V7v" id="FPt-ci-60b"/>
                         <outlet property="secondImg" destination="7t8-6l-XHA" id="NdR-bY-AYV"/>
                         <outlet property="secondWord" destination="PqE-OL-u97" id="ZLM-Os-BjL"/>
                         <outlet property="thirdImg" destination="0kV-8h-Jbp" id="Bou-YF-5PH"/>
                         <outlet property="thirdWord" destination="ebZ-Me-3ww" id="01x-Z9-I7i"/>
                         <outlet property="wordStack" destination="j9j-2n-EVM" id="G8Y-Q8-FLS"/>
-                        <segue destination="Xre-CT-aQW" kind="show" id="KSY-D7-LzP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lg8-gJ-Kd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2186" y="1192"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="FwM-eE-Hi8">
-            <objects>
-                <viewController id="Xre-CT-aQW" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QjW-4k-4yx"/>
-                        <viewControllerLayoutGuide type="bottom" id="LSb-6h-aep"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Dby-RK-847">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfh-e6-VoN">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TWO TILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Sa-G4-2zg">
-                                        <rect key="frame" x="170" y="23" width="261" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="gcU-Tw-33b"/>
-                                            <constraint firstAttribute="width" constant="261" id="ow2-e9-qGC"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="RefuseTrip" family="Refuse " pointSize="55"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwW-zj-j26">
-                                        <rect key="frame" x="170" y="23" width="261" height="60"/>
-                                        <connections>
-                                            <action selector="homeButton:" destination="L2d-Lx-up2" eventType="touchUpInside" id="U7p-gB-Jup"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.8862745098" green="0.23137254900000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="2Sa-G4-2zg" secondAttribute="bottom" constant="7" id="2X5-Gp-wyC"/>
-                                    <constraint firstItem="ZwW-zj-j26" firstAttribute="centerY" secondItem="xfh-e6-VoN" secondAttribute="centerY" id="5UT-Z3-Fqk"/>
-                                    <constraint firstItem="2Sa-G4-2zg" firstAttribute="centerX" secondItem="xfh-e6-VoN" secondAttribute="centerX" id="TIO-qk-FCo"/>
-                                    <constraint firstItem="2Sa-G4-2zg" firstAttribute="centerY" secondItem="xfh-e6-VoN" secondAttribute="centerY" id="YPF-u2-qud"/>
-                                    <constraint firstItem="ZwW-zj-j26" firstAttribute="centerX" secondItem="2Sa-G4-2zg" secondAttribute="centerX" id="YmX-5l-E58"/>
-                                    <constraint firstAttribute="height" constant="90" id="eJv-5X-wiP"/>
-                                    <constraint firstItem="ZwW-zj-j26" firstAttribute="centerX" secondItem="xfh-e6-VoN" secondAttribute="centerX" id="ett-Fz-BeJ"/>
-                                    <constraint firstItem="ZwW-zj-j26" firstAttribute="width" secondItem="2Sa-G4-2zg" secondAttribute="width" id="hJs-9U-6iQ"/>
-                                    <constraint firstItem="ZwW-zj-j26" firstAttribute="centerY" secondItem="2Sa-G4-2zg" secondAttribute="centerY" id="l6h-ng-vOj"/>
-                                    <constraint firstItem="ZwW-zj-j26" firstAttribute="height" secondItem="2Sa-G4-2zg" secondAttribute="height" id="m3E-AR-bFB"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="YPF-u2-qud"/>
-                                        <exclude reference="ett-Fz-BeJ"/>
-                                        <exclude reference="5UT-Z3-Fqk"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WVb-Ng-8X7">
-                                <rect key="frame" x="65" y="131" width="471" height="152"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Great Job!  You've reviewed all unknown words!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dM-iC-OWP">
-                                        <rect key="frame" x="0.0" y="0.0" width="471" height="26"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2C-Lg-qrL">
-                                        <rect key="frame" x="195" y="36" width="81" height="32"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Play Again"/>
-                                        <connections>
-                                            <action selector="playAgain:" destination="L2d-Lx-up2" eventType="touchUpInside" id="KoX-1h-yhT"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUg-Vc-J4d">
-                                        <rect key="frame" x="193" y="78" width="86" height="32"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Games List"/>
-                                        <connections>
-                                            <action selector="gameScreen:" destination="L2d-Lx-up2" eventType="touchUpInside" id="9l0-Nz-TNM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3A-o7-iBp">
-                                        <rect key="frame" x="155" y="120" width="161" height="32"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Remove some words"/>
-                                        <connections>
-                                            <action selector="removeSomeWords:" destination="L2d-Lx-up2" eventType="touchUpInside" id="NDi-eU-uyX"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="xfh-e6-VoN" firstAttribute="top" secondItem="Dby-RK-847" secondAttribute="top" id="2MN-Dd-Pvh"/>
-                            <constraint firstItem="xfh-e6-VoN" firstAttribute="leading" secondItem="Dby-RK-847" secondAttribute="leading" id="CDI-79-bPd"/>
-                            <constraint firstAttribute="trailing" secondItem="xfh-e6-VoN" secondAttribute="trailing" id="YTn-eD-gfs"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XoY-FO-dRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3023" y="1370"/>
         </scene>
         <!--Choose Correct Word GameVC-->
         <scene sceneID="hru-ND-uzz">
@@ -992,7 +932,6 @@
                         <outlet property="button4" destination="Ln7-E4-BsK" id="tPo-J4-0Dx"/>
                         <outlet property="gameEnd" destination="mG4-bN-jpj" id="XEi-QM-4Hs"/>
                         <outlet property="whichIsAWordLbl" destination="ZeH-pZ-f9w" id="DGq-ly-EUP"/>
-                        <segue destination="Xre-CT-aQW" kind="show" id="Zu2-Y2-YUO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLV-lQ-zOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1320,6 +1259,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MP0-Qr-5mL"/>
-        <segue reference="Zu2-Y2-YUO"/>
     </inferredMetricsTieBreakers>
 </document>

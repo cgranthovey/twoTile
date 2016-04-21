@@ -46,6 +46,7 @@ class ImageGameVC: UIViewController {
     @IBOutlet weak var wordStack: UIStackView!
     @IBOutlet weak var imageStack: UIStackView!
     
+    @IBOutlet weak var gameEnd: UIStackView!
     
     
     override func viewDidLoad() {
@@ -64,16 +65,23 @@ class ImageGameVC: UIViewController {
         numberOfCorrectDrops = 0
     }
     
-    func 
     
     func reset() {
         if numberOfCorrectDrops == 3 || numberOfCorrectDrops == 2 && fourthImg.hidden == true || numberOfCorrectDrops == 1 && fourthImg.hidden == true && thirdImg.hidden == true || numberOfCorrectDrops == 0 && fourthImg.hidden == true && thirdImg.hidden == true && secondImg.hidden == true{
             
             if y >= savedWords.count{
                 
-                return
+                y = 0
+                x = 0
+                gameEnd.hidden = false
+                imageStack.hidden = true
+                wordStack.hidden = true
+                savedWords.shuffleInPlace()
+                chooseWords()
+                
             }
             
+
             
             CATransaction.begin()
 
@@ -320,7 +328,30 @@ class ImageGameVC: UIViewController {
     @IBAction func homeButton(sender: AnyObject){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
+    
+    @IBAction func playAgain(sender: AnyObject){
+        x = 0
+        wordStack.hidden = false
+        imageStack.hidden = false
+        firstImg.hidden = false
+        secondImg.hidden = false
+        thirdImg.hidden = false
+        fourthImg.hidden = false
+        
+        gameEnd.hidden = true
 
+    }
+
+    @IBAction func gameScreen(sender: AnyObject){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func removeSomeWords(sender: AnyObject){
+        var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
+        self.navigationController?.popToViewController((jumpVC)!, animated: true)
+        jumpVC?.selectedIndex = 0
+    }
+    
 
 
 
