@@ -29,13 +29,18 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Italic</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
         </mutableArray>
         <mutableArray key="REFUSETR.TTF">
+            <string>RefuseTrip</string>
             <string>RefuseTrip</string>
             <string>RefuseTrip</string>
             <string>RefuseTrip</string>
@@ -186,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030" y="-133"/>
+            <point key="canvasLocation" x="230" y="-153"/>
         </scene>
         <!--Item-->
         <scene sceneID="fis-x2-hGJ">
@@ -324,7 +329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9N5-Fl-4od" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2015" y="184"/>
+            <point key="canvasLocation" x="1172" y="272"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="TE1-l4-4Iq">
@@ -435,6 +440,9 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MH2-sN-zgy">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="153"/>
+                                                <connections>
+                                                    <segue destination="jvb-t0-atb" kind="show" id="yGb-uy-B0k"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Definitions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsg-fD-Opw">
                                                 <rect key="frame" x="8" y="62" width="174" height="29"/>
@@ -534,7 +542,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xue-O8-Jql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180" y="1634"/>
+            <point key="canvasLocation" x="1172" y="1654"/>
         </scene>
         <!--Image GameVC-->
         <scene sceneID="rNy-gD-QRa">
@@ -643,7 +651,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Job!  You've reviewed all unknown words!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TJ-zc-iB6">
                                         <rect key="frame" x="45" y="0.0" width="471" height="26"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ae0-eg-tNb">
@@ -718,6 +726,188 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lg8-gJ-Kd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2186" y="1192"/>
+        </scene>
+        <!--Def GameVC-->
+        <scene sceneID="Imp-DB-aSs">
+            <objects>
+                <viewController id="jvb-t0-atb" customClass="DefGameVC" customModule="scrabbleTwoLetter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iTg-N4-Vnn"/>
+                        <viewControllerLayoutGuide type="bottom" id="7ba-Nd-eEd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bo6-0n-hqH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKj-HZ-BN8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TWO TILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeU-SU-YwR">
+                                        <rect key="frame" x="170" y="23" width="261" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="261" id="IPG-Fr-6Eh"/>
+                                            <constraint firstAttribute="height" constant="60" id="aZv-Rd-yiz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="RefuseTrip" family="Refuse " pointSize="55"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moZ-oY-vkr">
+                                        <rect key="frame" x="170" y="23" width="261" height="60"/>
+                                        <connections>
+                                            <action selector="homeButton:" destination="NBM-Y1-vM3" eventType="touchUpInside" id="wco-Zh-I1B"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.8862745098" green="0.23137254900000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="xeU-SU-YwR" firstAttribute="centerY" secondItem="hKj-HZ-BN8" secondAttribute="centerY" id="3u9-4Z-sgL"/>
+                                    <constraint firstItem="moZ-oY-vkr" firstAttribute="height" secondItem="xeU-SU-YwR" secondAttribute="height" id="JfZ-Gp-R8e"/>
+                                    <constraint firstItem="moZ-oY-vkr" firstAttribute="centerY" secondItem="xeU-SU-YwR" secondAttribute="centerY" id="Lo7-3C-An6"/>
+                                    <constraint firstAttribute="bottom" secondItem="xeU-SU-YwR" secondAttribute="bottom" constant="7" id="NYq-oS-eHg"/>
+                                    <constraint firstItem="moZ-oY-vkr" firstAttribute="centerY" secondItem="hKj-HZ-BN8" secondAttribute="centerY" id="Vuj-JM-8ow"/>
+                                    <constraint firstItem="moZ-oY-vkr" firstAttribute="centerX" secondItem="hKj-HZ-BN8" secondAttribute="centerX" id="cd4-P6-Zjz"/>
+                                    <constraint firstItem="xeU-SU-YwR" firstAttribute="centerX" secondItem="hKj-HZ-BN8" secondAttribute="centerX" id="eLl-Ht-qOg"/>
+                                    <constraint firstAttribute="height" constant="90" id="moN-Os-eej"/>
+                                    <constraint firstItem="moZ-oY-vkr" firstAttribute="centerX" secondItem="xeU-SU-YwR" secondAttribute="centerX" id="pUF-OA-JZk"/>
+                                    <constraint firstItem="moZ-oY-vkr" firstAttribute="width" secondItem="xeU-SU-YwR" secondAttribute="width" id="yJE-Jc-iIj"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Vuj-JM-8ow"/>
+                                        <exclude reference="cd4-P6-Zjz"/>
+                                        <exclude reference="3u9-4Z-sgL"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0e-X5-c3z">
+                                <rect key="frame" x="250" y="98" width="100" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="94" id="YK0-9m-S9Y"/>
+                                    <constraint firstAttribute="width" constant="100" id="co2-EW-Zzo"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="jXQ-Za-c7E"/>
+                                    <constraint firstAttribute="height" constant="33" id="zaP-2c-Pxh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="YK0-9m-S9Y"/>
+                                        <exclude reference="jXQ-Za-c7E"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="18I-S9-5th" customClass="MultipleChoiceButton" customModule="scrabbleTwoLetter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="156" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.34901960780000002" green="0.52156862749999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="r2i-fh-qSF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="indefinite article placed before words making a vowel sound">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="button1Action:" destination="jvb-t0-atb" eventType="touchUpInside" id="i4b-Rp-pyw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="l5f-1r-cjh" customClass="MultipleChoiceButton" customModule="scrabbleTwoLetter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="216" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.34901960780000002" green="0.52156862749999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Y0o-cJ-JLO"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="tNc-IG-x1M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Mm">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="tNc-IG-x1M"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="button2Action:" destination="jvb-t0-atb" eventType="touchUpInside" id="ezA-Ox-iM9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hvp-9e-wl7" customClass="MultipleChoiceButton" customModule="scrabbleTwoLetter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="276" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.34901960780000002" green="0.52156862749999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="A40-JE-8OI"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="s63-MI-QMa"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="sUq-BB-HO7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Mm">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="s63-MI-QMa"/>
+                                        <exclude reference="sUq-BB-HO7"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="button3Action:" destination="jvb-t0-atb" eventType="touchUpInside" id="Mfe-La-bdm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DAE-2s-CCF" customClass="MultipleChoiceButton" customModule="scrabbleTwoLetter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="336" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.34901960780000002" green="0.52156862749999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="Upb-ji-sCM"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="YHh-sF-aTZ"/>
+                                    <constraint firstAttribute="height" constant="50" id="Ygm-j2-Hrc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="Mm">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Upb-ji-sCM"/>
+                                        <exclude reference="YHh-sF-aTZ"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="button4Action:" destination="jvb-t0-atb" eventType="touchUpInside" id="Fsc-WA-gtp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hvp-9e-wl7" firstAttribute="top" secondItem="l5f-1r-cjh" secondAttribute="bottom" constant="10" id="6GA-5X-IkG"/>
+                            <constraint firstItem="e0e-X5-c3z" firstAttribute="centerX" secondItem="bo6-0n-hqH" secondAttribute="centerX" id="EZm-KU-rBR"/>
+                            <constraint firstAttribute="trailing" secondItem="hKj-HZ-BN8" secondAttribute="trailing" id="I4D-Qc-2jN"/>
+                            <constraint firstItem="18I-S9-5th" firstAttribute="top" secondItem="e0e-X5-c3z" secondAttribute="bottom" constant="25" id="I5e-Wb-AeL"/>
+                            <constraint firstAttribute="trailing" secondItem="18I-S9-5th" secondAttribute="trailing" id="Msr-pr-sch"/>
+                            <constraint firstItem="l5f-1r-cjh" firstAttribute="top" secondItem="18I-S9-5th" secondAttribute="bottom" constant="10" id="MyW-Ka-IDd"/>
+                            <constraint firstAttribute="trailing" secondItem="DAE-2s-CCF" secondAttribute="trailing" id="PRB-gL-znh"/>
+                            <constraint firstItem="l5f-1r-cjh" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leading" id="Q26-6y-KM2"/>
+                            <constraint firstItem="hvp-9e-wl7" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leading" id="TD5-ml-PPD"/>
+                            <constraint firstAttribute="trailing" secondItem="l5f-1r-cjh" secondAttribute="trailing" id="TEW-fs-yW7"/>
+                            <constraint firstItem="hKj-HZ-BN8" firstAttribute="top" secondItem="bo6-0n-hqH" secondAttribute="top" id="TEd-A3-8z4"/>
+                            <constraint firstItem="18I-S9-5th" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leading" id="aQw-ec-dPW"/>
+                            <constraint firstItem="DAE-2s-CCF" firstAttribute="top" secondItem="hvp-9e-wl7" secondAttribute="bottom" constant="10" id="bSb-Uf-NsQ"/>
+                            <constraint firstItem="e0e-X5-c3z" firstAttribute="top" secondItem="hKj-HZ-BN8" secondAttribute="bottom" constant="8" id="heO-bG-vQG"/>
+                            <constraint firstItem="DAE-2s-CCF" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leading" id="hnU-qm-37M"/>
+                            <constraint firstAttribute="trailing" secondItem="hvp-9e-wl7" secondAttribute="trailing" id="weu-WD-a0d"/>
+                            <constraint firstItem="hKj-HZ-BN8" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leading" id="z25-Fm-1XI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button1" destination="18I-S9-5th" id="eG9-zR-CE1"/>
+                        <outlet property="button2" destination="l5f-1r-cjh" id="65O-46-Rpd"/>
+                        <outlet property="button3" destination="hvp-9e-wl7" id="K45-rE-Jb4"/>
+                        <outlet property="button4" destination="DAE-2s-CCF" id="15G-PL-alV"/>
+                        <outlet property="tileWord" destination="e0e-X5-c3z" id="KAk-kr-Lbi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q4F-is-irI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2176" y="1874"/>
         </scene>
         <!--Choose Correct Word GameVC-->
         <scene sceneID="hru-ND-uzz">
@@ -865,7 +1055,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Job!  You've reviewed all unknown words!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oY7-2Z-C1K">
                                         <rect key="frame" x="45" y="0.0" width="471" height="26"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOJ-cq-C36">
@@ -936,7 +1126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLV-lQ-zOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2238" y="1866"/>
+            <point key="canvasLocation" x="2186" y="2582"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="0bM-ds-ia1">
@@ -1061,7 +1251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4R-sk-U4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180" y="885"/>
+            <point key="canvasLocation" x="1172" y="945"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="q6U-5z-MMi">
@@ -1228,7 +1418,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJ9-e8-A4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2794" y="-577"/>
+            <point key="canvasLocation" x="1964" y="-153"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wwn-2p-LJU">
@@ -1246,7 +1436,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2f2-Dq-k7k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="218" y="-133"/>
+            <point key="canvasLocation" x="-446" y="-153"/>
         </scene>
     </scenes>
     <resources>
@@ -1258,6 +1448,6 @@
         <image name="worldFromSpace" width="949" height="534"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MP0-Qr-5mL"/>
+        <segue reference="ckf-ee-xI3"/>
     </inferredMetricsTieBreakers>
 </document>

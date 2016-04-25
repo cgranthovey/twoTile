@@ -19,6 +19,7 @@
 		A111B9D01CBC4A7400A9104F /* REFUSETR.TTF in Resources */ = {isa = PBXBuildFile; fileRef = A111B9CF1CBC4A7400A9104F /* REFUSETR.TTF */; };
 		A111B9D41CBC524900A9104F /* WordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111B9D31CBC524900A9104F /* WordDetail.swift */; };
 		A111B9D61CBC54D400A9104F /* imgLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111B9D51CBC54D400A9104F /* imgLoader.swift */; };
+		A1834A781CC97EE1000CE61D /* DefGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1834A771CC97EE1000CE61D /* DefGameVC.swift */; };
 		A1D70B441CBEBBCF00EDD7FB /* roundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */; };
 		A1D883F51CC14219007F3F06 /* DeletedCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */; };
 		A1D883F81CC168CA007F3F06 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D883F71CC168CA007F3F06 /* DataService.swift */; };
@@ -31,6 +32,7 @@
 		A1DC84861CC2FCFA006C630D /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84851CC2FCFA006C630D /* GameVC.swift */; };
 		A1DC84881CC542A7006C630D /* GameBtnImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84871CC542A7006C630D /* GameBtnImg.swift */; };
 		A1DC848A1CC55C05006C630D /* ImageGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84891CC55C05006C630D /* ImageGameVC.swift */; };
+		A1DF50521CCEAE0400108843 /* MultipleChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF50511CCEAE0400108843 /* MultipleChoiceButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,7 @@
 		A111B9CF1CBC4A7400A9104F /* REFUSETR.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = REFUSETR.TTF; sourceTree = "<group>"; };
 		A111B9D31CBC524900A9104F /* WordDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetail.swift; sourceTree = "<group>"; };
 		A111B9D51CBC54D400A9104F /* imgLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imgLoader.swift; sourceTree = "<group>"; };
+		A1834A771CC97EE1000CE61D /* DefGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefGameVC.swift; sourceTree = "<group>"; };
 		A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roundedCornersView.swift; sourceTree = "<group>"; };
 		A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletedCollectionVC.swift; sourceTree = "<group>"; };
 		A1D883F71CC168CA007F3F06 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		A1DC84851CC2FCFA006C630D /* GameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		A1DC84871CC542A7006C630D /* GameBtnImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBtnImg.swift; sourceTree = "<group>"; };
 		A1DC84891CC55C05006C630D /* ImageGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGameVC.swift; sourceTree = "<group>"; };
+		A1DF50511CCEAE0400108843 /* MultipleChoiceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleChoiceButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,7 @@
 				A1DC84871CC542A7006C630D /* GameBtnImg.swift */,
 				A1DBA5191CC58A8F004659B2 /* matchImg.swift */,
 				A1DBA51B1CC58FAE004659B2 /* DragLabel.swift */,
+				A1DF50511CCEAE0400108843 /* MultipleChoiceButton.swift */,
 			);
 			name = View;
 			path = ..;
@@ -143,6 +148,7 @@
 				A1DC84851CC2FCFA006C630D /* GameVC.swift */,
 				A1DC84891CC55C05006C630D /* ImageGameVC.swift */,
 				A1DBA51D1CC6C8D9004659B2 /* ChooseCorrectWordGameVC.swift */,
+				A1834A771CC97EE1000CE61D /* DefGameVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -234,6 +240,8 @@
 				A1DBA51C1CC58FAE004659B2 /* DragLabel.swift in Sources */,
 				A111B9B41CBC209500A9104F /* ViewController.swift in Sources */,
 				A1DC848A1CC55C05006C630D /* ImageGameVC.swift in Sources */,
+				A1DF50521CCEAE0400108843 /* MultipleChoiceButton.swift in Sources */,
+				A1834A781CC97EE1000CE61D /* DefGameVC.swift in Sources */,
 				A111B9B21CBC209500A9104F /* AppDelegate.swift in Sources */,
 				A1DBA51A1CC58A8F004659B2 /* matchImg.swift in Sources */,
 				A111B9BA1CBC209500A9104F /* scrabbleTwoLetter.xcdatamodeld in Sources */,
