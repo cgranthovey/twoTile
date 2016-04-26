@@ -73,6 +73,7 @@ class ImageGameVC: UIViewController {
                 
                 y = 0
                 x = 0
+                chooseArray = [x, x+1, x+2, x+3]
                 gameEnd.hidden = false
                 imageStack.hidden = true
                 wordStack.hidden = true
@@ -248,9 +249,13 @@ class ImageGameVC: UIViewController {
                     }
         } else {
             firstWord.text = savedWords[chooseArray[0]].word
+            print(firstWord.text)
             secondWord.text = savedWords[chooseArray[1]].word
+            print(secondWord.text)
             thirdWord.text = savedWords[chooseArray[2]].word
+            print(thirdWord.text)
             fourthWord.text = savedWords[chooseArray[3]].word
+            print(fourthWord.text)
             randChooseArray = chooseArray
             randChooseArray.shuffleInPlace()
             
@@ -337,6 +342,12 @@ class ImageGameVC: UIViewController {
         secondImg.hidden = false
         thirdImg.hidden = false
         fourthImg.hidden = false
+        
+        firstWord.hidden = false
+        secondWord.hidden = false
+        thirdWord.hidden = false
+        fourthWord.hidden = false
+        
         
         gameEnd.hidden = true
 

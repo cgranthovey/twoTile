@@ -32,7 +32,6 @@
 		A1DC84861CC2FCFA006C630D /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84851CC2FCFA006C630D /* GameVC.swift */; };
 		A1DC84881CC542A7006C630D /* GameBtnImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84871CC542A7006C630D /* GameBtnImg.swift */; };
 		A1DC848A1CC55C05006C630D /* ImageGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84891CC55C05006C630D /* ImageGameVC.swift */; };
-		A1DF50521CCEAE0400108843 /* MultipleChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF50511CCEAE0400108843 /* MultipleChoiceButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +62,6 @@
 		A1DC84851CC2FCFA006C630D /* GameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		A1DC84871CC542A7006C630D /* GameBtnImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBtnImg.swift; sourceTree = "<group>"; };
 		A1DC84891CC55C05006C630D /* ImageGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGameVC.swift; sourceTree = "<group>"; };
-		A1DF50511CCEAE0400108843 /* MultipleChoiceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleChoiceButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +130,6 @@
 				A1DC84871CC542A7006C630D /* GameBtnImg.swift */,
 				A1DBA5191CC58A8F004659B2 /* matchImg.swift */,
 				A1DBA51B1CC58FAE004659B2 /* DragLabel.swift */,
-				A1DF50511CCEAE0400108843 /* MultipleChoiceButton.swift */,
 			);
 			name = View;
 			path = ..;
@@ -240,7 +237,6 @@
 				A1DBA51C1CC58FAE004659B2 /* DragLabel.swift in Sources */,
 				A111B9B41CBC209500A9104F /* ViewController.swift in Sources */,
 				A1DC848A1CC55C05006C630D /* ImageGameVC.swift in Sources */,
-				A1DF50521CCEAE0400108843 /* MultipleChoiceButton.swift in Sources */,
 				A1834A781CC97EE1000CE61D /* DefGameVC.swift in Sources */,
 				A111B9B21CBC209500A9104F /* AppDelegate.swift in Sources */,
 				A1DBA51A1CC58A8F004659B2 /* matchImg.swift in Sources */,

@@ -17,24 +17,48 @@ class DefGameVC: UIViewController {
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
     
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var label4: UILabel!
+    
+    @IBOutlet weak var gameEnd: UIStackView!
+    
     var memorizingWords = [ScrabbleWord]()
     var x: Int!
-    var buttonArray = [UIButton]()
+    var buttonArray = [UILabel]()
+    var memorizingWordsCount: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         memorizingWords = DataService.instance.savedWords
         memorizingWords.shuffleInPlace()
         x = 0
+        memorizingWordsCount = memorizingWords.count
+
         resetGame()
         
 
     }
-
-    
-    
     
     func resetGame(){
+        
+        if x == memorizingWordsCount{
+            x = 0
+            
+            memorizingWords.shuffleInPlace()
+            button1.hidden = true
+            button2.hidden = true
+            button3.hidden = true
+            button4.hidden = true
+            label1.hidden = true
+            label2.hidden = true
+            label3.hidden = true
+            label4.hidden = true
+            
+            gameEnd.hidden = false
+            
+        }
         
         
         var currentWord = memorizingWords[x]
@@ -44,43 +68,42 @@ class DefGameVC: UIViewController {
         resetButtonColors()
         x = x + 1
         
-        buttonArray = [button1, button2, button3, button4]
+        buttonArray = [label1, label2, label3, label4]
         buttonArray.shuffleInPlace()
         
         tileWord.text = currentWord.word
-        buttonArray[0].setTitle(currentWord.definition, forState: .Normal)
-        buttonArray[1].setTitle(otherChoices[0].definition, forState: .Normal)
-        buttonArray[2].setTitle(otherChoices[1].definition, forState: .Normal)
-        buttonArray[3].setTitle(otherChoices[2].definition, forState: .Normal)
+        buttonArray[0].text = currentWord.definition
+        buttonArray[1].text = otherChoices[0].definition
+        buttonArray[2].text = otherChoices[1].definition
+        buttonArray[3].text = otherChoices[2].definition
     }
     
-    
-    @IBAction func button1Action(sender: MultipleChoiceButton!){
-        if button1 == buttonArray[0]{
+    @IBAction func button1Action(sender: UIButton!){
+        if label1 == buttonArray[0]{
             correctAnswer(sender)
         } else{
             wrongAnswer(sender)
         }
     }
     
-    @IBAction func button2Action(sender: MultipleChoiceButton!){
-        if button2 == buttonArray[0]{
+    @IBAction func button2Action(sender: UIButton!){
+        if label2 == buttonArray[0]{
             correctAnswer(sender)
         } else {
             wrongAnswer(sender)
         }
     }
     
-    @IBAction func button3Action(sender: MultipleChoiceButton!){
-        if button3 == buttonArray[0]{
+    @IBAction func button3Action(sender: UIButton!){
+        if label3 == buttonArray[0]{
             correctAnswer(sender)
         } else {
             wrongAnswer(sender)
         }
     }
     
-    @IBAction func button4Action(sender: MultipleChoiceButton!){
-        if button4 == buttonArray[0]{
+    @IBAction func button4Action(sender: UIButton!){
+        if label4 == buttonArray[0]{
             correctAnswer(sender)
         } else {
             wrongAnswer(sender)
@@ -104,6 +127,32 @@ class DefGameVC: UIViewController {
         button.backgroundColor = UIColor.redColor()
     }
     
+    @IBAction func homeButton(sender: AnyObject){
+        self.navigationController?.popToRootViewControllerAnimated(false)
+    }
+    
+    @IBAction func playAgain(sender: AnyObject){
+        button1.hidden = false
+        button2.hidden = false
+        button3.hidden = false
+        button4.hidden = false
+        label1.hidden = false
+        label2.hidden = false
+        label3.hidden = false
+        label4.hidden = false
+        
+        gameEnd.hidden = true
+    }
+    
+    @IBAction func gameScreen(sender: AnyObject){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func removeSomeWords(sender: AnyObject){
+        var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
+        self.navigationController?.popToViewController(jumpVC!, animated: true)
+        jumpVC?.selectedIndex = 0
+    }
     
     
 

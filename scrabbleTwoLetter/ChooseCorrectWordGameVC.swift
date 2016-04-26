@@ -48,7 +48,6 @@ class ChooseCorrectWordGameVC: UIViewController {
             button4.hidden = true
             whichIsAWordLbl.hidden = true
             gameEnd.hidden = false
-            resetButtonColors()
             return
         }
    

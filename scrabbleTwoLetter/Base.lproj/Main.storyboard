@@ -38,6 +38,14 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue-Italic</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
         </mutableArray>
         <mutableArray key="REFUSETR.TTF">
             <string>RefuseTrip</string>
@@ -754,6 +762,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moZ-oY-vkr">
                                         <rect key="frame" x="170" y="23" width="261" height="60"/>
                                         <connections>
+                                            <action selector="homeButton:" destination="jvb-t0-atb" eventType="touchUpInside" id="b7m-HA-e6m"/>
                                             <action selector="homeButton:" destination="NBM-Y1-vM3" eventType="touchUpInside" id="wco-Zh-I1B"/>
                                         </connections>
                                     </button>
@@ -797,21 +806,27 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="18I-S9-5th" customClass="MultipleChoiceButton" customModule="scrabbleTwoLetter" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="18I-S9-5th">
                                 <rect key="frame" x="0.0" y="156" width="600" height="50"/>
                                 <color key="backgroundColor" red="0.34901960780000002" green="0.52156862749999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="r2i-fh-qSF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="indefinite article placed before words making a vowel sound">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="button1Action:" destination="jvb-t0-atb" eventType="touchUpInside" id="i4b-Rp-pyw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="l5f-1r-cjh" customClass="MultipleChoiceButton" customModule="scrabbleTwoLetter" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="indefinite article placed before words making a vowel sound" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="9sc-Bd-EIz">
+                                <rect key="frame" x="30" y="156" width="540" height="50"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="l5f-1r-cjh">
                                 <rect key="frame" x="0.0" y="216" width="600" height="50"/>
                                 <color key="backgroundColor" red="0.34901960780000002" green="0.52156862749999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -819,7 +834,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="tNc-IG-x1M"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="Mm">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -831,7 +846,13 @@
                                     <action selector="button2Action:" destination="jvb-t0-atb" eventType="touchUpInside" id="ezA-Ox-iM9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hvp-9e-wl7" customClass="MultipleChoiceButton" customModule="scrabbleTwoLetter" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="indefinite article placed before words making a vowel sound" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="qMG-LB-RwL">
+                                <rect key="frame" x="30" y="216" width="540" height="50"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hvp-9e-wl7">
                                 <rect key="frame" x="0.0" y="276" width="600" height="50"/>
                                 <color key="backgroundColor" red="0.34901960780000002" green="0.52156862749999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -840,7 +861,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="sUq-BB-HO7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="Mm">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -853,7 +874,13 @@
                                     <action selector="button3Action:" destination="jvb-t0-atb" eventType="touchUpInside" id="Mfe-La-bdm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DAE-2s-CCF" customClass="MultipleChoiceButton" customModule="scrabbleTwoLetter" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="indefinite article placed before words making a vowel sound" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="N3P-kS-UPp">
+                                <rect key="frame" x="30" y="276" width="540" height="50"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DAE-2s-CCF">
                                 <rect key="frame" x="0.0" y="336" width="600" height="50"/>
                                 <color key="backgroundColor" red="0.34901960780000002" green="0.52156862749999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -862,7 +889,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Ygm-j2-Hrc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="Mm">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -875,24 +902,91 @@
                                     <action selector="button4Action:" destination="jvb-t0-atb" eventType="touchUpInside" id="Fsc-WA-gtp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="indefinite article placed before words making a vowel sound" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="sAk-2O-35a">
+                                <rect key="frame" x="30" y="336" width="540" height="50"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WAm-Vc-UIE">
+                                <rect key="frame" x="40" y="156" width="520" height="152"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great Job!  You've reviewed all unknown words!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6j-RW-URx">
+                                        <rect key="frame" x="25" y="0.0" width="471" height="26"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1O-fj-bRp">
+                                        <rect key="frame" x="220" y="36" width="81" height="32"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Play Again"/>
+                                        <connections>
+                                            <action selector="playAgain:" destination="L2d-Lx-up2" eventType="touchUpInside" id="Hvv-tX-dIo"/>
+                                            <action selector="playAgain:" destination="jvb-t0-atb" eventType="touchUpInside" id="XNY-zK-Zm5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ery-xT-pnm">
+                                        <rect key="frame" x="217" y="78" width="86" height="32"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Games List"/>
+                                        <connections>
+                                            <action selector="gameScreen:" destination="jvb-t0-atb" eventType="touchUpInside" id="PoM-Zt-aZX"/>
+                                            <action selector="gameScreen:" destination="L2d-Lx-up2" eventType="touchUpInside" id="cG6-AZ-ILo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E41-lh-WJa">
+                                        <rect key="frame" x="180" y="120" width="161" height="32"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Remove some words"/>
+                                        <connections>
+                                            <action selector="removeSomeWords:" destination="jvb-t0-atb" eventType="touchUpInside" id="mEA-oQ-TDd"/>
+                                            <action selector="removeSomeWords:" destination="L2d-Lx-up2" eventType="touchUpInside" id="oIB-2N-zbU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WAm-Vc-UIE" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leadingMargin" constant="20" id="2Ov-ya-hnz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sAk-2O-35a" secondAttribute="trailing" constant="10" id="4kd-ce-YdK"/>
                             <constraint firstItem="hvp-9e-wl7" firstAttribute="top" secondItem="l5f-1r-cjh" secondAttribute="bottom" constant="10" id="6GA-5X-IkG"/>
+                            <constraint firstItem="sAk-2O-35a" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leadingMargin" constant="10" id="AWY-IM-4qv"/>
                             <constraint firstItem="e0e-X5-c3z" firstAttribute="centerX" secondItem="bo6-0n-hqH" secondAttribute="centerX" id="EZm-KU-rBR"/>
+                            <constraint firstItem="9sc-Bd-EIz" firstAttribute="centerX" secondItem="18I-S9-5th" secondAttribute="centerX" id="GK2-NI-246"/>
+                            <constraint firstItem="N3P-kS-UPp" firstAttribute="centerY" secondItem="hvp-9e-wl7" secondAttribute="centerY" id="Gyq-8S-9dF"/>
                             <constraint firstAttribute="trailing" secondItem="hKj-HZ-BN8" secondAttribute="trailing" id="I4D-Qc-2jN"/>
                             <constraint firstItem="18I-S9-5th" firstAttribute="top" secondItem="e0e-X5-c3z" secondAttribute="bottom" constant="25" id="I5e-Wb-AeL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9sc-Bd-EIz" secondAttribute="trailing" constant="10" id="KyT-M9-6rd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WAm-Vc-UIE" secondAttribute="trailing" constant="20" id="Mbx-O9-IY9"/>
                             <constraint firstAttribute="trailing" secondItem="18I-S9-5th" secondAttribute="trailing" id="Msr-pr-sch"/>
                             <constraint firstItem="l5f-1r-cjh" firstAttribute="top" secondItem="18I-S9-5th" secondAttribute="bottom" constant="10" id="MyW-Ka-IDd"/>
+                            <constraint firstItem="sAk-2O-35a" firstAttribute="height" secondItem="DAE-2s-CCF" secondAttribute="height" id="NeL-4F-zbB"/>
+                            <constraint firstItem="sAk-2O-35a" firstAttribute="centerY" secondItem="DAE-2s-CCF" secondAttribute="centerY" id="OHL-bo-wy0"/>
                             <constraint firstAttribute="trailing" secondItem="DAE-2s-CCF" secondAttribute="trailing" id="PRB-gL-znh"/>
+                            <constraint firstItem="N3P-kS-UPp" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leadingMargin" constant="10" id="PXW-xs-DiK"/>
                             <constraint firstItem="l5f-1r-cjh" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leading" id="Q26-6y-KM2"/>
+                            <constraint firstItem="qMG-LB-RwL" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leadingMargin" constant="10" id="QUf-ja-xpL"/>
+                            <constraint firstItem="qMG-LB-RwL" firstAttribute="centerX" secondItem="l5f-1r-cjh" secondAttribute="centerX" id="QsE-bd-UXe"/>
                             <constraint firstItem="hvp-9e-wl7" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leading" id="TD5-ml-PPD"/>
                             <constraint firstAttribute="trailing" secondItem="l5f-1r-cjh" secondAttribute="trailing" id="TEW-fs-yW7"/>
                             <constraint firstItem="hKj-HZ-BN8" firstAttribute="top" secondItem="bo6-0n-hqH" secondAttribute="top" id="TEd-A3-8z4"/>
+                            <constraint firstItem="N3P-kS-UPp" firstAttribute="height" secondItem="hvp-9e-wl7" secondAttribute="height" id="V7b-oD-sGD"/>
+                            <constraint firstItem="9sc-Bd-EIz" firstAttribute="centerY" secondItem="18I-S9-5th" secondAttribute="centerY" id="VXp-oG-oKL"/>
                             <constraint firstItem="18I-S9-5th" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leading" id="aQw-ec-dPW"/>
                             <constraint firstItem="DAE-2s-CCF" firstAttribute="top" secondItem="hvp-9e-wl7" secondAttribute="bottom" constant="10" id="bSb-Uf-NsQ"/>
+                            <constraint firstItem="sAk-2O-35a" firstAttribute="centerX" secondItem="DAE-2s-CCF" secondAttribute="centerX" id="cUr-wr-vCZ"/>
+                            <constraint firstItem="9sc-Bd-EIz" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leadingMargin" constant="10" id="e0e-jt-Trh"/>
+                            <constraint firstItem="N3P-kS-UPp" firstAttribute="centerX" secondItem="hvp-9e-wl7" secondAttribute="centerX" id="eEw-N1-HTR"/>
+                            <constraint firstItem="qMG-LB-RwL" firstAttribute="height" secondItem="l5f-1r-cjh" secondAttribute="height" id="fY3-zj-a6r"/>
+                            <constraint firstItem="9sc-Bd-EIz" firstAttribute="height" secondItem="18I-S9-5th" secondAttribute="height" id="g9m-Xq-2CC"/>
                             <constraint firstItem="e0e-X5-c3z" firstAttribute="top" secondItem="hKj-HZ-BN8" secondAttribute="bottom" constant="8" id="heO-bG-vQG"/>
                             <constraint firstItem="DAE-2s-CCF" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leading" id="hnU-qm-37M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="N3P-kS-UPp" secondAttribute="trailing" constant="10" id="jwL-kB-DZ1"/>
+                            <constraint firstItem="qMG-LB-RwL" firstAttribute="centerY" secondItem="l5f-1r-cjh" secondAttribute="centerY" id="mqe-rI-Efr"/>
+                            <constraint firstItem="WAm-Vc-UIE" firstAttribute="top" secondItem="hKj-HZ-BN8" secondAttribute="bottom" constant="66" id="vdk-Hz-JQD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qMG-LB-RwL" secondAttribute="trailing" constant="10" id="wGL-T0-FPh"/>
                             <constraint firstAttribute="trailing" secondItem="hvp-9e-wl7" secondAttribute="trailing" id="weu-WD-a0d"/>
                             <constraint firstItem="hKj-HZ-BN8" firstAttribute="leading" secondItem="bo6-0n-hqH" secondAttribute="leading" id="z25-Fm-1XI"/>
                         </constraints>
@@ -902,6 +996,11 @@
                         <outlet property="button2" destination="l5f-1r-cjh" id="65O-46-Rpd"/>
                         <outlet property="button3" destination="hvp-9e-wl7" id="K45-rE-Jb4"/>
                         <outlet property="button4" destination="DAE-2s-CCF" id="15G-PL-alV"/>
+                        <outlet property="gameEnd" destination="WAm-Vc-UIE" id="6Bz-at-tDC"/>
+                        <outlet property="label1" destination="9sc-Bd-EIz" id="4em-Qt-XAM"/>
+                        <outlet property="label2" destination="qMG-LB-RwL" id="H4j-XT-HlR"/>
+                        <outlet property="label3" destination="N3P-kS-UPp" id="JQN-yj-QPA"/>
+                        <outlet property="label4" destination="sAk-2O-35a" id="feL-k6-xkd"/>
                         <outlet property="tileWord" destination="e0e-X5-c3z" id="KAk-kr-Lbi"/>
                     </connections>
                 </viewController>
