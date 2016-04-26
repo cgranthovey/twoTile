@@ -37,15 +37,15 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Italic</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
         </mutableArray>
         <mutableArray key="REFUSETR.TTF">
             <string>RefuseTrip</string>
@@ -201,7 +201,7 @@
             </objects>
             <point key="canvasLocation" x="230" y="-153"/>
         </scene>
-        <!--Item-->
+        <!--Learning Words-->
         <scene sceneID="fis-x2-hGJ">
             <objects>
                 <viewController id="Oig-Qd-gam" customClass="collectionVC" customModule="scrabbleTwoLetter" customModuleProvider="target" sceneMemberID="viewController">
@@ -329,7 +329,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="DGo-Ld-H8b"/>
+                    <tabBarItem key="tabBarItem" title="Learning Words" image="Star Filled-50" id="DGo-Ld-H8b"/>
                     <connections>
                         <outlet property="collectionView" destination="mvw-AR-wn6" id="WdS-a5-MJV"/>
                         <segue destination="O0u-zc-82d" kind="presentation" identifier="collectionToWordDetail" modalPresentationStyle="overCurrentContext" id="ckf-ee-xI3"/>
@@ -339,7 +339,7 @@
             </objects>
             <point key="canvasLocation" x="1172" y="272"/>
         </scene>
-        <!--Item 2-->
+        <!--Games-->
         <scene sceneID="TE1-l4-4Iq">
             <objects>
                 <viewController id="9HV-P5-dgY" customClass="GameVC" customModule="scrabbleTwoLetter" customModuleProvider="target" sceneMemberID="viewController">
@@ -546,7 +546,7 @@
                             <constraint firstItem="3TD-YQ-6uz" firstAttribute="leading" secondItem="99m-kS-taT" secondAttribute="leading" id="la2-UK-YLE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="KeI-nm-CSw"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="Brain Filled-50" id="KeI-nm-CSw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xue-O8-Jql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1227,7 +1227,7 @@
             </objects>
             <point key="canvasLocation" x="2186" y="2582"/>
         </scene>
-        <!--Item 1-->
+        <!--Trash-->
         <scene sceneID="0bM-ds-ia1">
             <objects>
                 <viewController id="AWE-9s-rVC" customClass="DeletedCollectionVC" customModule="scrabbleTwoLetter" customModuleProvider="target" sceneMemberID="viewController">
@@ -1343,7 +1343,7 @@
                             <constraint firstItem="nCa-Rn-c4m" firstAttribute="leading" secondItem="CUH-QQ-bco" secondAttribute="leading" id="ygp-Cr-g4P"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Ath-Pf-bRP"/>
+                    <tabBarItem key="tabBarItem" title="Trash" image="Empty Trash Filled-50" id="Ath-Pf-bRP"/>
                     <connections>
                         <outlet property="collectionView" destination="eJi-aG-1kw" id="n6y-eJ-uqs"/>
                     </connections>
@@ -1539,6 +1539,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Brain Filled-50" width="30" height="30"/>
+        <image name="Empty Trash Filled-50" width="43" height="43"/>
+        <image name="Star Filled-50" width="43" height="43"/>
         <image name="books" width="774" height="321"/>
         <image name="downArrow" width="128" height="128"/>
         <image name="picnic2" width="400" height="399"/>

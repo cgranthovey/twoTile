@@ -69,17 +69,40 @@ class ImageGameVC: UIViewController {
     func reset() {
         if numberOfCorrectDrops == 3 || numberOfCorrectDrops == 2 && fourthImg.hidden == true || numberOfCorrectDrops == 1 && fourthImg.hidden == true && thirdImg.hidden == true || numberOfCorrectDrops == 0 && fourthImg.hidden == true && thirdImg.hidden == true && secondImg.hidden == true{
             
+            print(y)
             if y >= savedWords.count{
                 
                 y = 0
                 x = 0
                 chooseArray = [x, x+1, x+2, x+3]
+                print("choose array \(chooseArray)")
                 gameEnd.hidden = false
                 imageStack.hidden = true
                 wordStack.hidden = true
+                
+                firstImg.hidden = false
+                secondImg.hidden = false
+                thirdImg.hidden = false
+                fourthImg.hidden = false
+                
+                firstWord.hidden = false
+                secondWord.hidden = false
+                thirdWord.hidden = false
+                fourthWord.hidden = false
+                
+                self.firstWord.userInteractionEnabled = true
+                self.secondWord.userInteractionEnabled = true
+                self.thirdWord.userInteractionEnabled = true
+                self.fourthWord.userInteractionEnabled = true
+                self.firstWord.textColor = UIColor.blackColor()
+                self.secondWord.textColor = UIColor.blackColor()
+                self.thirdWord.textColor = UIColor.blackColor()
+                self.fourthWord.textColor = UIColor.blackColor()
+                
                 savedWords.shuffleInPlace()
                 chooseWords()
-                
+                numberOfCorrectDrops = 0
+                return
             }
             
 
@@ -87,6 +110,7 @@ class ImageGameVC: UIViewController {
             CATransaction.begin()
 
             CATransaction.setCompletionBlock({
+                print("i'm called")
                 self.numberOfCorrectDrops = 0
                 self.x = self.x + 4
                 self.chooseArray = [self.x, self.x+1, self.x+2, self.x+3]
@@ -128,9 +152,6 @@ class ImageGameVC: UIViewController {
     }
     
     func chooseWords(){
-        
-        
-        
         
         if chooseArray[0] == savedWords.count{
             print("great job")
@@ -199,6 +220,8 @@ class ImageGameVC: UIViewController {
             }
             
         } else if chooseArray[3] == savedWords.count{
+            print(savedWords.count)
+            print(chooseArray)
             print("3 is called")
             firstWord.text = savedWords[chooseArray[0]].word
             secondWord.text = savedWords[chooseArray[1]].word
@@ -248,9 +271,12 @@ class ImageGameVC: UIViewController {
                     thirdWord.dropTarget = thirdImg
                     }
         } else {
+            print("else is called")
             firstWord.text = savedWords[chooseArray[0]].word
+            print(savedWords[chooseArray[0]].word)
             print(firstWord.text)
             secondWord.text = savedWords[chooseArray[1]].word
+            print(savedWords[chooseArray[1]].word)
             print(secondWord.text)
             thirdWord.text = savedWords[chooseArray[2]].word
             print(thirdWord.text)
@@ -338,15 +364,7 @@ class ImageGameVC: UIViewController {
         x = 0
         wordStack.hidden = false
         imageStack.hidden = false
-        firstImg.hidden = false
-        secondImg.hidden = false
-        thirdImg.hidden = false
-        fourthImg.hidden = false
-        
-        firstWord.hidden = false
-        secondWord.hidden = false
-        thirdWord.hidden = false
-        fourthWord.hidden = false
+
         
         
         gameEnd.hidden = true
