@@ -174,6 +174,11 @@ class ChooseCorrectWordGameVC: UIViewController {
         jumpVC?.selectedIndex = 0
     }
     
+    @IBAction func backButton(sender: AnyObject){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
     
     
     

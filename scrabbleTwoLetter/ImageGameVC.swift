@@ -23,365 +23,138 @@ extension MutableCollectionType where Index == Int {
 }
 
 class ImageGameVC: UIViewController {
-
     
-    var savedWords = [ScrabbleWord]()
+    var allWords = StoreWord().getWord()
+    var allWordsMinusOne: [ScrabbleWord]!
+    var gameWords: [ScrabbleWord]!
     var x: Int!
-    var y: Int!
-    var chooseArray = [Int]()
-    var randChooseArray = [Int]()
-    var numberOfCorrectDrops: Int!
-    var numberOfWords: Int!
+    var numberOfPlays: Int!
     
     @IBOutlet weak var firstWord: DragLabel!
-    @IBOutlet weak var secondWord: DragLabel!
-    @IBOutlet weak var thirdWord: DragLabel!
-    @IBOutlet weak var fourthWord: DragLabel!
-    
+
     @IBOutlet weak var firstImg: UIImageView!
     @IBOutlet weak var secondImg: UIImageView!
     @IBOutlet weak var thirdImg: UIImageView!
     @IBOutlet weak var fourthImg: UIImageView!
     
-    @IBOutlet weak var wordStack: UIStackView!
-    @IBOutlet weak var imageStack: UIStackView!
+    @IBOutlet weak var firstView: UIView!
+    @IBOutlet weak var secondView: UIView!
+    @IBOutlet weak var thirdView: UIView!
+    @IBOutlet weak var fourthView: UIView!
+    
+    @IBOutlet weak var imageStackView: UIStackView!
     
     @IBOutlet weak var gameEnd: UIStackView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gameWords = DataService.instance.savedWords
+        
+        allWords.shuffleInPlace()
+        gameWords.shuffleInPlace()
+        x = 0
+        numberOfPlays = 0
+        reset()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reset", name: "correctDrop", object: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        savedWords = DataService.instance.savedWords
-        savedWords.shuffleInPlace()
-        numberOfWords = savedWords.count
-        x = 0
-        y = 0
-        chooseArray = [x, x+1, x+2, x+3]
-        chooseWords()
-        numberOfCorrectDrops = 0
-    }
-    
-    
-    func reset() {
-        if numberOfCorrectDrops == 3 || numberOfCorrectDrops == 2 && fourthImg.hidden == true || numberOfCorrectDrops == 1 && fourthImg.hidden == true && thirdImg.hidden == true || numberOfCorrectDrops == 0 && fourthImg.hidden == true && thirdImg.hidden == true && secondImg.hidden == true{
-            
-            print(y)
-            if y >= savedWords.count{
-                
-                y = 0
-                x = 0
-                chooseArray = [x, x+1, x+2, x+3]
-                print("choose array \(chooseArray)")
-                gameEnd.hidden = false
-                imageStack.hidden = true
-                wordStack.hidden = true
-                
-                firstImg.hidden = false
-                secondImg.hidden = false
-                thirdImg.hidden = false
-                fourthImg.hidden = false
-                
-                firstWord.hidden = false
-                secondWord.hidden = false
-                thirdWord.hidden = false
-                fourthWord.hidden = false
-                
-                self.firstWord.userInteractionEnabled = true
-                self.secondWord.userInteractionEnabled = true
-                self.thirdWord.userInteractionEnabled = true
-                self.fourthWord.userInteractionEnabled = true
-                self.firstWord.textColor = UIColor.blackColor()
-                self.secondWord.textColor = UIColor.blackColor()
-                self.thirdWord.textColor = UIColor.blackColor()
-                self.fourthWord.textColor = UIColor.blackColor()
-                
-                savedWords.shuffleInPlace()
-                chooseWords()
-                numberOfCorrectDrops = 0
-                return
-            }
-            
-
-            
-            CATransaction.begin()
-
-            CATransaction.setCompletionBlock({
-                print("i'm called")
-                self.numberOfCorrectDrops = 0
-                self.x = self.x + 4
-                self.chooseArray = [self.x, self.x+1, self.x+2, self.x+3]
-                self.chooseWords()
-                
-
-                
-                self.firstWord.userInteractionEnabled = true
-                self.secondWord.userInteractionEnabled = true
-                self.thirdWord.userInteractionEnabled = true
-                self.fourthWord.userInteractionEnabled = true
-                self.firstWord.textColor = UIColor.blackColor()
-                self.secondWord.textColor = UIColor.blackColor()
-                self.thirdWord.textColor = UIColor.blackColor()
-                self.fourthWord.textColor = UIColor.blackColor()
-                
-                return
-            })
-            
-            
-            UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
-                self.wordStack.alpha = 0
-                self.imageStack.alpha = 0
-                }){ (finished: Bool) -> Void in
-                    
-                    
-                    UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
-                        self.wordStack.alpha = 1
-                        self.imageStack.alpha = 1
-                        }, completion: nil)
-            }
-            
-            CATransaction.commit()
-            
-
-
-        }
-        numberOfCorrectDrops = numberOfCorrectDrops + 1
-    }
-    
-    func chooseWords(){
+    func reset(){
         
-        if chooseArray[0] == savedWords.count{
-            print("great job")
-        } else if chooseArray[1] == savedWords.count{
-            print(chooseArray[1])
-            print(savedWords.count)
-            print("1 is called")
-            firstWord.text = savedWords[chooseArray[0]].word
+        if numberOfPlays == gameWords.count{
             
-            print(savedWords[chooseArray[0]].word)
+            imageStackView.hidden = true
+            firstWord.hidden = true
+            gameEnd.hidden = false
+            numberOfPlays = 0
             
-            secondWord.text = ""
-            thirdWord.text = ""
-            fourthWord.text = ""
+            gameWords.shuffleInPlace()
+            x = 0
             
-            let url = savedWords[chooseArray[0]].image
-            print(url)
-            ImageLoader.sharedLoader.imageForUrl(url, completionHandler: { (image, url) -> () in
-                print("in images")
-                self.firstImg.image = image!
-                print("next")
-                self.secondImg.hidden = true
-                self.thirdImg.hidden = true
-                self.fourthImg.hidden = true
-            })
-            
-            firstWord.dropTarget = firstImg
-            
-            
-        } else if chooseArray[2] == savedWords.count{
-            print("2 is called")
-
-            firstWord.text = savedWords[chooseArray[0]].word
-            secondWord.text = savedWords[chooseArray[1]].word
-            thirdWord.text = ""
-            fourthWord.text = ""
-            
-            randChooseArray = chooseArray
-            randChooseArray.removeAtIndex(3)
-            randChooseArray.removeAtIndex(2)
-            randChooseArray.shuffleInPlace()
-            
-            for var y in 0...1{
-                var tempImageURL = savedWords[randChooseArray[y]].image
-                ImageLoader.sharedLoader.imageForUrl(tempImageURL, completionHandler: { (image, url) -> () in
-                    switch y{
-                        case 0: self.firstImg.image = image!
-                        default: self.secondImg.image = image!
-                        self.thirdImg.hidden = true
-                        self.fourthImg.hidden = true
-                    }
-                })
-            }
-            
-            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[0]].word{
-                firstWord.dropTarget = firstImg
-            }
-            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[1]].word{
-                firstWord.dropTarget = secondImg
-            }
-            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[0]].word{
-                secondWord.dropTarget = firstImg
-            }
-            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[1]].word{
-                secondWord.dropTarget = secondImg
-            }
-            
-        } else if chooseArray[3] == savedWords.count{
-            print(savedWords.count)
-            print(chooseArray)
-            print("3 is called")
-            firstWord.text = savedWords[chooseArray[0]].word
-            secondWord.text = savedWords[chooseArray[1]].word
-            thirdWord.text = savedWords[chooseArray[2]].word
-            fourthWord.text = ""
-            
-            randChooseArray = chooseArray
-            randChooseArray.removeAtIndex(3)
-            randChooseArray.shuffleInPlace()
-            
-            for var y in 0...2{
-                var tempImageUrl = savedWords[randChooseArray[y]].image
-                ImageLoader.sharedLoader.imageForUrl(tempImageUrl, completionHandler: { (image, url) -> () in
-                    switch y{
-                        case 0: self.firstImg.image = image!
-                        case 1: self.secondImg.image = image!
-                        default: self.thirdImg.image = image!
-                        self.fourthImg.hidden = true
-                    }
-                })
-            }
-                if savedWords[chooseArray[0]].word == savedWords[randChooseArray[0]].word{
-                    firstWord.dropTarget = firstImg
-                }
-                if savedWords[chooseArray[0]].word == savedWords[randChooseArray[1]].word{
-                    firstWord.dropTarget = secondImg
-                }
-                if savedWords[chooseArray[0]].word == savedWords[randChooseArray[2]].word{
-                    firstWord.dropTarget = thirdImg
-                }
-                if savedWords[chooseArray[1]].word == savedWords[randChooseArray[0]].word{
-                    secondWord.dropTarget = firstImg
-                }
-                if savedWords[chooseArray[1]].word == savedWords[randChooseArray[1]].word{
-                    secondWord.dropTarget = secondImg
-                }
-                if savedWords[chooseArray[1]].word == savedWords[randChooseArray[2]].word{
-                    secondWord.dropTarget = thirdImg
-                }
-                if savedWords[chooseArray[2]].word == savedWords[randChooseArray[0]].word{
-                    thirdWord.dropTarget = firstImg
-                }
-                if savedWords[chooseArray[2]].word == savedWords[randChooseArray[1]].word{
-                    thirdWord.dropTarget = secondImg
-                }
-                if savedWords[chooseArray[2]].word == savedWords[randChooseArray[2]].word{
-                    thirdWord.dropTarget = thirdImg
-                    }
-        } else {
-            print("else is called")
-            firstWord.text = savedWords[chooseArray[0]].word
-            print(savedWords[chooseArray[0]].word)
-            print(firstWord.text)
-            secondWord.text = savedWords[chooseArray[1]].word
-            print(savedWords[chooseArray[1]].word)
-            print(secondWord.text)
-            thirdWord.text = savedWords[chooseArray[2]].word
-            print(thirdWord.text)
-            fourthWord.text = savedWords[chooseArray[3]].word
-            print(fourthWord.text)
-            randChooseArray = chooseArray
-            randChooseArray.shuffleInPlace()
-            
-            for var y in 0...3{
-                var tempImageURL = savedWords[randChooseArray[y]].image
-                
-                ImageLoader.sharedLoader.imageForUrl(tempImageURL, completionHandler:{(image: UIImage?, url: String) in
-                    switch y{
-                    case 0: self.firstImg.image = image!
-                    case 1: self.secondImg.image = image!
-                    case 2: self.thirdImg.image = image!
-                    default: self.fourthImg.image = image!
-                    }
-                })
-            }
-            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[0]].word{
-                firstWord.dropTarget = firstImg
-            }
-            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[1]].word{
-                firstWord.dropTarget = secondImg
-            }
-            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[2]].word{
-                firstWord.dropTarget = thirdImg
-            }
-            if savedWords[chooseArray[0]].word == savedWords[randChooseArray[3]].word{
-                firstWord.dropTarget = fourthImg
-            }
-            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[0]].word{
-                secondWord.dropTarget = firstImg
-            }
-            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[1]].word{
-                secondWord.dropTarget = secondImg
-            }
-            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[2]].word{
-                secondWord.dropTarget = thirdImg
-            }
-            if savedWords[chooseArray[1]].word == savedWords[randChooseArray[3]].word{
-                secondWord.dropTarget = fourthImg
-            }
-            if savedWords[chooseArray[2]].word == savedWords[randChooseArray[0]].word{
-                thirdWord.dropTarget = firstImg
-            }
-            if savedWords[chooseArray[2]].word == savedWords[randChooseArray[1]].word{
-                thirdWord.dropTarget = secondImg
-            }
-            if savedWords[chooseArray[2]].word == savedWords[randChooseArray[2]].word{
-                thirdWord.dropTarget = thirdImg
-            }
-            if savedWords[chooseArray[2]].word == savedWords[randChooseArray[3]].word{
-                thirdWord.dropTarget = fourthImg
-            }
-            if savedWords[chooseArray[3]].word == savedWords[randChooseArray[0]].word{
-                fourthWord.dropTarget = firstImg
-            }
-            if savedWords[chooseArray[3]].word == savedWords[randChooseArray[1]].word{
-                fourthWord.dropTarget = secondImg
-            }
-            if savedWords[chooseArray[3]].word == savedWords[randChooseArray[2]].word{
-                fourthWord.dropTarget = thirdImg
-            }
-            if savedWords[chooseArray[3]].word == savedWords[randChooseArray[3]].word{
-                fourthWord.dropTarget = fourthImg
-            }
         }
-
-
-        y = y+4
+        numberOfPlays = numberOfPlays + 1
+        
+        firstWord.textColor = UIColor.blackColor()
+        firstWord.userInteractionEnabled = true
+        
+        allWordsMinusOne = allWords
+        allWordsMinusOne.shuffleInPlace()
+        let currentWord = gameWords[x]
+        x = x + 1
+        
+        firstWord.text = currentWord.word
+        var imageArray = [firstImg, secondImg, thirdImg, fourthImg]
+        imageArray.shuffleInPlace()
+        var y = 0
+        for var x in allWordsMinusOne{
+            if x.word == currentWord.word{
+                allWordsMinusOne.removeAtIndex(y)
+                
+            }
+            y = y + 1
+        }
+        postImgs(currentWord.image, imgView: imageArray[0])
+        postImgs(allWordsMinusOne[0].image, imgView: imageArray[1])
+        postImgs(allWordsMinusOne[1].image, imgView: imageArray[2])
+        postImgs(allWordsMinusOne[2].image, imgView: imageArray[3])
+        
+        if firstImg == imageArray[0]{
+            firstWord.dropTarget = firstView
+        } else if secondImg == imageArray[0]{
+            firstWord.dropTarget = secondView
+        } else if thirdImg == imageArray[0]{
+            firstWord.dropTarget = thirdView
+        } else {
+            firstWord.dropTarget = fourthView
+        }
+        
+        
     }
     
-    func random(x: Int) -> Int {
-        let randNumber = Int(arc4random_uniform(UInt32(x)))
-        return randNumber
+    
+    
+    
+    
+    
+    func postImgs(image: String, imgView: UIImageView){
+        ImageLoader.sharedLoader.imageForUrl(image, completionHandler: {(image: UIImage?, url: String)
+            in
+            imgView.image = image!
+    })
     }
 
-    @IBAction func homeButton(sender: AnyObject){
+    
+    @IBAction func homeButton(sender: AnyObject!){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    @IBAction func playAgain(sender: AnyObject){
-        x = 0
-        wordStack.hidden = false
-        imageStack.hidden = false
-
-        
+    @IBAction func playAgain(sender: AnyObject!){
+        imageStackView.hidden = false
+        firstWord.hidden = false
         
         gameEnd.hidden = true
-
     }
-
-    @IBAction func gameScreen(sender: AnyObject){
+    
+    @IBAction func gameScreen(sender: AnyObject!){
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    @IBAction func removeSomeWords(sender: AnyObject){
+    @IBAction func deleteWords(sender: AnyObject!){
         var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
         self.navigationController?.popToViewController((jumpVC)!, animated: true)
         jumpVC?.selectedIndex = 0
     }
     
-
-
-
+    @IBAction func backButton(sender: AnyObject!){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
