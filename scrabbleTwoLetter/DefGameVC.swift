@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DefGameVC: UIViewController {
+class DefGameVC: GeneralGameVC {
 
     
     @IBOutlet weak var tileWord: UILabel!
@@ -55,12 +55,13 @@ class DefGameVC: UIViewController {
             label2.hidden = true
             label3.hidden = true
             label4.hidden = true
+            tileWord.hidden = true
             
             gameEnd.hidden = false
             
         }
         
-        
+        activateButtons(button1, button2: button2, button3: button3, button4: button4)
         var currentWord = memorizingWords[x]
         var otherChoices = memorizingWords
         otherChoices.removeAtIndex(x)
@@ -121,12 +122,16 @@ class DefGameVC: UIViewController {
     
     func correctAnswer(button: UIButton){
         button.backgroundColor = UIColor(red: 20.0/255.0, green: 255.0/255.0, blue: 34.0/255.0, alpha: 1.0)
+        
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "resetGame", userInfo: nil, repeats: false)
-
+        sfxCorrectAnswer.play()
+        deactivateButtons(button1, button2: button2, button3: button3, button4: button4)
     }
+
     
     func wrongAnswer(button: UIButton){
         button.backgroundColor = UIColor.redColor()
+        sfxWrongAnswer.play()
     }
     
     @IBAction func homeButton(sender: AnyObject){
@@ -142,6 +147,7 @@ class DefGameVC: UIViewController {
         label2.hidden = false
         label3.hidden = false
         label4.hidden = false
+        tileWord.hidden = false
         
         gameEnd.hidden = true
     }

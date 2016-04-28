@@ -29,6 +29,7 @@ class ImageGameVC: UIViewController {
     var gameWords: [ScrabbleWord]!
     var x: Int!
     var numberOfPlays: Int!
+    var startTimer: NSTimer!
     
     @IBOutlet weak var firstWord: DragLabel!
 
@@ -56,7 +57,15 @@ class ImageGameVC: UIViewController {
         x = 0
         numberOfPlays = 0
         reset()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reset", name: "correctDrop", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "timer", name: "correctDrop", object: nil)
+    }
+    
+    
+    func timer(){
+        if startTimer != nil{
+            startTimer.invalidate()
+        }
+        startTimer = NSTimer.scheduledTimerWithTimeInterval(0.6, target: self, selector: "reset", userInfo: nil, repeats: false)
     }
     
     func reset(){
@@ -72,49 +81,76 @@ class ImageGameVC: UIViewController {
             x = 0
             
         }
-        numberOfPlays = numberOfPlays + 1
         
-        firstWord.textColor = UIColor.blackColor()
-        firstWord.userInteractionEnabled = true
-        
-        allWordsMinusOne = allWords
-        allWordsMinusOne.shuffleInPlace()
-        let currentWord = gameWords[x]
-        x = x + 1
-        
-        firstWord.text = currentWord.word
-        var imageArray = [firstImg, secondImg, thirdImg, fourthImg]
-        imageArray.shuffleInPlace()
-        var y = 0
-        for var x in allWordsMinusOne{
-            if x.word == currentWord.word{
-                allWordsMinusOne.removeAtIndex(y)
-                
-            }
-            y = y + 1
+        UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
+            self.firstImg.alpha = 0
+            self.secondImg.alpha = 0
+            self.thirdImg.alpha = 0
+            self.fourthImg.alpha = 0
+            self.firstWord.alpha = 0
+            }) { (Bool) -> Void in
+                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
+                    
+                    self.numberOfPlays = self.numberOfPlays + 1
+                    
+                    self.firstWord.textColor = UIColor.blackColor()
+                    self.firstWord.userInteractionEnabled = true
+                    
+                    self.allWordsMinusOne = self.allWords
+                    self.allWordsMinusOne.shuffleInPlace()
+                    let currentWord = self.gameWords[self.x]
+                    self.x = self.x + 1
+                    
+                    self.firstWord.text = currentWord.word
+                    var imageArray = [self.firstImg, self.secondImg, self.thirdImg, self.fourthImg]
+                    imageArray.shuffleInPlace()
+                    var y = 0
+                    for var x in self.allWordsMinusOne{
+                        if x.word == currentWord.word{
+                            self.allWordsMinusOne.removeAtIndex(y)
+                            
+                        }
+                        y = y + 1
+                    }
+                    self.postImgs(currentWord.image, imgView: imageArray[0])
+                    self.postImgs(self.allWordsMinusOne[0].image, imgView: imageArray[1])
+                    self.postImgs(self.allWordsMinusOne[1].image, imgView: imageArray[2])
+                    self.postImgs(self.allWordsMinusOne[2].image, imgView: imageArray[3])
+                    
+                    if self.firstImg == imageArray[0]{
+                        self.firstWord.dropTarget = self.firstView
+                    } else if self.secondImg == imageArray[0]{
+                        self.firstWord.dropTarget = self.secondView
+                    } else if self.thirdImg == imageArray[0]{
+                        self.firstWord.dropTarget = self.thirdView
+                    } else {
+                        self.firstWord.dropTarget = self.fourthView
+                    }
+                    
+                    self.firstImg.alpha = 1
+                    self.secondImg.alpha = 1
+                    self.thirdImg.alpha = 1
+                    self.fourthImg.alpha = 1
+                    self.firstWord.alpha = 1
+                    
+                    }, completion: nil)
         }
-        postImgs(currentWord.image, imgView: imageArray[0])
-        postImgs(allWordsMinusOne[0].image, imgView: imageArray[1])
-        postImgs(allWordsMinusOne[1].image, imgView: imageArray[2])
-        postImgs(allWordsMinusOne[2].image, imgView: imageArray[3])
         
-        if firstImg == imageArray[0]{
-            firstWord.dropTarget = firstView
-        } else if secondImg == imageArray[0]{
-            firstWord.dropTarget = secondView
-        } else if thirdImg == imageArray[0]{
-            firstWord.dropTarget = thirdView
-        } else {
-            firstWord.dropTarget = fourthView
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
         
         
     }
-    
-    
-    
-    
-    
     
     func postImgs(image: String, imgView: UIImageView){
         ImageLoader.sharedLoader.imageForUrl(image, completionHandler: {(image: UIImage?, url: String)
@@ -148,13 +184,5 @@ class ImageGameVC: UIViewController {
     @IBAction func backButton(sender: AnyObject!){
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }

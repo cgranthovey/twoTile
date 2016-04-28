@@ -21,6 +21,9 @@
 		A111B9D61CBC54D400A9104F /* imgLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111B9D51CBC54D400A9104F /* imgLoader.swift */; };
 		A118B9541CD1277E004F341A /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118B9531CD1277E004F341A /* CAGradientLayer.swift */; };
 		A118B9561CD189F6004F341A /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118B9551CD189F6004F341A /* TopView.swift */; };
+		A118B95C1CD293D2004F341A /* correctAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A118B95A1CD293D2004F341A /* correctAnswer.mp3 */; };
+		A118B95D1CD293D2004F341A /* wrongAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A118B95B1CD293D2004F341A /* wrongAnswer.mp3 */; };
+		A118B95F1CD2971B004F341A /* GeneralGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118B95E1CD2971B004F341A /* GeneralGameVC.swift */; };
 		A1834A781CC97EE1000CE61D /* DefGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1834A771CC97EE1000CE61D /* DefGameVC.swift */; };
 		A1D70B441CBEBBCF00EDD7FB /* roundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */; };
 		A1D883F51CC14219007F3F06 /* DeletedCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */; };
@@ -55,6 +58,9 @@
 		A111B9D51CBC54D400A9104F /* imgLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imgLoader.swift; sourceTree = "<group>"; };
 		A118B9531CD1277E004F341A /* CAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
 		A118B9551CD189F6004F341A /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		A118B95A1CD293D2004F341A /* correctAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correctAnswer.mp3; sourceTree = "<group>"; };
+		A118B95B1CD293D2004F341A /* wrongAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrongAnswer.mp3; sourceTree = "<group>"; };
+		A118B95E1CD2971B004F341A /* GeneralGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralGameVC.swift; sourceTree = "<group>"; };
 		A1834A771CC97EE1000CE61D /* DefGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefGameVC.swift; sourceTree = "<group>"; };
 		A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roundedCornersView.swift; sourceTree = "<group>"; };
 		A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletedCollectionVC.swift; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 		A111B9B01CBC209500A9104F /* scrabbleTwoLetter */ = {
 			isa = PBXGroup;
 			children = (
+				A118B9591CD293AE004F341A /* Resources */,
 				A1D883F61CC168AD007F3F06 /* Services */,
 				A111B9C61CBC269800A9104F /* Model */,
 				A111B9B11CBC209500A9104F /* AppDelegate.swift */,
@@ -158,8 +165,18 @@
 				A1DC84891CC55C05006C630D /* ImageGameVC.swift */,
 				A1DBA51D1CC6C8D9004659B2 /* ChooseCorrectWordGameVC.swift */,
 				A1834A771CC97EE1000CE61D /* DefGameVC.swift */,
+				A118B95E1CD2971B004F341A /* GeneralGameVC.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		A118B9591CD293AE004F341A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A118B95A1CD293D2004F341A /* correctAnswer.mp3 */,
+				A118B95B1CD293D2004F341A /* wrongAnswer.mp3 */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		A1D883F61CC168AD007F3F06 /* Services */ = {
@@ -230,8 +247,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A111B9D01CBC4A7400A9104F /* REFUSETR.TTF in Resources */,
+				A118B95C1CD293D2004F341A /* correctAnswer.mp3 in Resources */,
 				A111B9BF1CBC209500A9104F /* LaunchScreen.storyboard in Resources */,
 				A111B9BC1CBC209500A9104F /* Assets.xcassets in Resources */,
+				A118B95D1CD293D2004F341A /* wrongAnswer.mp3 in Resources */,
 				A111B9B71CBC209500A9104F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +267,7 @@
 				A111B9D41CBC524900A9104F /* WordDetail.swift in Sources */,
 				A1D883F81CC168CA007F3F06 /* DataService.swift in Sources */,
 				A1DBA51E1CC6C8D9004659B2 /* ChooseCorrectWordGameVC.swift in Sources */,
+				A118B95F1CD2971B004F341A /* GeneralGameVC.swift in Sources */,
 				A1DA8E0A1CD05D4500A99C42 /* LearnWordBtn.swift in Sources */,
 				A1DBA51C1CC58FAE004659B2 /* DragLabel.swift in Sources */,
 				A111B9B41CBC209500A9104F /* ViewController.swift in Sources */,

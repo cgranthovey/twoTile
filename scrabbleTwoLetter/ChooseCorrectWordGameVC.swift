@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChooseCorrectWordGameVC: UIViewController {
+class ChooseCorrectWordGameVC: GeneralGameVC {
 
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -50,6 +50,8 @@ class ChooseCorrectWordGameVC: UIViewController {
             gameEnd.hidden = false
             return
         }
+        
+        activateButtons(button1, button2: button2, button3: button3, button4: button4)
    
         let CurrentWord = memorizingWords[x]
         
@@ -116,14 +118,18 @@ class ChooseCorrectWordGameVC: UIViewController {
     }
     
     func correctAnswer(button: UIButton){
+        
+        deactivateButtons(button1, button2: button2, button3: button3, button4: button4)
         button.backgroundColor = UIColor(red: 20.0/255.0, green: 255.0/255.0, blue: 34.0/255.0, alpha: 1.0)
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "resetGame", userInfo: nil, repeats: false)
+        sfxCorrectAnswer.play()
     }
     
     
     func wrongAnswer(button: UIButton){
         
         button.backgroundColor = UIColor.redColor()
+        sfxWrongAnswer.play()
         
 //        UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
 //            button.backgroundColor = UIColor.redColor()
@@ -162,6 +168,7 @@ class ChooseCorrectWordGameVC: UIViewController {
     
     @IBAction func gameScreen(sender: AnyObject){
         self.navigationController?.popViewControllerAnimated(true)
+        
     }
     
     @IBAction func homeButton(sender: AnyObject){
