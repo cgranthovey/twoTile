@@ -14,6 +14,8 @@ class LearnWordBtn: UIButton {
         self.layer.cornerRadius = 4.0
         self.clipsToBounds = true
         self.backgroundColor = UIColor(red: 89.0/255.0, green: 133.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+        //        self.backgroundColor = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0)
+
     }
 
 }

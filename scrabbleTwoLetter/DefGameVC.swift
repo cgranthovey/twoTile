@@ -76,6 +76,8 @@ class DefGameVC: UIViewController {
         buttonArray[1].text = otherChoices[0].definition
         buttonArray[2].text = otherChoices[1].definition
         buttonArray[3].text = otherChoices[2].definition
+        print(label3.text)
+        print(label4.text)
     }
     
     @IBAction func button1Action(sender: UIButton!){

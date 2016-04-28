@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Book Stack-53.png",
+      "filename" : "Book Stack-54.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Book Stack-52.png",
+      "filename" : "Book Stack-53.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Book Stack-52.png",
       "scale" : "3x"
     }
   ],

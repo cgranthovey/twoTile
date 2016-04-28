@@ -19,6 +19,8 @@
 		A111B9D01CBC4A7400A9104F /* REFUSETR.TTF in Resources */ = {isa = PBXBuildFile; fileRef = A111B9CF1CBC4A7400A9104F /* REFUSETR.TTF */; };
 		A111B9D41CBC524900A9104F /* WordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111B9D31CBC524900A9104F /* WordDetail.swift */; };
 		A111B9D61CBC54D400A9104F /* imgLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A111B9D51CBC54D400A9104F /* imgLoader.swift */; };
+		A118B9541CD1277E004F341A /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118B9531CD1277E004F341A /* CAGradientLayer.swift */; };
+		A118B9561CD189F6004F341A /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118B9551CD189F6004F341A /* TopView.swift */; };
 		A1834A781CC97EE1000CE61D /* DefGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1834A771CC97EE1000CE61D /* DefGameVC.swift */; };
 		A1D70B441CBEBBCF00EDD7FB /* roundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */; };
 		A1D883F51CC14219007F3F06 /* DeletedCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */; };
@@ -51,6 +53,8 @@
 		A111B9CF1CBC4A7400A9104F /* REFUSETR.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = REFUSETR.TTF; sourceTree = "<group>"; };
 		A111B9D31CBC524900A9104F /* WordDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetail.swift; sourceTree = "<group>"; };
 		A111B9D51CBC54D400A9104F /* imgLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imgLoader.swift; sourceTree = "<group>"; };
+		A118B9531CD1277E004F341A /* CAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
+		A118B9551CD189F6004F341A /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		A1834A771CC97EE1000CE61D /* DefGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefGameVC.swift; sourceTree = "<group>"; };
 		A1D70B431CBEBBCF00EDD7FB /* roundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roundedCornersView.swift; sourceTree = "<group>"; };
 		A1D883F41CC14219007F3F06 /* DeletedCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletedCollectionVC.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				A1DBA5191CC58A8F004659B2 /* matchImg.swift */,
 				A1DBA51B1CC58FAE004659B2 /* DragLabel.swift */,
 				A1DA8E091CD05D4500A99C42 /* LearnWordBtn.swift */,
+				A118B9531CD1277E004F341A /* CAGradientLayer.swift */,
+				A118B9551CD189F6004F341A /* TopView.swift */,
 			);
 			name = View;
 			path = ..;
@@ -238,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1DA8E0C1CD0725E00A99C42 /* InformationVC.swift in Sources */,
+				A118B9561CD189F6004F341A /* TopView.swift in Sources */,
 				A111B9D41CBC524900A9104F /* WordDetail.swift in Sources */,
 				A1D883F81CC168CA007F3F06 /* DataService.swift in Sources */,
 				A1DBA51E1CC6C8D9004659B2 /* ChooseCorrectWordGameVC.swift in Sources */,
@@ -252,6 +259,7 @@
 				A111B9CE1CBC334400A9104F /* StoreWord.swift in Sources */,
 				A1DC84881CC542A7006C630D /* GameBtnImg.swift in Sources */,
 				A1D883FC1CC21002007F3F06 /* PhotoOperations.swift in Sources */,
+				A118B9541CD1277E004F341A /* CAGradientLayer.swift in Sources */,
 				A111B9C81CBC26B900A9104F /* ScrabbleWord.swift in Sources */,
 				A1D70B441CBEBBCF00EDD7FB /* roundedCornersView.swift in Sources */,
 				A111B9D61CBC54D400A9104F /* imgLoader.swift in Sources */,

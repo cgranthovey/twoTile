@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var bottomBorderBox: UIView!
+    @IBOutlet weak var gradientViewTop: UIView!
     
     var words = [ScrabbleWord]()
     var filteredWords = [ScrabbleWord]()
@@ -29,8 +30,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchBar.returnKeyType = UIReturnKeyType.Done
         words = StoreWord().getWord()
         
-        bottomBorderBox.layer.borderColor = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0).CGColor
-        bottomBorderBox.layer.borderWidth = 2
+
+        
+        let background1 = CAGradientLayer().whiteToRedColor()
+        background1.frame = self.bottomBorderBox.bounds
+        self.bottomBorderBox.layer.insertSublayer(background1, atIndex: 0)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -109,6 +113,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func informationBtn(sender: AnyObject){
         performSegueWithIdentifier("InformationVC", sender: nil)
     }
+    
     
     
     
