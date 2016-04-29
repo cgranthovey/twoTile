@@ -48,6 +48,8 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue-Italic</string>
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
         </mutableArray>
         <mutableArray key="REFUSETR.TTF">
             <string>RefuseTrip</string>
@@ -297,7 +299,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The following websites offered free icons, fonts, or images for attribution.  Use their services as well!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="lHU-rt-e6c">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The following websites offered free icons, fonts, images, or sound effects for attribution.  Use their services as well!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="lHU-rt-e6c">
                                 <rect key="frame" x="20" y="136" width="560" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Zd9-Do-dfr"/>
@@ -307,7 +309,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ahi-na-ORy">
-                                <rect key="frame" x="45" y="214" width="100" height="100"/>
+                                <rect key="frame" x="45" y="214" width="100" height="170"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyi-8z-YQ0">
                                         <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
@@ -343,6 +345,31 @@
                                         <state key="normal" title="SmokingDrum"/>
                                         <connections>
                                             <action selector="smokingDrum:" destination="aLt-ca-3FH" eventType="touchUpInside" id="yOs-q8-XfX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIy-4W-Bdf">
+                                        <rect key="frame" x="0.0" y="105" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Utx-8F-oWU"/>
+                                            <constraint firstAttribute="width" constant="100" id="uYE-Yc-btE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="freeSFX"/>
+                                        <connections>
+                                            <action selector="freeSFX:" destination="aLt-ca-3FH" eventType="touchUpInside" id="j21-pr-7v6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQa-03-iV2">
+                                        <rect key="frame" x="0.0" y="140" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="9H4-xA-27t"/>
+                                            <constraint firstAttribute="height" constant="30" id="HBo-uO-m8j"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="freesound"/>
+                                        <connections>
+                                            <action selector="freeSFX:" destination="aLt-ca-3FH" eventType="touchUpInside" id="bVu-PP-yju"/>
+                                            <action selector="freeSound:" destination="aLt-ca-3FH" eventType="touchUpInside" id="at4-Df-683"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -758,15 +785,28 @@
                                             <action selector="homeButton:" destination="NBM-Y1-vM3" eventType="touchUpInside" id="IKi-mD-FJk"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgR-Ph-Vvc">
+                                        <rect key="frame" x="569" y="65" width="23" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="23" id="l1T-Sr-0RW"/>
+                                            <constraint firstAttribute="height" constant="23" id="zhq-H5-ohR"/>
+                                        </constraints>
+                                        <state key="normal" image="Headphones Filled-50"/>
+                                        <connections>
+                                            <action selector="headphonesBtn:" destination="NBM-Y1-vM3" eventType="touchUpInside" id="BxJ-2y-Xrh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.8862745098" green="0.23137254900000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="FIp-Bz-0vZ" firstAttribute="centerY" secondItem="Ncl-db-hcK" secondAttribute="centerY" id="0B4-PN-dgz"/>
                                     <constraint firstItem="stH-ER-3VV" firstAttribute="centerX" secondItem="FIp-Bz-0vZ" secondAttribute="centerX" id="2Cg-49-4yH"/>
+                                    <constraint firstAttribute="trailing" secondItem="RgR-Ph-Vvc" secondAttribute="trailing" constant="8" id="K2p-CH-CyV"/>
                                     <constraint firstItem="stH-ER-3VV" firstAttribute="centerY" secondItem="FIp-Bz-0vZ" secondAttribute="centerY" id="SYp-q6-8Ge"/>
                                     <constraint firstItem="stH-ER-3VV" firstAttribute="centerY" secondItem="Ncl-db-hcK" secondAttribute="centerY" id="Xx1-rc-nxg"/>
                                     <constraint firstAttribute="bottom" secondItem="FIp-Bz-0vZ" secondAttribute="bottom" constant="7" id="aII-yl-yxc"/>
                                     <constraint firstItem="stH-ER-3VV" firstAttribute="centerX" secondItem="Ncl-db-hcK" secondAttribute="centerX" id="dmo-Oa-8Zk"/>
+                                    <constraint firstAttribute="bottom" secondItem="RgR-Ph-Vvc" secondAttribute="bottom" constant="2" id="mVD-5y-WP8"/>
                                     <constraint firstItem="stH-ER-3VV" firstAttribute="width" secondItem="FIp-Bz-0vZ" secondAttribute="width" id="mjk-JV-aCZ"/>
                                     <constraint firstItem="stH-ER-3VV" firstAttribute="height" secondItem="FIp-Bz-0vZ" secondAttribute="height" id="oIo-br-FdQ"/>
                                     <constraint firstAttribute="height" constant="90" id="tUu-5W-cMB"/>
@@ -939,6 +979,7 @@
                         <outlet property="fourthImg" destination="IAm-Bd-adW" id="qpr-UT-wFd"/>
                         <outlet property="fourthView" destination="vp9-Bp-pXe" id="rt1-0w-Ena"/>
                         <outlet property="gameEnd" destination="Cm0-m1-mFv" id="Skv-Tb-nZ8"/>
+                        <outlet property="headphonesImg" destination="RgR-Ph-Vvc" id="Bp0-RQ-aFs"/>
                         <outlet property="imageStackView" destination="fxd-m6-fxK" id="Twp-mN-D0X"/>
                         <outlet property="secondImg" destination="0kV-8h-Jbp" id="PXb-95-7A1"/>
                         <outlet property="secondView" destination="DCI-HP-uE0" id="f4I-DA-do5"/>
@@ -980,6 +1021,17 @@
                                             <action selector="homeButton:" destination="jvb-t0-atb" eventType="touchUpInside" id="b7m-HA-e6m"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pj2-K7-atX">
+                                        <rect key="frame" x="569" y="65" width="23" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="9KB-ep-Onr"/>
+                                            <constraint firstAttribute="width" constant="23" id="gdv-Ow-UT8"/>
+                                        </constraints>
+                                        <state key="normal" image="Headphones Filled-50"/>
+                                        <connections>
+                                            <action selector="headphonesBtn:" destination="jvb-t0-atb" eventType="touchUpInside" id="pwl-2g-Qt3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.8862745098" green="0.23137254900000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -990,8 +1042,10 @@
                                     <constraint firstItem="moZ-oY-vkr" firstAttribute="centerY" secondItem="hKj-HZ-BN8" secondAttribute="centerY" id="Vuj-JM-8ow"/>
                                     <constraint firstItem="moZ-oY-vkr" firstAttribute="centerX" secondItem="hKj-HZ-BN8" secondAttribute="centerX" id="cd4-P6-Zjz"/>
                                     <constraint firstItem="xeU-SU-YwR" firstAttribute="centerX" secondItem="hKj-HZ-BN8" secondAttribute="centerX" id="eLl-Ht-qOg"/>
+                                    <constraint firstAttribute="bottom" secondItem="pj2-K7-atX" secondAttribute="bottom" constant="2" id="eer-uM-wLj"/>
                                     <constraint firstAttribute="height" constant="90" id="moN-Os-eej"/>
                                     <constraint firstItem="moZ-oY-vkr" firstAttribute="centerX" secondItem="xeU-SU-YwR" secondAttribute="centerX" id="pUF-OA-JZk"/>
+                                    <constraint firstAttribute="trailing" secondItem="pj2-K7-atX" secondAttribute="trailing" constant="8" id="rIg-Bo-I5z"/>
                                     <constraint firstItem="moZ-oY-vkr" firstAttribute="width" secondItem="xeU-SU-YwR" secondAttribute="width" id="yJE-Jc-iIj"/>
                                 </constraints>
                                 <variation key="default">
@@ -1241,6 +1295,7 @@
                         <outlet property="button3" destination="hvp-9e-wl7" id="K45-rE-Jb4"/>
                         <outlet property="button4" destination="DAE-2s-CCF" id="15G-PL-alV"/>
                         <outlet property="gameEnd" destination="WAm-Vc-UIE" id="6Bz-at-tDC"/>
+                        <outlet property="headphonesImg" destination="pj2-K7-atX" id="LEz-2I-Vb0"/>
                         <outlet property="label1" destination="9sc-Bd-EIz" id="4em-Qt-XAM"/>
                         <outlet property="label2" destination="qMG-LB-RwL" id="H4j-XT-HlR"/>
                         <outlet property="label3" destination="thf-8J-v3l" id="oFP-8c-PTJ"/>
@@ -1282,10 +1337,23 @@
                                             <action selector="homeButton:" destination="L2d-Lx-up2" eventType="touchUpInside" id="hh5-MM-EyC"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKk-Nl-1qv">
+                                        <rect key="frame" x="569" y="65" width="23" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="Oh5-hY-zKZ"/>
+                                            <constraint firstAttribute="width" constant="23" id="ROS-K3-5N0"/>
+                                        </constraints>
+                                        <state key="normal" image="Headphones Filled-50"/>
+                                        <connections>
+                                            <action selector="headphonesBtn:" destination="L2d-Lx-up2" eventType="touchUpInside" id="IJw-Ea-ut5"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.8862745098" green="0.23137254900000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="eKk-Nl-1qv" secondAttribute="bottom" constant="2" id="1Qr-mS-evx"/>
                                     <constraint firstItem="khc-H9-zcb" firstAttribute="centerY" secondItem="IIc-EO-2jS" secondAttribute="centerY" id="BpR-th-ojK"/>
+                                    <constraint firstAttribute="trailing" secondItem="eKk-Nl-1qv" secondAttribute="trailing" constant="8" id="FJU-WI-GZx"/>
                                     <constraint firstItem="khc-H9-zcb" firstAttribute="height" secondItem="IIc-EO-2jS" secondAttribute="height" id="UID-oo-mxm"/>
                                     <constraint firstItem="khc-H9-zcb" firstAttribute="centerX" secondItem="PBf-Uw-XNZ" secondAttribute="centerX" id="chm-8f-gYw"/>
                                     <constraint firstAttribute="height" constant="90" id="feu-yK-m48"/>
@@ -1487,6 +1555,7 @@
                         <outlet property="button3" destination="ktB-7M-Qs7" id="4j2-lH-j9M"/>
                         <outlet property="button4" destination="Ln7-E4-BsK" id="tPo-J4-0Dx"/>
                         <outlet property="gameEnd" destination="mG4-bN-jpj" id="XEi-QM-4Hs"/>
+                        <outlet property="headphonesImg" destination="eKk-Nl-1qv" id="e3K-15-935"/>
                         <outlet property="whichIsAWordLbl" destination="ZeH-pZ-f9w" id="DGq-ly-EUP"/>
                     </connections>
                 </viewController>
@@ -1810,6 +1879,7 @@
         <image name="Book Stack-52" width="40" height="40"/>
         <image name="Brain Filled-50" width="30" height="30"/>
         <image name="Empty Trash Filled-50" width="43" height="43"/>
+        <image name="Headphones Filled-50" width="50" height="50"/>
         <image name="Info-100" width="100" height="100"/>
         <image name="books" width="774" height="321"/>
         <image name="downArrow" width="128" height="128"/>
@@ -1818,6 +1888,6 @@
         <image name="worldFromSpace" width="949" height="534"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ckf-ee-xI3"/>
+        <segue reference="MP0-Qr-5mL"/>
     </inferredMetricsTieBreakers>
 </document>

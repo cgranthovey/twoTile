@@ -20,12 +20,9 @@ class DragLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
         
         do{
             try sfxCorrectAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correctAnswer", ofType: "mp3")!))
@@ -36,6 +33,8 @@ class DragLabel: UILabel {
         sfxCorrectAnswer.prepareToPlay()
         sfxWrongAnswer.prepareToPlay()
         
+        
+        super.init(coder: aDecoder)
     }
     
 
@@ -59,6 +58,7 @@ class DragLabel: UILabel {
                 self.textColor = UIColor(red: 20.0/255.0, green: 255.0/255.0, blue: 34.0/255.0, alpha: 1.0)
                 self.userInteractionEnabled = false
                 sfxCorrectAnswer.play()
+
                 NSNotificationCenter.defaultCenter().postNotificationName("correctDrop", object: nil)
             } else{
                 sfxWrongAnswer.play()

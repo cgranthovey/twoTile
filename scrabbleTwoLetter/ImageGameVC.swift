@@ -22,7 +22,7 @@ extension MutableCollectionType where Index == Int {
     }
 }
 
-class ImageGameVC: UIViewController {
+class ImageGameVC: GeneralGameVC {
     
     var allWords = StoreWord().getWord()
     var allWordsMinusOne: [ScrabbleWord]!
@@ -47,6 +47,8 @@ class ImageGameVC: UIViewController {
     
     @IBOutlet weak var gameEnd: UIStackView!
     
+    @IBOutlet weak var headphonesImg: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,8 +60,21 @@ class ImageGameVC: UIViewController {
         numberOfPlays = 0
         reset()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "timer", name: "correctDrop", object: nil)
+        
+        headphones(headphonesImg)
+
     }
     
+
+    
+    @IBAction func headphonesBtn (sender: UIButton){
+        if DataService.instance.buttonAlphaLevel == 1{
+            DataService.instance.updateButtonAlpha(0.5)
+        } else{
+            DataService.instance.updateButtonAlpha(1.0)
+        }
+        headphones(sender)
+    }
     
     func timer(){
         if startTimer != nil{
@@ -135,21 +150,6 @@ class ImageGameVC: UIViewController {
                     
                     }, completion: nil)
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-        
-        
     }
     
     func postImgs(image: String, imgView: UIImageView){

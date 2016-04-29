@@ -17,21 +17,26 @@ class InformationVC: UIViewController {
     }
 
     @IBAction func icons8 (sender: AnyObject){
-        let urlString = "https://icons8.com/"
-        if let url = NSURL(string: urlString){
-            UIApplication.sharedApplication().openURL(url)
-        }
+        openLink("https://icons8.com/")
     }
     
     @IBAction func openClipArt(sender: AnyObject){
-        let urlString = "https://openclipart.org/"
-        if let url = NSURL(string: urlString){
-            UIApplication.sharedApplication().openURL(url)
-        }
+        openLink("https://openclipart.org/")
     }
     
     @IBAction func smokingDrum(sender: AnyObject){
-        let urlString = "http://www.smokingdrum.com/"
+        openLink("http://www.smokingdrum.com/")
+    }
+    
+    @IBAction func freeSFX(sender: AnyObject){
+        openLink("http://www.freesfx.co.uk/")
+    }
+    
+    @IBAction func freeSound(sender: AnyObject){
+        openLink("http://www.freesound.org")        //http://www.freesound.org/people/DrMinky/sounds/174435/
+    }
+    
+    func openLink(urlString: String){
         if let url = NSURL(string: urlString){
             UIApplication.sharedApplication().openURL(url)
         }
@@ -40,6 +45,8 @@ class InformationVC: UIViewController {
     @IBAction func homeButton(sender: AnyObject){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
+    
+    
     
 
 }

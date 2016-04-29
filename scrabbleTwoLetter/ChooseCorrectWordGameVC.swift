@@ -16,7 +16,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     @IBOutlet weak var button4: UIButton!
     @IBOutlet weak var whichIsAWordLbl: UILabel!
     @IBOutlet weak var gameEnd: UIStackView!
-    
+    @IBOutlet weak var headphonesImg: UIButton!
     
     var memorizingWords = [ScrabbleWord]()
     var fakeWords = ["Ac", "Af", "Ak", "Ap", "Av", "Br", "Ci", "Da", "Di", "Eg", "Ek", "Ew", "Fi", "Fo", "Ga", "Ge", "Gi", "Gu", "Hu", "Ia", "Ib", "Ie", "Ig", "Ik", "Il", "Im", "Io", "Ip", "Iz", "Ja", "Je", "Ji", "Ju", "Ke", "Ko", "Ku", "Le", "Lu", "Mr", "Ni", "Ny", "Oa", "Ob", "Og", "Ok", "Ot", "Oz", "Po", "Pu", "Py", "Qa", "Qo", "Ra", "Ri", "Ro", "Ru", "Ry", "Sa", "Se", "Sm", "Su", "Te", "Ts", "Tu", "Ub", "Ud", "Uf", "Ug", "Uk", "Ur", "Va", "Ve", "Vi", "Vo", "Vu", "Wa", "Wi", "Wy", "Wu", "Xa", "Xy", "Xo", "Yi", "Yu", "Ym", "Zo", "Zi"]
@@ -33,7 +33,22 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
         memorizingWordsCount = memorizingWords.count
         
         resetGame()
+        
+        headphones(headphonesImg)
+
     }
+    
+    
+    
+    @IBAction func headphonesBtn (sender: UIButton){
+        if DataService.instance.buttonAlphaLevel == 1{
+            DataService.instance.updateButtonAlpha(0.5)
+        } else{
+            DataService.instance.updateButtonAlpha(1.0)
+        }
+        headphones(sender)
+    }
+    
     
     func resetGame(){
         
@@ -116,6 +131,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
             wrongAnswer(sender)
         }
     }
+
     
     func correctAnswer(button: UIButton){
         
@@ -165,6 +181,10 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
 //                    }, completion: nil)
 //        }
     }
+    
+    
+    
+    
     
     @IBAction func gameScreen(sender: AnyObject){
         self.navigationController?.popViewControllerAnimated(true)

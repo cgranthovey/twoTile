@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class WordDetail: UIViewController {
 
@@ -21,8 +22,9 @@ class WordDetail: UIViewController {
     @IBOutlet weak var containerView: UIView!
     
     
-    
     var tappedWord: ScrabbleWord!
+    var sfxSwhooshUp: AVAudioPlayer!
+    var sfxSwhooshDown: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +46,38 @@ class WordDetail: UIViewController {
         downSwipe.direction = .Down
         view.addGestureRecognizer(downSwipe)
         
+        initAudio()
+        sfxSwhooshUp.play()
     }
+    
+    
+    func initAudio(){
+        do{
+            try sfxSwhooshUp = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("up", ofType: "wav")!))
+            try sfxSwhooshDown = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("down", ofType: "wav")!))
+            
+            sfxSwhooshUp.prepareToPlay()
+            sfxSwhooshDown.prepareToPlay()
+        } catch let err as NSError{
+            print(err.debugDescription)
+        }
+    }
+    
+    
+
+
+    
+    
+    
+    
+    
+    
     
     func handleSwipe(sender: UISwipeGestureRecognizer){
         if sender.direction == .Down{
+            sfxSwhooshDown.play()
             dismissViewControllerAnimated(true, completion: nil)
+        
         }
     }
     

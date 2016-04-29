@@ -15,6 +15,7 @@ class DataService{
     
     private var _savedWords = [ScrabbleWord]()
     private var _deletedWords: [ScrabbleWord]!
+    private var _buttonAlphaLevel: CGFloat!
     
     let KEY_SAVED = "saved"
     let KEY_DELETED = "deleted"
@@ -29,6 +30,21 @@ class DataService{
         } else {
             return [ScrabbleWord]()
         }
+    }
+    
+    var buttonAlphaLevel: CGFloat{
+        print("called before")
+        if _buttonAlphaLevel != nil{
+            print("i'm not nil")
+            return _buttonAlphaLevel
+        } else{
+            print("i'm nil")
+            return 1.0
+        }
+    }
+    
+    func updateButtonAlpha(level: CGFloat){
+        _buttonAlphaLevel = level
     }
     
     func savePosts(){

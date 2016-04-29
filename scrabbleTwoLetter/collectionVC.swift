@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarDelegate {
 
@@ -16,6 +17,8 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var deletedWords = [ScrabbleWord]()
 
     var sortedDeletedWords = [ScrabbleWord]()
+    
+    var sfxFadeOut: AVAudioPlayer!
     
     override func viewDidLoad() {
         
@@ -33,6 +36,8 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         }
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
+        
+        initAudio()
  
     }
     
@@ -86,14 +91,27 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         }
 }
     
-    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+    func initAudio(){
+        do{
+            try sfxFadeOut = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fadeWord", ofType: "wav")!))
+            sfxFadeOut.prepareToPlay()
+            sfxFadeOut.volume = 2.5
+        } catch let err as NSError{
+            print(err.debugDescription)
+        }
     }
+    
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        
+        
+    }
+
 
     
     
-    
     func reset(sender: UISwipeGestureRecognizer) {
-        
+        self.sfxFadeOut.play()
+
         UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             
             sender.view?.alpha = 0
@@ -111,6 +129,7 @@ class collectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 DataService.instance.addWords(self.savedWords, deletedWord: self.deletedWords)
                 
                 self.collectionView.reloadData()
+                
                 
         }
         

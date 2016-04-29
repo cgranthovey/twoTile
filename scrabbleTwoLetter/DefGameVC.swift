@@ -24,6 +24,10 @@ class DefGameVC: GeneralGameVC {
     
     @IBOutlet weak var gameEnd: UIStackView!
     
+    @IBOutlet weak var headphonesImg: UIButton!
+    
+    
+    
     var memorizingWords = [ScrabbleWord]()
     var x: Int!
     var buttonArray = [UILabel]()
@@ -35,10 +39,18 @@ class DefGameVC: GeneralGameVC {
         memorizingWords.shuffleInPlace()
         x = 0
         memorizingWordsCount = memorizingWords.count
-
         resetGame()
         
-
+        headphones(headphonesImg)
+    }
+    
+    @IBAction func headphonesBtn (sender: UIButton){
+        if DataService.instance.buttonAlphaLevel == 1{
+            DataService.instance.updateButtonAlpha(0.5)
+        } else{
+            DataService.instance.updateButtonAlpha(1.0)
+        }
+        headphones(sender)
     }
     
     func resetGame(){
@@ -112,6 +124,7 @@ class DefGameVC: GeneralGameVC {
             wrongAnswer(sender)
         }
     }
+
     
     func resetButtonColors(){
         button1.backgroundColor = UIColor(red: 89.0/255.0, green: 133.0/255.0, blue: 203.0/255.0, alpha: 1.0)
@@ -157,7 +170,7 @@ class DefGameVC: GeneralGameVC {
     }
     
     @IBAction func removeSomeWords(sender: AnyObject){
-        var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
+        let jumpVC = navigationController?.viewControllers[1] as? UITabBarController
         self.navigationController?.popToViewController(jumpVC!, animated: true)
         jumpVC?.selectedIndex = 0
     }
