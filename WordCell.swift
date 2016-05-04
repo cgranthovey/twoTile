@@ -14,7 +14,6 @@ class WordCell: UICollectionViewCell {
     @IBOutlet weak var cell: UILabel!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var shadow: UIView!
-
     
     override func awakeFromNib() {
         self.layer.shadowColor = UIColor.blackColor().CGColor
@@ -26,32 +25,21 @@ class WordCell: UICollectionViewCell {
         
         img.clipsToBounds = true
         img.layer.cornerRadius = 5.0
-        
         img.alpha = 0.5
-    }
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-    
-    func addImageToCell(word: ScrabbleWord){
+        
 
     }
 
     
+    func hideBtn(button: UIButton){
+        print("I'm called!")
+        print(button.tag)
+        print(button.hidden)
+        button.hidden = false
+        print(button.hidden)
+
+    }
+
     
     func configureCell(word: ScrabbleWord){
         cell.text = word.word
@@ -59,7 +47,6 @@ class WordCell: UICollectionViewCell {
         ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
             self.img.image = image!
         })
-            
     }
 
 }

@@ -26,6 +26,8 @@ class GeneralGameVC: UIViewController {
             try sfxCorrectAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correctAnswer", ofType: "mp3")!))
             try sfxWrongAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrongAnswer", ofType: "mp3")!))
             
+            
+            
             sfxCorrectAnswer.prepareToPlay()
             sfxWrongAnswer.prepareToPlay()
         } catch let err as NSError{
@@ -47,8 +49,32 @@ class GeneralGameVC: UIViewController {
         button4.userInteractionEnabled = true
     }
     
+    func percentCorrect(memorizingWordCount: Int, wrongWordsCount: Int, label: UILabel){
+        
+        let percentCorrectOverTotal: Double = Double(memorizingWordCount - wrongWordsCount) / Double(memorizingWordCount)
+
+        let percentage = Int(round(percentCorrectOverTotal * 100))
+        
+        if percentage == 0 {
+            label.text = "0% - Hmmm.  You can do better than this!"
+        } else if percentage <= 50{
+            label.text = "\(percentage)% - maybe some more practice"
+        } else if percentage <= 70{
+            label.text = "\(percentage)% - at least you're above 50%"
+        } else if percentage <= 90{
+            label.text = "\(percentage)% - dang good job!"
+        } else if percentage < 100{
+            label.text = "\(percentage)% - Wow!  A student!"
+        } else{
+            label.text = "100% - Awesome job!"
+        }
+    }
+    
+    
+    
+    
     func headphones(button: UIButton){
-        var buttonAlpha = DataService.instance.buttonAlphaLevel
+        let buttonAlpha = DataService.instance.buttonAlphaLevel
         if buttonAlpha != 1{
             self.sfxCorrectAnswer.volume = 0.0
             self.sfxWrongAnswer.volume = 0.0

@@ -62,6 +62,7 @@ class DragLabel: UILabel {
                 NSNotificationCenter.defaultCenter().postNotificationName("correctDrop", object: nil)
             } else{
                 sfxWrongAnswer.play()
+                NSNotificationCenter.defaultCenter().postNotificationName("wrongDrop", object: nil)
             }
             
         }

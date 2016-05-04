@@ -26,12 +26,18 @@ class DefGameVC: GeneralGameVC {
     
     @IBOutlet weak var headphonesImg: UIButton!
     
+    @IBOutlet weak var numberOfWords: UILabel!
+    @IBOutlet weak var percentCorrectLbl: UILabel!
     
     
     var memorizingWords = [ScrabbleWord]()
     var x: Int!
     var buttonArray = [UILabel]()
     var memorizingWordsCount: Int!
+    var wrongAnswerCount: Int!
+
+    var didSelectIncorrectAnswer: Bool!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +45,12 @@ class DefGameVC: GeneralGameVC {
         memorizingWords.shuffleInPlace()
         x = 0
         memorizingWordsCount = memorizingWords.count
-        resetGame()
-        
+        didSelectIncorrectAnswer = false
+        wrongAnswerCount = 0
         headphones(headphonesImg)
+        
+        resetGame()
+
     }
     
     @IBAction func headphonesBtn (sender: UIButton){
@@ -54,6 +63,10 @@ class DefGameVC: GeneralGameVC {
     }
     
     func resetGame(){
+        
+        if didSelectIncorrectAnswer == true{
+            wrongAnswerCount = wrongAnswerCount + 1
+        }
         
         if x == memorizingWordsCount{
             x = 0
@@ -68,10 +81,19 @@ class DefGameVC: GeneralGameVC {
             label3.hidden = true
             label4.hidden = true
             tileWord.hidden = true
+            numberOfWords.hidden = true
+            
+            percentCorrect(memorizingWordsCount, wrongWordsCount: wrongAnswerCount, label: percentCorrectLbl)
+            
+            wrongAnswerCount = 0
+            didSelectIncorrectAnswer = false
             
             gameEnd.hidden = false
             
         }
+        
+        numberOfWords.text = "\(x + 1)/\(memorizingWordsCount)"
+        didSelectIncorrectAnswer = false
         
         activateButtons(button1, button2: button2, button3: button3, button4: button4)
         var currentWord = memorizingWords[x]
@@ -143,6 +165,7 @@ class DefGameVC: GeneralGameVC {
 
     
     func wrongAnswer(button: UIButton){
+        didSelectIncorrectAnswer = true
         button.backgroundColor = UIColor.redColor()
         sfxWrongAnswer.play()
     }
@@ -161,6 +184,7 @@ class DefGameVC: GeneralGameVC {
         label3.hidden = false
         label4.hidden = false
         tileWord.hidden = false
+        numberOfWords.hidden = false
         
         gameEnd.hidden = true
     }
@@ -172,7 +196,7 @@ class DefGameVC: GeneralGameVC {
     @IBAction func removeSomeWords(sender: AnyObject){
         let jumpVC = navigationController?.viewControllers[1] as? UITabBarController
         self.navigationController?.popToViewController(jumpVC!, animated: true)
-        jumpVC?.selectedIndex = 0
+        jumpVC?.selectedIndex = 1
     }
     
     @IBAction func backButton(sender: AnyObject){

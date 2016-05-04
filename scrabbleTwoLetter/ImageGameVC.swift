@@ -30,6 +30,9 @@ class ImageGameVC: GeneralGameVC {
     var x: Int!
     var numberOfPlays: Int!
     var startTimer: NSTimer!
+    var wrongAnswerCount: Int!
+    var didSelectIncorrectAnswer: Bool!
+
     
     @IBOutlet weak var firstWord: DragLabel!
 
@@ -48,6 +51,13 @@ class ImageGameVC: GeneralGameVC {
     @IBOutlet weak var gameEnd: UIStackView!
     
     @IBOutlet weak var headphonesImg: UIButton!
+    @IBOutlet weak var numberOfWords: UILabel!
+    @IBOutlet weak var percentCorrectLbl: UILabel!
+
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +68,11 @@ class ImageGameVC: GeneralGameVC {
         gameWords.shuffleInPlace()
         x = 0
         numberOfPlays = 0
+        didSelectIncorrectAnswer = false
+        wrongAnswerCount = 0
         reset()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "timer", name: "correctDrop", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "badDropCounter", name: "wrongDrop", object: nil)
         
         headphones(headphonesImg)
 
@@ -76,6 +89,10 @@ class ImageGameVC: GeneralGameVC {
         headphones(sender)
     }
     
+    func badDropCounter(){
+        didSelectIncorrectAnswer = true
+    }
+    
     func timer(){
         if startTimer != nil{
             startTimer.invalidate()
@@ -85,17 +102,30 @@ class ImageGameVC: GeneralGameVC {
     
     func reset(){
         
+        if didSelectIncorrectAnswer == true{
+            wrongAnswerCount = wrongAnswerCount + 1
+        }
+        
         if numberOfPlays == gameWords.count{
+            
+            percentCorrect(gameWords.count, wrongWordsCount: wrongAnswerCount, label: percentCorrectLbl)
             
             imageStackView.hidden = true
             firstWord.hidden = true
             gameEnd.hidden = false
+            numberOfWords.hidden = true
+
             numberOfPlays = 0
-            
+            wrongAnswerCount = 0
             gameWords.shuffleInPlace()
             x = 0
             
         }
+        
+        didSelectIncorrectAnswer = false
+        
+        numberOfWords.text = "\(numberOfPlays + 1)/\(gameWords.count)"
+
         
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             self.firstImg.alpha = 0
@@ -167,7 +197,7 @@ class ImageGameVC: GeneralGameVC {
     @IBAction func playAgain(sender: AnyObject!){
         imageStackView.hidden = false
         firstWord.hidden = false
-        
+        numberOfWords.hidden = false
         gameEnd.hidden = true
     }
     
@@ -178,7 +208,7 @@ class ImageGameVC: GeneralGameVC {
     @IBAction func deleteWords(sender: AnyObject!){
         var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
         self.navigationController?.popToViewController((jumpVC)!, animated: true)
-        jumpVC?.selectedIndex = 0
+        jumpVC?.selectedIndex = 1
     }
     
     @IBAction func backButton(sender: AnyObject!){

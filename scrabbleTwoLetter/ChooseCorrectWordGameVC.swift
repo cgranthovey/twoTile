@@ -17,6 +17,9 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     @IBOutlet weak var whichIsAWordLbl: UILabel!
     @IBOutlet weak var gameEnd: UIStackView!
     @IBOutlet weak var headphonesImg: UIButton!
+    @IBOutlet weak var numberOfWords: UILabel!
+    @IBOutlet weak var percentCorrectLbl: UILabel!
+    
     
     var memorizingWords = [ScrabbleWord]()
     var fakeWords = ["Ac", "Af", "Ak", "Ap", "Av", "Br", "Ci", "Da", "Di", "Eg", "Ek", "Ew", "Fi", "Fo", "Ga", "Ge", "Gi", "Gu", "Hu", "Ia", "Ib", "Ie", "Ig", "Ik", "Il", "Im", "Io", "Ip", "Iz", "Ja", "Je", "Ji", "Ju", "Ke", "Ko", "Ku", "Le", "Lu", "Mr", "Ni", "Ny", "Oa", "Ob", "Og", "Ok", "Ot", "Oz", "Po", "Pu", "Py", "Qa", "Qo", "Ra", "Ri", "Ro", "Ru", "Ry", "Sa", "Se", "Sm", "Su", "Te", "Ts", "Tu", "Ub", "Ud", "Uf", "Ug", "Uk", "Ur", "Va", "Ve", "Vi", "Vo", "Vu", "Wa", "Wi", "Wy", "Wu", "Xa", "Xy", "Xo", "Yi", "Yu", "Ym", "Zo", "Zi"]
@@ -24,6 +27,9 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     var x: Int = 0
     var shortArray: [UIButton]!
     var memorizingWordsCount: Int!
+    var wrongAnswerCount: Int!
+    
+    var didSelectIncorrectAnswer: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +38,11 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
         fakeWords.shuffleInPlace()
         memorizingWordsCount = memorizingWords.count
         
-        resetGame()
-        
+        didSelectIncorrectAnswer = false
+        wrongAnswerCount = 0
         headphones(headphonesImg)
 
+        resetGame()
     }
     
     
@@ -52,19 +59,32 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     
     func resetGame(){
         
+        
+        if didSelectIncorrectAnswer == true{
+            wrongAnswerCount = wrongAnswerCount + 1
+        }
+        
         if x == memorizingWordsCount{
             x = 0
             memorizingWords.shuffleInPlace()
             fakeWords.shuffleInPlace()
-            resetGame()
             button1.hidden = true
             button2.hidden = true
             button3.hidden = true
             button4.hidden = true
+            numberOfWords.hidden = true
             whichIsAWordLbl.hidden = true
             gameEnd.hidden = false
-            return
+            
+            percentCorrect(memorizingWordsCount, wrongWordsCount: wrongAnswerCount, label: percentCorrectLbl)
+            
+            wrongAnswerCount = 0
+            didSelectIncorrectAnswer = false
         }
+        
+        didSelectIncorrectAnswer = false
+        
+        numberOfWords.text = "\(x + 1)/\(memorizingWordsCount)"
         
         activateButtons(button1, button2: button2, button3: button3, button4: button4)
    
@@ -80,11 +100,6 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
         shortArray[3].setTitle(fakeWords[2], forState: .Normal)
         fakeWords.shuffleInPlace()
         x = x + 1
-        
-        
-
-        
-        
     }
     
     func resetButtonColors(){
@@ -144,8 +159,11 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     
     func wrongAnswer(button: UIButton){
         
+        didSelectIncorrectAnswer = true
+        
         button.backgroundColor = UIColor.redColor()
         sfxWrongAnswer.play()
+        
         
 //        UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
 //            button.backgroundColor = UIColor.redColor()
@@ -166,6 +184,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
         self.button3.hidden = false
         self.button4.hidden = false
         self.whichIsAWordLbl.hidden = false
+        numberOfWords.hidden = false
         
 //
 //        UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
@@ -198,7 +217,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     @IBAction func removeSomeWords(sender: AnyObject){
         var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
         self.navigationController?.popToViewController((jumpVC)!, animated: true)
-        jumpVC?.selectedIndex = 0
+        jumpVC?.selectedIndex = 1
     }
     
     @IBAction func backButton(sender: AnyObject){

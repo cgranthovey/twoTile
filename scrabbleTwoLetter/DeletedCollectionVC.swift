@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeletedCollectionVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -57,14 +57,29 @@ class DeletedCollectionVC: UIViewController, UICollectionViewDataSource, UIColle
     }
 
     func moveImg(sender: UISwipeGestureRecognizer){
-        let cell = sender.view as! UICollectionViewCell
-        let i = self.collectionView.indexPathForCell(cell)!.item
-        savedScrabbleWords.append(deletedScrabbleWords[i])
-        deletedScrabbleWords.removeAtIndex(i)
-        savedScrabbleWords.sortInPlace({$0.word < $1.word})
         
-        DataService.instance.addWords(savedScrabbleWords, deletedWord: deletedScrabbleWords)
-        collectionView.reloadData()
+        sfxFadeOut.play()
+        
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
+            
+            sender.view?.alpha = 0
+            
+            }) { (finished: Bool) -> Void in
+                
+                let cell = sender.view as! UICollectionViewCell
+                let i = self.collectionView.indexPathForCell(cell)!.item
+                self.savedScrabbleWords.append(self.deletedScrabbleWords[i])
+                self.deletedScrabbleWords.removeAtIndex(i)
+                self.savedScrabbleWords.sortInPlace({$0.word < $1.word})
+                
+                DataService.instance.addWords(self.savedScrabbleWords, deletedWord: self.deletedScrabbleWords)
+                self.collectionView.reloadData()
+                
+        }
+        
+        
+        
+
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
