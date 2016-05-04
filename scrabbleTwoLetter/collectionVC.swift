@@ -36,6 +36,8 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         }
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
+        
+        myDeleteButtonArray = [UIButton]()
  
     }
     
@@ -68,14 +70,12 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     
     
     var myButton: UIButton!
+    var myDeleteButtonArray: [UIButton]!
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
             cell.configureCell(DataService.instance.savedWords[indexPath.row])
-            
-            
-
             
             let cSelector = Selector("reset:")
             let leftSwipe = UISwipeGestureRecognizer(target: self, action: cSelector )
@@ -86,22 +86,15 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
             rightSwipe.direction = .Right
             cell.addGestureRecognizer(rightSwipe)
             
-            
-            
-            
-            
-            myButton = UIButton(frame: CGRectMake(3, 3, 20, 20))
-            myButton.setTitle("X", forState: .Normal)
+            myButton = UIButton(frame: CGRectMake(77, 3, 20, 20))
             myButton.setBackgroundImage(UIImage(named: "cancelCircle"), forState: .Normal)
             myButton.tag = indexPath.row
-            myButton.alpha = 1.0
+            myButton.alpha = 0.4
             myButton.hidden = true
             myButton.contentMode = UIViewContentMode.ScaleAspectFit
             myButton.addTarget(self, action: "reset:", forControlEvents: .TouchUpInside)
+            myDeleteButtonArray.append(myButton)
             cell.addSubview(myButton)
-            
-            
-            
             
             return cell
         } else {
@@ -112,17 +105,15 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     
     
     @IBAction func editBtn(sender: AnyObject) {
-        print("myButton's alpha = \(myButton.alpha)")
-        
-        print("view with tag\(myButton.viewWithTag(1)?.alpha)")
-        
-        if let buttonPractice = myButton.viewWithTag(1) as? UIButton{
-            WordCell().hideBtn(buttonPractice)
+        for x in myDeleteButtonArray{
+            if x.hidden == true{
+                x.hidden = false
+                sender.setTitle("Done", forState: .Normal)
+            } else {
+                x.hidden = true
+                sender.setTitle("Edit", forState: .Normal)
+            }
         }
-        
-
-        myButton.viewWithTag(0)?.hidden = true
-        sender.setTitle("Done", forState: .Normal)
     }
     
 

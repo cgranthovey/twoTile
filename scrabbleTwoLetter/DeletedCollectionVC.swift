@@ -76,10 +76,6 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
                 self.collectionView.reloadData()
                 
         }
-        
-        
-        
-
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {

@@ -12,9 +12,10 @@ class GameVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataService.instance.loadPosts()
+
         
-        // Do any additional setup after loading the view.
-    }
+}
 
     @IBAction func homeButton(sender: AnyObject){
         self.navigationController?.popToRootViewControllerAnimated(true)

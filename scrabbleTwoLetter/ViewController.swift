@@ -26,7 +26,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
-        
         searchBar.returnKeyType = UIReturnKeyType.Done
         words = StoreWord().getWord()
         

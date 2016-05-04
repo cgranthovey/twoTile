@@ -21,6 +21,9 @@ class WordDetail: UIViewController {
     @IBOutlet weak var greyView: UIView!
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var wordDetailContainer: UIView!
+    
+    @IBOutlet weak var arrowContainer: UIView!
     
     var tappedWord: ScrabbleWord!
     var sfxSwhooshUp: AVAudioPlayer!
@@ -46,6 +49,10 @@ class WordDetail: UIViewController {
         downSwipe.direction = .Down
         view.addGestureRecognizer(downSwipe)
         
+        arrowContainer.layer.cornerRadius = arrowContainer.frame.width / 2
+        arrowContainer.alpha = 0.8
+        arrowContainer.backgroundColor = UIColor.lightGrayColor()
+        
         initAudio()
         sfxSwhooshUp.play()
     }
@@ -64,20 +71,11 @@ class WordDetail: UIViewController {
     }
     
     
-
-
-    
-    
-    
-    
-    
-    
     
     func handleSwipe(sender: UISwipeGestureRecognizer){
         if sender.direction == .Down{
             sfxSwhooshDown.play()
             dismissViewControllerAnimated(true, completion: nil)
-        
         }
     }
     
