@@ -33,12 +33,9 @@ class DataService{
     }
     
     var buttonAlphaLevel: CGFloat{
-        print("called before")
         if _buttonAlphaLevel != nil{
-            print("i'm not nil")
             return _buttonAlphaLevel
         } else{
-            print("i'm nil")
             return 1.0
         }
     }

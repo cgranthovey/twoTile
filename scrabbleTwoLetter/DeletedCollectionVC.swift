@@ -12,26 +12,32 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var deletedScrabbleWords: [ScrabbleWord]!
-    var savedScrabbleWords: [ScrabbleWord]!
+    var deletedScrabbleWords = [ScrabbleWord]()
+    var savedScrabbleWords = [ScrabbleWord]()
     
     override func viewDidLoad() {
-        deletedScrabbleWords = [ScrabbleWord]()
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+
         myDeleteButtonArray = [UIButton]()
+        
+        
+        
+        
     }
 
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(false)
         collectionView.reloadData()
         deletedScrabbleWords = DataService.instance.deletedWords
         savedScrabbleWords = DataService.instance.savedWords
     }
     
+    
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return deletedScrabbleWords.count
+        return DataService.instance.deletedWords.count
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -73,7 +79,7 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
             myDeleteButtonArray.append(myButton)
             cell.addSubview(myButton)
             
-            
+            print("I'm creating a beautiful cell!")
             
             return cell
             

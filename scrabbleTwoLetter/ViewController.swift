@@ -29,12 +29,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchBar.returnKeyType = UIReturnKeyType.Done
         words = StoreWord().getWord()
         
-
+        
         
         let background1 = CAGradientLayer().whiteToRedColor()
         background1.frame = self.bottomBorderBox.bounds
         self.bottomBorderBox.layer.insertSublayer(background1, atIndex: 0)
+        
     }
+    
+
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -68,7 +71,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == nil || searchBar.text == ""{
             inSearchMode = false
-            view.endEditing(true)
             tableView.reloadData()
         } else {
             inSearchMode = true
@@ -76,11 +78,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             filteredWords = words.filter({$0.word.lowercaseString.rangeOfString(lower) != nil})
             tableView.reloadData()
         }
+
+    }
+    
+    
+//    func dismissKeyboard() {
+//        view.endEditing(true)
+//    }
+//    
+//    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+//    view.addGestureRecognizer(tap)
+    
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = false
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         view.endEditing(true)
     }
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let word: ScrabbleWord!

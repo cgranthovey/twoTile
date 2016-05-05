@@ -7,42 +7,33 @@
 //
 
 import UIKit
-import AVFoundation
 
-class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarDelegate {
+class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var allWords = [ScrabbleWord]()
     var savedWords = [ScrabbleWord]()
     var deletedWords = [ScrabbleWord]()
 
     var sortedDeletedWords = [ScrabbleWord]()
+    var myButton: UIButton!
+    var myDeleteButtonArray: [UIButton]!
     
-    
-    override func viewDidLoad() {
-        
-        allWords = StoreWord().getWord()
-        
+    override func viewDidLoad() {        
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        DataService.instance.loadPosts()
-        if DataService.instance.deletedWords.count == 0{
-
-            DataService.instance.addWords(allWords, deletedWord: [ScrabbleWord]())
-        }
-        savedWords = DataService.instance.savedWords
-        deletedWords = DataService.instance.deletedWords
-        
         myDeleteButtonArray = [UIButton]()
- 
     }
     
+    
+    
     override func viewDidAppear(animated: Bool) {
-        collectionView.reloadData()
+        savedWords = DataService.instance.savedWords
+        deletedWords = DataService.instance.deletedWords
+//        collectionView.reloadData()                           this line was causing data to load twice, I think collection view auto reloads each time viewDidAppear.  This caused images to flash
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -67,11 +58,6 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         }
     }
     
-    
-    
-    var myButton: UIButton!
-    var myDeleteButtonArray: [UIButton]!
-    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
@@ -93,8 +79,6 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         }
 }
     
-    
-    
     @IBAction func editBtn(sender: UIButton) {
 
             if sender.titleForState(.Normal) == "Edit"{
@@ -111,26 +95,22 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
  
     }
     
-
     func reset(button: UIButton) {
         self.sfxFadeOut.play()
         
         UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             
-            
             button.superview?.alpha = 0
             
             }) { (finished: Bool) -> Void in
-                
                 let cell = button.superview as! UICollectionViewCell
                 let i = self.collectionView.indexPathForCell(cell)!.item
-                
+                print("indexpath for cell\(i)")
                 self.deletedWords.append(self.savedWords[i])
                 self.savedWords.removeAtIndex(i)
                 self.deletedWords.sortInPlace({$0.word < $1.word})
                 
                 DataService.instance.addWords(self.savedWords, deletedWord: self.deletedWords)
-                DataService.instance.loadPosts()
                 self.collectionView.reloadData()
         }
     }
@@ -139,9 +119,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
     }
-    
-    var collectionViewCell: UICollectionViewCell!
-    
+        
     @IBAction func homeButton(sender: AnyObject){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
