@@ -35,7 +35,6 @@ class WordDetail: UIViewController {
         word.text = tappedWord.word
         definition.text = tappedWord.definition
         partOfSpeech.text = tappedWord.partOfSpeech
-        
         image.clipsToBounds = true
         
         ImageLoader.sharedLoader.imageForUrl(tappedWord.image, completionHandler:{(image: UIImage?, url: String) in

@@ -76,20 +76,11 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
             cell.configureCell(DataService.instance.savedWords[indexPath.row])
-            
-            let cSelector = Selector("reset:")
-            let leftSwipe = UISwipeGestureRecognizer(target: self, action: cSelector )
-            leftSwipe.direction = UISwipeGestureRecognizerDirection.Left
-            cell.addGestureRecognizer(leftSwipe)
-                
-            let rightSwipe = UISwipeGestureRecognizer(target: self, action: cSelector)
-            rightSwipe.direction = .Right
-            cell.addGestureRecognizer(rightSwipe)
-            
+
             myButton = UIButton(frame: CGRectMake(77, 3, 20, 20))
             myButton.setBackgroundImage(UIImage(named: "cancelCircle"), forState: .Normal)
             myButton.tag = indexPath.row
-            myButton.alpha = 0.4
+            myButton.alpha = 0.6
             myButton.hidden = true
             myButton.contentMode = UIViewContentMode.ScaleAspectFit
             myButton.addTarget(self, action: "reset:", forControlEvents: .TouchUpInside)
@@ -104,16 +95,20 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     
     
     
-    @IBAction func editBtn(sender: AnyObject) {
-        for x in myDeleteButtonArray{
-            if x.hidden == true{
-                x.hidden = false
+    @IBAction func editBtn(sender: UIButton) {
+
+            if sender.titleForState(.Normal) == "Edit"{
                 sender.setTitle("Done", forState: .Normal)
-            } else {
-                x.hidden = true
+                for x in myDeleteButtonArray{
+                    x.hidden = false
+                }
+            } else{
                 sender.setTitle("Edit", forState: .Normal)
+                for x in myDeleteButtonArray{
+                    x.hidden = true
+                }
             }
-        }
+ 
     }
     
 
@@ -132,11 +127,10 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
                 
                 self.deletedWords.append(self.savedWords[i])
                 self.savedWords.removeAtIndex(i)
-                
                 self.deletedWords.sortInPlace({$0.word < $1.word})
                 
                 DataService.instance.addWords(self.savedWords, deletedWord: self.deletedWords)
-                
+                DataService.instance.loadPosts()
                 self.collectionView.reloadData()
         }
     }

@@ -21,6 +21,7 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        myDeleteButtonArray = [UIButton]()
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -37,18 +38,43 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
         return 1
     }
     
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("collectionToWordDetail2", sender: DataService.instance.deletedWords[indexPath.row])
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "collectionToWordDetail2"{
+            if let controller = segue.destinationViewController as? WordDetail{
+                if let tempWord = sender as? ScrabbleWord{
+                    controller.tappedWord = tempWord
+                }
+            }
+        }
+    }
+    
+    
+    var myButton: UIButton!
+    var myDeleteButtonArray: [UIButton]!
+    
+    
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
             cell.configureCell(deletedScrabbleWords[indexPath.row])
             
-            let iSelector = Selector("moveImg:")
-            let leftSwipe = UISwipeGestureRecognizer(target: self, action: iSelector)
-            leftSwipe.direction = UISwipeGestureRecognizerDirection.Left
-            let rightSwipe = UISwipeGestureRecognizer(target: self, action: iSelector)
-            rightSwipe.direction = UISwipeGestureRecognizerDirection.Right
-            cell.addGestureRecognizer(rightSwipe)
-            cell.addGestureRecognizer(leftSwipe)
-                
+            myButton = UIButton(frame: CGRectMake(67, 0, 30, 30))
+            myButton.setBackgroundImage(UIImage(named: "backArrowFilledBlack"), forState: .Normal)
+            myButton.tag = indexPath.row
+            myButton.alpha = 0.8
+            myButton.hidden = true
+            myButton.contentMode = UIViewContentMode.ScaleAspectFit
+            myButton.addTarget(self, action: "moveImg:", forControlEvents: .TouchUpInside)
+            myDeleteButtonArray.append(myButton)
+            cell.addSubview(myButton)
+            
+            
+            
             return cell
             
         } else {
@@ -56,17 +82,35 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
         }
     }
 
-    func moveImg(sender: UISwipeGestureRecognizer){
+    
+    @IBAction func editBtn(sender: UIButton) {
+        
+        if sender.titleForState(.Normal) == "Edit"{
+            sender.setTitle("Done", forState: .Normal)
+            for x in myDeleteButtonArray{
+                x.hidden = false
+            }
+        } else{
+            sender.setTitle("Edit", forState: .Normal)
+            for x in myDeleteButtonArray{
+                x.hidden = true
+            }
+        }
+        
+    }
+    
+    
+    func moveImg(button: UIButton){
         
         sfxFadeOut.play()
         
         UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             
-            sender.view?.alpha = 0
+            button.superview?.alpha = 0
             
             }) { (finished: Bool) -> Void in
                 
-                let cell = sender.view as! UICollectionViewCell
+                let cell = button.superview as! UICollectionViewCell
                 let i = self.collectionView.indexPathForCell(cell)!.item
                 self.savedScrabbleWords.append(self.deletedScrabbleWords[i])
                 self.deletedScrabbleWords.removeAtIndex(i)
