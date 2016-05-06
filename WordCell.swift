@@ -92,9 +92,9 @@ class WordCell: UICollectionViewCell {
     func configureCell(word: ScrabbleWord){
         cell.text = word.word
 
-        ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
-            self.img.image = image!
-        })
+       // ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
+       //     self.img.image = image!
+       // })
     }
 
 }

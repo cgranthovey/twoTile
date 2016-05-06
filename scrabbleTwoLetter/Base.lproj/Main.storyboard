@@ -180,15 +180,15 @@
                                     <action selector="learnWordBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wjo-Rk-52J"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjr-OB-hqP">
-                                <rect key="frame" x="543" y="553" width="21" height="21"/>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjr-OB-hqP">
+                                <rect key="frame" x="543" y="551" width="24" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="21" id="4SA-A2-vJo"/>
+                                    <constraint firstAttribute="width" constant="24" id="4SA-A2-vJo"/>
                                     <constraint firstAttribute="width" constant="46" id="9ZM-Cl-Gsj"/>
-                                    <constraint firstAttribute="height" constant="21" id="C7e-rr-2ws"/>
+                                    <constraint firstAttribute="height" constant="24" id="C7e-rr-2ws"/>
                                     <constraint firstAttribute="height" constant="30" id="R1G-Cq-4yS"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="Info-100"/>
+                                <state key="normal" title="Button" image="infoGrey"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="9ZM-Cl-Gsj"/>
@@ -1989,12 +1989,12 @@
         <image name="Book Stack-52" width="40" height="40"/>
         <image name="Brain Filled-50" width="30" height="30"/>
         <image name="Headphones Filled-50" width="50" height="50"/>
-        <image name="Info-100" width="100" height="100"/>
+        <image name="infoGrey" width="96" height="96"/>
         <image name="rightArrow" width="256" height="256"/>
         <image name="starCurved" width="43" height="43"/>
         <image name="whiteDownArrow" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ckf-ee-xI3"/>
+        <segue reference="MP0-Qr-5mL"/>
     </inferredMetricsTieBreakers>
 </document>

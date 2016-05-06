@@ -16,25 +16,40 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
     var savedScrabbleWords = [ScrabbleWord]()
     
     override func viewDidLoad() {
+        print("1")
         super.viewDidLoad()
+        print("2")
         collectionView.delegate = self
+        print("3")
         collectionView.dataSource = self
-
+        print("4")
         myDeleteButtonArray = [UIButton]()
+        print("5")
         
-        
+        deletedScrabbleWords = DataService.instance.deletedWords
+        print("6")
+        savedScrabbleWords = DataService.instance.savedWords
+        print("7")
+        print("deleted scrabble words count \(deletedScrabbleWords.count)")
+        print("8")
+        collectionView.reloadData()
+        print("9")
         
         
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(false)
-        collectionView.reloadData()
+    override func viewWillAppear(animated: Bool) {
+        print("10")
+        super.viewWillAppear(true)
+        print("11")
         deletedScrabbleWords = DataService.instance.deletedWords
         savedScrabbleWords = DataService.instance.savedWords
+        print("deleted scrabble words count \(deletedScrabbleWords.count)")
+
+        collectionView.reloadData()
+        
     }
-    
-    
+   
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return DataService.instance.deletedWords.count

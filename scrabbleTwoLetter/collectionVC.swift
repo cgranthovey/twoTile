@@ -29,12 +29,14 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     }
     
     
-    
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidAppear(true)
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
-//        collectionView.reloadData()                           this line was causing data to load twice, I think collection view auto reloads each time viewDidAppear.  This caused images to flash
+        //        collectionView.reloadData()                           this line was causing data to load twice, I think collection view auto reloads each time viewDidAppear.  This caused images to flash
     }
+    
+    
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -66,7 +68,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
             myButton = UIButton(frame: CGRectMake(77, 3, 20, 20))
             myButton.setBackgroundImage(UIImage(named: "cancelCircle"), forState: .Normal)
             myButton.tag = indexPath.row
-            myButton.alpha = 0.6
+            myButton.alpha = 0.7
             myButton.hidden = true
             myButton.contentMode = UIViewContentMode.ScaleAspectFit
             myButton.addTarget(self, action: "reset:", forControlEvents: .TouchUpInside)
