@@ -557,6 +557,7 @@
                     <tabBarItem key="tabBarItem" title="Learning" image="Book Stack-52" id="DGo-Ld-H8b"/>
                     <connections>
                         <outlet property="collectionView" destination="mvw-AR-wn6" id="WdS-a5-MJV"/>
+                        <outlet property="editBtnOutlet" destination="nY2-4J-ypE" id="Uqm-gs-AAg"/>
                         <segue destination="O0u-zc-82d" kind="presentation" identifier="collectionToWordDetail" modalPresentationStyle="overCurrentContext" id="ckf-ee-xI3"/>
                     </connections>
                 </viewController>
@@ -1668,7 +1669,6 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="Edit"/>
                                         <connections>
-                                            <action selector="editBtn:" destination="Oig-Qd-gam" eventType="touchUpInside" id="YUt-Ds-s8C"/>
                                             <action selector="editBtn:" destination="AWE-9s-rVC" eventType="touchUpInside" id="sGg-Ki-ygf"/>
                                         </connections>
                                     </button>
@@ -1767,6 +1767,7 @@
                     <tabBarItem key="tabBarItem" title="Mastered" image="starCurved" id="Ath-Pf-bRP"/>
                     <connections>
                         <outlet property="collectionView" destination="eJi-aG-1kw" id="n6y-eJ-uqs"/>
+                        <outlet property="editBtnOutlet" destination="Vh8-CL-Pbm" id="9av-H0-9N9"/>
                         <segue destination="O0u-zc-82d" kind="presentation" identifier="collectionToWordDetail2" modalPresentationStyle="overCurrentContext" id="sKm-SK-W2R"/>
                     </connections>
                 </viewController>
@@ -1995,6 +1996,6 @@
         <image name="whiteDownArrow" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MP0-Qr-5mL"/>
+        <segue reference="sKm-SK-W2R"/>
     </inferredMetricsTieBreakers>
 </document>

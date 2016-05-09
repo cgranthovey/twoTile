@@ -11,43 +11,46 @@ import UIKit
 class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var editBtnOutlet: UIButton!
+    
     
     var deletedScrabbleWords = [ScrabbleWord]()
     var savedScrabbleWords = [ScrabbleWord]()
     
+    
     override func viewDidLoad() {
-        print("1")
         super.viewDidLoad()
-        print("2")
-        collectionView.delegate = self
-        print("3")
-        collectionView.dataSource = self
-        print("4")
         myDeleteButtonArray = [UIButton]()
-        print("5")
-        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         deletedScrabbleWords = DataService.instance.deletedWords
-        print("6")
         savedScrabbleWords = DataService.instance.savedWords
-        print("7")
-        print("deleted scrabble words count \(deletedScrabbleWords.count)")
-        print("8")
-        collectionView.reloadData()
-        print("9")
-        
         
     }
 
+
     override func viewWillAppear(animated: Bool) {
-        print("10")
         super.viewWillAppear(true)
-        print("11")
         deletedScrabbleWords = DataService.instance.deletedWords
         savedScrabbleWords = DataService.instance.savedWords
-        print("deleted scrabble words count \(deletedScrabbleWords.count)")
+        collectionView.reloadData()   //this reload data seems to fully execute after the view will appear is completed
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        editButtonOnAppear()
 
-        collectionView.reloadData()
-        
+    }
+    
+    func editButtonOnAppear(){
+        if editBtnOutlet.titleForState(.Normal) == "Edit"{
+            for x in myDeleteButtonArray{
+                x.hidden = true
+            }
+        }else{
+            for x in myDeleteButtonArray{
+                x.hidden = false
+            }
+        }
     }
    
     
@@ -58,7 +61,6 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
-    
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("collectionToWordDetail2", sender: DataService.instance.deletedWords[indexPath.row])
@@ -78,12 +80,9 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
     var myButton: UIButton!
     var myDeleteButtonArray: [UIButton]!
     
-    
-    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
             cell.configureCell(deletedScrabbleWords[indexPath.row])
-            
             myButton = UIButton(frame: CGRectMake(67, 0, 30, 30))
             myButton.setBackgroundImage(UIImage(named: "backArrowFilledBlack"), forState: .Normal)
             myButton.tag = indexPath.row
@@ -94,7 +93,6 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
             myDeleteButtonArray.append(myButton)
             cell.addSubview(myButton)
             
-            print("I'm creating a beautiful cell!")
             
             return cell
             
@@ -103,7 +101,6 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
         }
     }
 
-    
     @IBAction func editBtn(sender: UIButton) {
         
         if sender.titleForState(.Normal) == "Edit"{
@@ -117,30 +114,42 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
                 x.hidden = true
             }
         }
-        
     }
     
-    
     func moveImg(button: UIButton){
+
         
-        sfxFadeOut.play()
+        self.sfxFadeOut.play()
         
-        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
-            
-            button.superview?.alpha = 0
-            
-            }) { (finished: Bool) -> Void in
-                
-                let cell = button.superview as! UICollectionViewCell
-                let i = self.collectionView.indexPathForCell(cell)!.item
-                self.savedScrabbleWords.append(self.deletedScrabbleWords[i])
-                self.deletedScrabbleWords.removeAtIndex(i)
-                self.savedScrabbleWords.sortInPlace({$0.word < $1.word})
-                
-                DataService.instance.addWords(self.savedScrabbleWords, deletedWord: self.deletedScrabbleWords)
-                self.collectionView.reloadData()
-                
-        }
+        
+        let cell = button.superview as! UICollectionViewCell
+        let i = self.collectionView.indexPathForCell(cell)!
+        self.savedScrabbleWords.append(self.deletedScrabbleWords[i.item])
+        self.deletedScrabbleWords.removeAtIndex(i.item)
+        self.savedScrabbleWords.sortInPlace({$0.word < $1.word})
+
+        DataService.instance.addWords(savedScrabbleWords, deletedWord: deletedScrabbleWords)
+        self.collectionView.deleteItemsAtIndexPaths([i])
+        
+        
+        
+        
+        
+//        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
+//            
+//            button.superview?.alpha = 0
+//            
+//            }) { (finished: Bool) -> Void in
+//                
+//                let cell = button.superview as! UICollectionViewCell
+//                let i = self.collectionView.indexPathForCell(cell)!.item
+//                self.savedScrabbleWords.append(self.deletedScrabbleWords[i])
+//                self.deletedScrabbleWords.removeAtIndex(i)
+//                self.savedScrabbleWords.sortInPlace({$0.word < $1.word})
+//                
+//                DataService.instance.addWords(self.savedScrabbleWords, deletedWord: self.deletedScrabbleWords)
+//                self.collectionView.reloadData()
+//        }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {

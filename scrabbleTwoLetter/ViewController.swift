@@ -99,7 +99,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.searchBar.text = ""
+        inSearchMode = false
+
         self.searchBar.resignFirstResponder()
+        tableView.reloadData()
+
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {

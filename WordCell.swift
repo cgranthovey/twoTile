@@ -39,6 +39,7 @@ class WordCell: UICollectionViewCell {
 //        self.layer.borderWidth = 1.0
 //        self.layer.borderColor = UIColor.blackColor().CGColor
         
+
         self.layer.shadowColor = UIColor.darkGrayColor().CGColor
         self.backgroundColor = UIColor.clearColor()
         self.layer.shadowOffset = CGSize(width: 2, height: 2)
@@ -52,7 +53,6 @@ class WordCell: UICollectionViewCell {
         shadow.layer.borderWidth = 1.0
         shadow.layer.masksToBounds = true
         shadow.backgroundColor = UIColor.clearColor()
-        
         
         
         
@@ -91,7 +91,6 @@ class WordCell: UICollectionViewCell {
     
     func configureCell(word: ScrabbleWord){
         cell.text = word.word
-
        // ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
        //     self.img.image = image!
        // })

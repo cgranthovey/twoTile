@@ -46,28 +46,35 @@ class StoreWord {
 //    private var _fe = ScrabbleWord(word: "Fe", partOfSpeech: "noun", definition: "hebrew letter", image: "http://jewishstudies.washington.edu/wp-content/uploads/2014/07/biblical_hebrew_modern_hebrew.jpg")
 //    private var _fy = ScrabbleWord(word: "Fy", partOfSpeech: "expression", definition: "an interjection which represents disgust", image: "http://img.lum.dolimg.com/v1/images/au_character_insideout_bio_disgust_b2c9b79d.jpeg?region=0,0,600,600&width=320")
 //    private var _gi = ScrabbleWord(word: "Gi", partOfSpeech: "noun", definition: "clothing worn while practicing Judo", image: "http://judogi.co.uk/1612-thickbox_default/adidas-club-judo-gi.jpg")
-//    private var _go = ScrabbleWord(word: "Go", partOfSpeech: "Verb", definition: "To depart", image: "http://1000awesomethings.com/wp-content/uploads/2011/09/driving-your-car.jpg")
+//    private var _go = ScrabbleWord(word: "Go", partOfSpeech: "verb", definition: "To depart", image: "http://1000awesomethings.com/wp-content/uploads/2011/09/driving-your-car.jpg")
 //    private var _gu = ScrabbleWord(word: "Gu", partOfSpeech: "noun", definition: "A type of violin from Shetland", image: "http://media.guitarcenter.com/is/image/MMGS7/My-Violin-Starter-Pack-1-2-Size/H73551000005000-00-500x500.jpg")
 //    private var _ha = ScrabbleWord(word: "Ha", partOfSpeech: "exclamation", definition: "A sound made when surpised", image: "http://images.inmagine.com/400nwm/iris/cusprm-039/ptg02191077.jpg")
 //    private var _he = ScrabbleWord(word: "He", partOfSpeech: "noun", definition: "male", image: "http://images.clipartpanda.com/male-clipart-male-bathroom-bw-w-o-boarder-md.png")
 //    private var _hi = ScrabbleWord(word: "Hi", partOfSpeech: "exclamation", definition: "Used as a greeting.", image: "http://wtbuzz.com/wp-content/uploads/2014/08/cute-animals-saying-hi-4__605.jpg")
 //    private var _hm = ScrabbleWord(word: "Hm", partOfSpeech: "interjection", definition: "Used when someone is thinking", image: "http://alllies.org/en/wp-content/uploads/2015/02/monkey.jpg")
 //    private var _ho = ScrabbleWord(word: "Ho", partOfSpeech: "interjection", definition: "Used to bring attention", image: "http://www.idology.com/wp-content/uploads/2013/12/bigstock-Santa-Claus-show-ok-isolated-o-38669275.jpg")
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+//    private var _id = ScrabbleWord(word: "Id", partOfSpeech: "noun", definition: "Unconcious part of psyche responsible for impulses which lust after pleasure", image: "http://www.simplypsychology.org/tripartite-personality.jpg")
+//    private var _if = ScrabbleWord(word: "If", partOfSpeech: "conjunction", definition: "In the incident that", image: "http://s.marketwatch.com/public/resources/MWimages/MW-BS549_flying_MG_20140114161056.jpg")
+//    private var _in = ScrabbleWord(word: "In", partOfSpeech: "Noun", definition: "A connection, often political", image: "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/Administration/People/president_official_portrait_hires.jpg")
+//    private var _is = ScrabbleWord(word: "Is", partOfSpeech: "verb", definition: "Third person of be", image: "http://mms.businesswire.com/media/20130501005715/en/367436/4/LIG_logo_Loose_coin_highres.jpg")
+//    private var _it = ScrabbleWord(word: "It", partOfSpeech: "noun", definition: "Person touched during a game of tag", image: "http://www.cloudninediscovery.com/ediscoverydaily/wp-content/uploads/blog-images/Tag.png")
+//    private var _jo = ScrabbleWord(word: "Jo", partOfSpeech: "noun", definition: "Sweetheart, used in Scotland", image: "http://greenweddingshoes.com/wp-content/uploads/2011/04/scottish-engagement-photos-11.jpg")
+//    private var _ka = ScrabbleWord(word: "Ka", partOfSpeech: "noun", definition: "(Ancient Egypt) Part of the spirit which lived on in a mummified body after death", image: "https://s-media-cache-ak0.pinimg.com/736x/8a/50/52/8a505278b426744fcc4a14460bece5f4.jpg")
+//    private var _ki = ScrabbleWord(word: "Ki", partOfSpeech: "noun", definition: "A life force in Chinesse medicine which flows throughout the body", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Ki_obsolete.svg/2000px-Ki_obsolete.svg.png")
+//    private var _la = ScrabbleWord(word: "La", partOfSpeech: "noun", definition: "Sixth note in diatonic music scale", image: "https://upload.wikimedia.org/wikipedia/commons/9/9e/A440.png")
+//    private var _li = ScrabbleWord(word: "Li", partOfSpeech: "noun", definition: "Chinese measurement distance, about .5 km", image: "https://upload.wikimedia.org/wikipedia/commons/4/49/Anping_Bridge_-_west-central_part_-_looking_west_-_DSCF9094.JPG")
+//    private var _lo = ScrabbleWord(word: "Lo", partOfSpeech: "interjection", definition: "Said when desiring attention", image: "https://i.ytimg.com/vi/TP8RB7UZHKI/maxresdefault.jpg")
+//    private var _ma = ScrabbleWord(word: "Ma", partOfSpeech: "noun", definition: "Mother", image: "http://weknowyourdreamz.com/images/mother/mother-06.jpg")
+//    private var _me = ScrabbleWord(word: "Me", partOfSpeech: "pronoun", definition: "Used by a person in reference to themselves", image: "http://slice.seriouseats.com/images/2013/08/20130807-pizza-proposal-will-you-marry-me.jpg")
+//    private var _mi = ScrabbleWord(word: "Mi", partOfSpeech: "noun", definition: "Third note in diatonic music scale", image: "http://openmusictheory.com/Graphics/sdsf-naturalMinor.png")
+//    private var _mm = ScrabbleWord(word: "Mm", partOfSpeech: "interjection", definition: "Used to convey one's approval", image: "http://government.northcrane.com/wp-content/uploads/2016/02/great_wall_trump.jpg")
+//    private var _mo = ScrabbleWord(word: "Mo", partOfSpeech: "noun", definition: "Short amount of time", image: "https://s-media-cache-ak0.pinimg.com/236x/c1/d8/c8/c1d8c8b905da73763356d707a90f6588.jpg")
+//    private var _mu = ScrabbleWord(word: "Mu", partOfSpeech: "noun", definition: "12th letter of the Greek Alphabet", image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Greek_lc_mu.png")
+//    private var _my = ScrabbleWord(word: "My", partOfSpeech: "pronoun", definition: "possesive I", image: "http://www.empirecinemas.co.uk/_uploads/film_images/6668_4947.jpg")
+//    private var _na = ScrabbleWord(word: "Na", partOfSpeech: "determiner", definition: "no", image: "http://www.clipartbest.com/cliparts/MiL/kAz/MiLkAzLgT.png")
     
     func getWord() -> [ScrabbleWord]{
         return [_aa, _ab, _ad, _ae, _ag, _ah, _ai, _al, _am, _an]
-        //, _ar, _as, _at, _aw, _ax, _ay, _ba, _be, _bi, _bo, _by, _de, _do, _ed, _ef, _eh, _el, _em, _en, _er, _es, _et, _ex, _fa, _fe, _fy, _gi, _go, _gu, _ha, _he, _hi, _hm, _ho
+        //, _ar, _as, _at, _aw, _ax, _ay, _ba, _be, _bi, _bo, _by, _de, _do, _ed, _ef, _eh, _el, _em, _en, _er, _es, _et, _ex, _fa, _fe, _fy, _gi, _go, _gu, _ha, _he, _hi, _hm, _ho, _id, _if, _in, _is, _it, _jo, _ka, _ki, _la, _li, _lo, _ma, _me, _mi, _mm, _mo, _mu, _my, _na
     }
 }

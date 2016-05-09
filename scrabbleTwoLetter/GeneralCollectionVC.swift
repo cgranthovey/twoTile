@@ -30,5 +30,7 @@ class GeneralCollectionVC: UIViewController {
             print(err.debugDescription)
         }
     }
+    
+
 
 }
