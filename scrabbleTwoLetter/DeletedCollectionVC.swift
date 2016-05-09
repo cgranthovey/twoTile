@@ -12,7 +12,7 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var editBtnOutlet: UIButton!
-    
+    @IBOutlet weak var emptyCollectionViewStackView: UIStackView!
     
     var deletedScrabbleWords = [ScrabbleWord]()
     var savedScrabbleWords = [ScrabbleWord]()
@@ -33,7 +33,15 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
         super.viewWillAppear(true)
         deletedScrabbleWords = DataService.instance.deletedWords
         savedScrabbleWords = DataService.instance.savedWords
+        myDeleteButtonArray = [UIButton]()
+
         collectionView.reloadData()   //this reload data seems to fully execute after the view will appear is completed
+        
+        if deletedScrabbleWords.count == 0{
+            emptyCollectionViewStackView.hidden = false
+        } else{
+            emptyCollectionViewStackView.hidden = true
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -87,7 +95,11 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
             myButton.setBackgroundImage(UIImage(named: "backArrowFilledBlack"), forState: .Normal)
             myButton.tag = indexPath.row
             myButton.alpha = 0.8
-            myButton.hidden = true
+            if editBtnOutlet.titleForState(.Normal) == "Done"{
+                myButton.hidden = false
+            } else {
+                myButton.hidden = true
+            }
             myButton.contentMode = UIViewContentMode.ScaleAspectFit
             myButton.addTarget(self, action: "moveImg:", forControlEvents: .TouchUpInside)
             myDeleteButtonArray.append(myButton)

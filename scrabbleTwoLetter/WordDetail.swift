@@ -48,13 +48,19 @@ class WordDetail: UIViewController {
         downSwipe.direction = .Down
         view.addGestureRecognizer(downSwipe)
         
+        
         arrowContainer.layer.cornerRadius = arrowContainer.frame.width / 2
         arrowContainer.alpha = 0.8
         arrowContainer.backgroundColor = UIColor.lightGrayColor()
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: "dismissThisView")
+        arrowContainer.addGestureRecognizer(tapGesture)
+        arrowContainer.userInteractionEnabled = true
         initAudio()
         sfxSwhooshUp.play()
     }
+    
+
     
     
     func initAudio(){
@@ -73,9 +79,13 @@ class WordDetail: UIViewController {
     
     func handleSwipe(sender: UISwipeGestureRecognizer){
         if sender.direction == .Down{
-            sfxSwhooshDown.play()
-            dismissViewControllerAnimated(true, completion: nil)
+            dismissThisView()
         }
+    }
+    
+    func dismissThisView(){
+        sfxSwhooshDown.play()
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidAppear(animated: Bool) {

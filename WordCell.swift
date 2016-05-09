@@ -13,6 +13,7 @@ import Foundation
 class WordCell: UICollectionViewCell {
     @IBOutlet weak var cell: UILabel!
     @IBOutlet weak var img: UIImageView!
+    
     @IBOutlet weak var shadow: UIView!
     
     override func awakeFromNib() {
@@ -28,7 +29,6 @@ class WordCell: UICollectionViewCell {
 //        img.alpha = 0.5
 //        img.layer.masksToBounds = true
 //
-        
         
         
         
@@ -54,14 +54,7 @@ class WordCell: UICollectionViewCell {
         shadow.layer.masksToBounds = true
         shadow.backgroundColor = UIColor.clearColor()
         
-        
-        
-        
-        
-        
-        
-        
-        
+        img.alpha = 0.6
 //        // corner radius
 //        blueView.layer.cornerRadius = 10
 //        
@@ -77,23 +70,14 @@ class WordCell: UICollectionViewCell {
         
 
     }
-
     
-    func hideBtn(button: UIButton){
-        print("I'm called!")
-        print(button.tag)
-        print(button.hidden)
-        button.hidden = false
-        print(button.hidden)
-
-    }
-
     
     func configureCell(word: ScrabbleWord){
         cell.text = word.word
-       // ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
-       //     self.img.image = image!
-       // })
+//        ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
+//            self.img.image = UIImage(named: "info")
+//            self.img.image = image!
+//        })
     }
 
 }

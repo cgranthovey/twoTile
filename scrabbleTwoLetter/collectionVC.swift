@@ -12,6 +12,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var editBtnOutlet: UIButton!
+    @IBOutlet weak var emptyCollectionViewLbl: UILabel!
     
     var savedWords = [ScrabbleWord]()
     var deletedWords = [ScrabbleWord]()
@@ -21,25 +22,34 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     var myDeleteButtonArray: [UIButton]!
     
     override func viewDidLoad() {
+        print("view did load")
         super.viewDidLoad()
         myDeleteButtonArray = [UIButton]()
         collectionView.delegate = self
         collectionView.dataSource = self
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
+        print("view did load last")
     }
 
     
+    
     override func viewWillAppear(animated: Bool) {
+        print("view will appear")
         super.viewWillAppear(true)
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
         collectionView.reloadData()                        //   this line was causing data to load twice, I think collection view auto reloads each time viewDidAppear.  This caused images to flash
+        myDeleteButtonArray = [UIButton]()
+        if savedWords.count == 0{
+            emptyCollectionViewLbl.hidden = false
+        } else{
+            emptyCollectionViewLbl.hidden = true
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         editButtonOnAppear()
-
     }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -67,18 +77,28 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        print("cell for item at index path called")
+
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
+            
+            
             cell.configureCell(savedWords[indexPath.row])
 
             myButton = UIButton(frame: CGRectMake(77, 3, 20, 20))
             myButton.setBackgroundImage(UIImage(named: "cancelCircle"), forState: .Normal)
             myButton.tag = indexPath.row
             myButton.alpha = 0.7
-            myButton.hidden = true
+
+            if editBtnOutlet.titleForState(.Normal) == "Done"{
+                myButton.hidden = false
+            } else {
+                myButton.hidden = true
+            }
             myButton.contentMode = UIViewContentMode.ScaleAspectFit
             myButton.addTarget(self, action: "reset:", forControlEvents: .TouchUpInside)
             myDeleteButtonArray.append(myButton)
             cell.addSubview(myButton)
+        
             return cell
         } else {
             return UICollectionViewCell()
@@ -88,6 +108,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     
     
     func editButtonOnAppear(){
+        print("my delete button array count: \(myDeleteButtonArray.count)")
         if editBtnOutlet.titleForState(.Normal) == "Edit"{
             for x in myDeleteButtonArray{
                 x.hidden = true
@@ -118,6 +139,8 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
 
     var myDeleteButtonPressedArray = [UIButton]()
     
+    @IBOutlet weak var imgCongrats: UIImageView!
+    
     func reset(button: UIButton) {
         self.sfxFadeOut.play()
         
@@ -130,50 +153,22 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         DataService.instance.addWords(savedWords, deletedWord: deletedWords)
         self.collectionView.deleteItemsAtIndexPaths([i])
         
-//        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
-//            
-//            button.superview?.alpha = 0
-//            
-//            }) { (finished: Bool) -> Void in
-//       
-//                self.myDeleteButtonPressedArray.append(button)
-//                print("mydelete button pressed array \(self.myDeleteButtonPressedArray.count)")
-//        }
+        if savedWords.count == 0{
+            animateCongrats()
+        }
     }
     
-//    func updateCollectionView(){
-//        
-//        var iHolder = [Int]()
-//        
-//        var holdIndexPath = [NSIndexPath]()
-//        
-//        for button in myDeleteButtonPressedArray{
-//            let cell = button.superview as! UICollectionViewCell
-//            
-//            holdIndexPath.append(self.collectionView.indexPathForCell(cell)!)
-//            let i = self.collectionView.indexPathForCell(cell)!.item
-//            
-//            iHolder.append(i)
-//            print("i \(i)")
-//        }
-//        
-//        self.collectionView.deleteItemsAtIndexPaths(holdIndexPath)
-//        
-//        iHolder.sortInPlace()
-//        let hold = iHolder.reverse()
-//        
-//        for i in hold{
-//            self.deletedWords.append(self.savedWords[i])
-//            self.deletedWords.sortInPlace({$0.word < $1.word})
-//            self.savedWords.removeAtIndex(i)
-//            DataService.instance.addWords(self.savedWords, deletedWord: self.deletedWords)
-//        }
-//        
-//        savedWords = DataService.instance.savedWords
-//        deletedWords = DataService.instance.deletedWords
-//        collectionView.reloadData()
-//        myDeleteButtonPressedArray = [UIButton]()
-//    }
+    func animateCongrats(){
+        
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            self.imgCongrats.layer.position = CGPoint(x: self.view.frame.size.height, y: 0)
+            }, completion: nil)
+    }
+    
+    
+    
+    
+    
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
