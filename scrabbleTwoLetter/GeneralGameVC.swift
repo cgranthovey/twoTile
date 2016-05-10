@@ -17,7 +17,6 @@ class GeneralGameVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initAudio()
     }
     
@@ -26,7 +25,8 @@ class GeneralGameVC: UIViewController {
             try sfxCorrectAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correctAnswer", ofType: "mp3")!))
             try sfxWrongAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrongAnswer", ofType: "mp3")!))
             
-            
+            sfxCorrectAnswer.volume = 0.0
+            sfxWrongAnswer.volume = 0.1
             
             sfxCorrectAnswer.prepareToPlay()
             sfxWrongAnswer.prepareToPlay()
@@ -69,6 +69,34 @@ class GeneralGameVC: UIViewController {
             label.text = "100% - Awesome job!"
         }
     }
+    
+    func zeroWords(zeroWord: Bool){
+        
+        print("zero words called")
+        var label:UILabel = UILabel(frame: CGRectMake(50, 145, 280, 350))
+        self.view.addSubview(label)
+        label.textAlignment = NSTextAlignment.Center
+        label.center.x = self.view.center.x
+        label.numberOfLines = 4
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.textColor = UIColor.blackColor()
+        let font = UIFont(name: "Helvetica Neue", size: 18)
+        label.font = font
+        label.text = "You've already mastered all your two tile words!  Move words from the mastered tab to the learning tab to play."
+        label.sizeToFit()
+        label.numberOfLines = 0
+        if zeroWord == true{
+            print("it's true")
+            label.hidden = false
+        } else {
+            print("it's false")
+            label.hidden = true
+        }
+    }
+
+    
+    //            zeroSavedWordsLbl.text = "You've already mastered all your two tile words!  Move words from the mastered tab to the learning tab to play."
+
     
     
     

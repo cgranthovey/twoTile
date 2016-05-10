@@ -20,7 +20,6 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     @IBOutlet weak var numberOfWords: UILabel!
     @IBOutlet weak var percentCorrectLbl: UILabel!
     
-    
     var memorizingWords = [ScrabbleWord]()
     var fakeWords = ["Ac", "Af", "Ak", "Ap", "Av", "Br", "Ci", "Da", "Di", "Eg", "Ek", "Ew", "Fi", "Fo", "Ga", "Ge", "Gi", "Gu", "Hu", "Ia", "Ib", "Ie", "Ig", "Ik", "Il", "Im", "Io", "Ip", "Iz", "Ja", "Je", "Ji", "Ju", "Ke", "Ko", "Ku", "Le", "Lu", "Mr", "Ni", "Ny", "Oa", "Ob", "Og", "Ok", "Ot", "Oz", "Po", "Pu", "Py", "Qa", "Qo", "Ra", "Ri", "Ro", "Ru", "Ry", "Sa", "Se", "Sm", "Su", "Te", "Ts", "Tu", "Ub", "Ud", "Uf", "Ug", "Uk", "Ur", "Va", "Ve", "Vi", "Vo", "Vu", "Wa", "Wi", "Wy", "Wu", "Xa", "Xy", "Xo", "Yi", "Yu", "Ym", "Zo", "Zi"]
     
@@ -41,8 +40,34 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
         didSelectIncorrectAnswer = false
         wrongAnswerCount = 0
         headphones(headphonesImg)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        if memorizingWords.count == 0{
+            
+            button1.hidden = true
+            button2.hidden = true
+            button3.hidden = true
+            button4.hidden = true
+            whichIsAWordLbl.hidden = true
+            numberOfWords.hidden = true
+            gameEnd.hidden = true
 
-        resetGame()
+            zeroWords(true)
+        } else{
+            self.button1.hidden = false
+            self.button2.hidden = false
+            self.button3.hidden = false
+            self.button4.hidden = false
+            self.whichIsAWordLbl.hidden = false
+            numberOfWords.hidden = false
+            
+            gameEnd.hidden = true
+            zeroWords(false)
+            resetGame()
+            
+        }
     }
     
     

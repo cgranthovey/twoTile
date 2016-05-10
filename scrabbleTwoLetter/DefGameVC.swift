@@ -48,10 +48,48 @@ class DefGameVC: GeneralGameVC {
         didSelectIncorrectAnswer = false
         wrongAnswerCount = 0
         headphones(headphonesImg)
-        
-        resetGame()
 
+        
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        if memorizingWordsCount == 0 {
+            button1.hidden = true
+            button2.hidden = true
+            button3.hidden = true
+            button4.hidden = true
+            label1.hidden = true
+            label2.hidden = true
+            label3.hidden = true
+            label4.hidden = true
+            numberOfWords.hidden = true
+            tileWord.hidden = true
+            gameEnd.hidden = true
+            
+            zeroWords(true)
+        } else{
+            button1.hidden = false
+            button2.hidden = false
+            button3.hidden = false
+            button4.hidden = false
+            label1.hidden = false
+            label2.hidden = false
+            label3.hidden = false
+            label4.hidden = false
+            numberOfWords.hidden = false
+            tileWord.hidden = false
+            gameEnd.hidden = true
+            
+            zeroWords(false)
+            resetGame()
+
+        }
+    }
+    
+
+    
+    
+    
     
     @IBAction func headphonesBtn (sender: UIButton){
         if DataService.instance.buttonAlphaLevel == 1{
@@ -92,14 +130,26 @@ class DefGameVC: GeneralGameVC {
             
         }
         
+
+        
         numberOfWords.text = "\(x + 1)/\(memorizingWordsCount)"
         didSelectIncorrectAnswer = false
         
         activateButtons(button1, button2: button2, button3: button3, button4: button4)
         var currentWord = memorizingWords[x]
-        var otherChoices = memorizingWords
-        otherChoices.removeAtIndex(x)
-        otherChoices.shuffleInPlace()
+        
+        
+        var allWords = StoreWord().getWord()
+        var allWordsMinusOne = allWords
+        var y = 0
+        for x in allWords{
+            if x.word == currentWord.word{
+                allWordsMinusOne.removeAtIndex(y)
+            }
+            y = y + 1
+        }
+        allWordsMinusOne.shuffleInPlace()
+        
         resetButtonColors()
         x = x + 1
         
@@ -108,11 +158,12 @@ class DefGameVC: GeneralGameVC {
         
         tileWord.text = currentWord.word
         buttonArray[0].text = currentWord.definition
-        buttonArray[1].text = otherChoices[0].definition
-        buttonArray[2].text = otherChoices[1].definition
-        buttonArray[3].text = otherChoices[2].definition
-        print(label3.text)
-        print(label4.text)
+        buttonArray[1].text = allWordsMinusOne[0].definition
+        print(allWordsMinusOne[1].word)
+        print(allWords.count)
+        buttonArray[2].text = allWordsMinusOne[1].definition
+        print(allWordsMinusOne[2].word)
+        buttonArray[3].text = allWordsMinusOne[2].definition
     }
     
     @IBAction func button1Action(sender: UIButton!){

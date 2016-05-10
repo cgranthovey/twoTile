@@ -12,7 +12,9 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var editBtnOutlet: UIButton!
-    @IBOutlet weak var emptyCollectionViewLbl: UILabel!
+    @IBOutlet weak var imgCongrats: UIImageView!
+    @IBOutlet weak var congrats: UILabel!
+    @IBOutlet weak var congrats2: UILabel!
     
     var savedWords = [ScrabbleWord]()
     var deletedWords = [ScrabbleWord]()
@@ -22,30 +24,25 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     var myDeleteButtonArray: [UIButton]!
     
     override func viewDidLoad() {
-        print("view did load")
         super.viewDidLoad()
         myDeleteButtonArray = [UIButton]()
         collectionView.delegate = self
         collectionView.dataSource = self
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
-        print("view did load last")
+        imgCongrats.clipsToBounds = true
     }
 
     
     
     override func viewWillAppear(animated: Bool) {
-        print("view will appear")
         super.viewWillAppear(true)
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
-        collectionView.reloadData()                        //   this line was causing data to load twice, I think collection view auto reloads each time viewDidAppear.  This caused images to flash
         myDeleteButtonArray = [UIButton]()
-        if savedWords.count == 0{
-            emptyCollectionViewLbl.hidden = false
-        } else{
-            emptyCollectionViewLbl.hidden = true
-        }
+
+        collectionView.reloadData()                        //   this line was causing data to load twice, I think collection view auto reloads each time viewDidAppear.  This caused images to flash
+        congratsStatus()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -77,7 +74,6 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        print("cell for item at index path called")
 
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
             
@@ -108,7 +104,6 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     
     
     func editButtonOnAppear(){
-        print("my delete button array count: \(myDeleteButtonArray.count)")
         if editBtnOutlet.titleForState(.Normal) == "Edit"{
             for x in myDeleteButtonArray{
                 x.hidden = true
@@ -136,10 +131,18 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
 //                updateCollectionView()
             }
     }
+    
+    override func viewDidDisappear(animated: Bool) {        //for some reason problems with the delete button were caused without this
+        for x in myDeleteButtonArray{
+            x.hidden = true
+        }
+    }
+    
+    
 
     var myDeleteButtonPressedArray = [UIButton]()
     
-    @IBOutlet weak var imgCongrats: UIImageView!
+
     
     func reset(button: UIButton) {
         self.sfxFadeOut.play()
@@ -159,10 +162,44 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     }
     
     func animateCongrats(){
+        congratsStatus()
         
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-            self.imgCongrats.layer.position = CGPoint(x: self.view.frame.size.height, y: 0)
-            }, completion: nil)
+        
+        let holdPositionImgCongrats = imgCongrats.center.y
+        var holdPositionCongrats = congrats.center.x
+        var holdPositionCongrats2 = congrats2.center.x
+        
+        
+        self.imgCongrats.center.y = self.view.frame.height * 1.5
+        self.congrats.center.x = -self.view.frame.width * 1.5
+        self.congrats2.center.x = -self.view.frame.width * 1.5
+        
+        UIView.animateWithDuration(0.5, delay: 0.1, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            self.imgCongrats.center.y = holdPositionImgCongrats
+            
+            }, completion: {
+                (finished: Bool) -> Void in
+                
+                UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+                    self.congrats.center.x = holdPositionCongrats
+                    }, completion: nil)
+                UIView.animateWithDuration(0.5, delay: 0.1, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+                    self.congrats2.center.x = holdPositionCongrats2
+                    }, completion: nil)
+                
+        })
+    }
+    
+    func congratsStatus(){
+        if savedWords.count == 0{
+            self.imgCongrats.hidden = false
+            self.congrats.hidden = false
+            self.congrats2.hidden = false
+        } else {
+            self.imgCongrats.hidden = true
+            self.congrats.hidden = true
+            self.congrats2.hidden = true
+        }
     }
     
     

@@ -70,15 +70,38 @@ class ImageGameVC: GeneralGameVC {
         numberOfPlays = 0
         didSelectIncorrectAnswer = false
         wrongAnswerCount = 0
-        reset()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "timer", name: "correctDrop", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "badDropCounter", name: "wrongDrop", object: nil)
         
         headphones(headphonesImg)
-
     }
     
+    override func viewWillAppear(animated: Bool) {
+        if gameWords.count == 0 {
+            imageStackView.hidden = true
+            firstView.hidden = true
+            secondView.hidden = true
+            thirdView.hidden = true
+            fourthView.hidden = true
+            numberOfWords.hidden = true
+            gameEnd.hidden = true
+            zeroWords(true)
+        } else{
+            imageStackView.hidden = false
+            firstView.hidden = false
+            secondView.hidden = false
+            thirdView.hidden = false
+            fourthView.hidden = false
+            numberOfWords.hidden = false
+            gameEnd.hidden = true
+            zeroWords(false)
+            reset()
 
+        }
+    }
+    
+    
+    
     
     @IBAction func headphonesBtn (sender: UIButton){
         if DataService.instance.buttonAlphaLevel == 1{

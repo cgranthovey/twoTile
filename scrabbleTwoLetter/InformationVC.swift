@@ -37,7 +37,7 @@ class InformationVC: UIViewController {
     }
     
     @IBAction func freepic(sender: AnyObject){
-        openLink("www.freepik.com/free-photos-vectors/background")  //Background vector designed by Kjpargeter - Freepik.com
+        openLink("http://www.freepik.com/free-photos-vectors/background")  //Background vector designed by Kjpargeter - Freepik.com
     }
     
     func openLink(urlString: String){

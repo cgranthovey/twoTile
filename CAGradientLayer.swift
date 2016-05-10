@@ -38,16 +38,16 @@ extension CAGradientLayer {
         return gradientLayer
     }
     
-    func quizButtonBlue() -> CAGradientLayer{
+    func collectionButtonBlue() -> CAGradientLayer{
         let leftColor = UIColor(red: 108.0/255.0, green: 147.0/255.0, blue: 209.0/255.0, alpha: 1.0)
-        let rightColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
+        let rightColor = UIColor(red: 57.0/255.0, green: 106.0/255.0, blue: 184.0/255.0, alpha: 1.0)
         
         let gradientColors: [CGColor] = [leftColor.CGColor, rightColor.CGColor]
         
         let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.colors = gradientColors
-        gradientLayer.startPoint = CGPointMake(0.0, 0.5)
-        gradientLayer.endPoint = CGPointMake(1.0, 0.5)
+        gradientLayer.startPoint = CGPointMake(0.0, 0.0)
+        gradientLayer.endPoint = CGPointMake(1.0, 1.0)
         
         return gradientLayer
     }

@@ -102,6 +102,7 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
             }
             myButton.contentMode = UIViewContentMode.ScaleAspectFit
             myButton.addTarget(self, action: "moveImg:", forControlEvents: .TouchUpInside)
+            print(myButton)
             myDeleteButtonArray.append(myButton)
             cell.addSubview(myButton)
             
@@ -114,10 +115,11 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
     }
 
     @IBAction func editBtn(sender: UIButton) {
-        
+        print(myDeleteButtonArray.count)
         if sender.titleForState(.Normal) == "Edit"{
             sender.setTitle("Done", forState: .Normal)
             for x in myDeleteButtonArray{
+                print(x)
                 x.hidden = false
             }
         } else{
@@ -125,6 +127,12 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
             for x in myDeleteButtonArray{
                 x.hidden = true
             }
+        }
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        for x in myDeleteButtonArray{
+            x.hidden = true
         }
     }
     

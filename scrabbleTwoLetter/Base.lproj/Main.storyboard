@@ -27,17 +27,6 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
-            <string>HelveticaNeue-Italic</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue-Italic</string>
@@ -49,9 +38,20 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Italic</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Italic</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
@@ -543,13 +543,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!  You have mastered all the two letter words!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhq-rI-DQq">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confetti" translatesAutoresizingMaskIntoConstraints="NO" id="ieW-bE-F42">
+                                <rect key="frame" x="0.0" y="90" width="600" height="461"/>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhq-rI-DQq">
                                 <rect key="frame" x="125" y="120" width="350" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QXZ-2f-Dkt"/>
                                     <constraint firstAttribute="width" constant="350" id="yiu-Xn-I54"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have mastered all the two letter words!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Q96-49-4NH">
+                                <rect key="frame" x="125" y="170" width="350" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="acS-B7-CKN"/>
+                                    <constraint firstAttribute="height" constant="80" id="fsP-vZ-KCM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -558,17 +570,23 @@
                         <constraints>
                             <constraint firstItem="muG-w2-Vn9" firstAttribute="top" secondItem="mvw-AR-wn6" secondAttribute="bottom" constant="10" id="3ow-zr-vMv"/>
                             <constraint firstItem="mvw-AR-wn6" firstAttribute="trailing" secondItem="nCp-qI-1m1" secondAttribute="trailingMargin" id="5Du-Jg-OKW"/>
+                            <constraint firstItem="fhq-rI-DQq" firstAttribute="centerX" secondItem="nCp-qI-1m1" secondAttribute="centerX" id="5WB-RR-9Uk"/>
+                            <constraint firstItem="Q96-49-4NH" firstAttribute="centerX" secondItem="nCp-qI-1m1" secondAttribute="centerX" id="5vy-Qf-xk2"/>
                             <constraint firstItem="mvw-AR-wn6" firstAttribute="leading" secondItem="nCp-qI-1m1" secondAttribute="leadingMargin" id="9Zn-MZ-8wq"/>
-                            <constraint firstItem="fhq-rI-DQq" firstAttribute="top" secondItem="9Aa-fM-1jv" secondAttribute="bottom" constant="30" id="Bkj-Vb-Ya1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mvw-AR-wn6" secondAttribute="trailing" id="BoT-WB-Rei"/>
-                            <constraint firstItem="fhq-rI-DQq" firstAttribute="centerX" secondItem="nCp-qI-1m1" secondAttribute="centerX" id="GwK-bA-tJl"/>
+                            <constraint firstItem="ieW-bE-F42" firstAttribute="leading" secondItem="nCp-qI-1m1" secondAttribute="leading" id="Nkt-BD-trX"/>
                             <constraint firstItem="9Aa-fM-1jv" firstAttribute="leading" secondItem="nCp-qI-1m1" secondAttribute="leading" id="O2w-Sz-p2c"/>
+                            <constraint firstItem="Q96-49-4NH" firstAttribute="top" secondItem="fhq-rI-DQq" secondAttribute="bottom" id="PUQ-Cj-sxh"/>
+                            <constraint firstItem="fhq-rI-DQq" firstAttribute="top" secondItem="9Aa-fM-1jv" secondAttribute="bottom" constant="30" id="Q6N-Bf-rN9"/>
                             <constraint firstItem="mvw-AR-wn6" firstAttribute="top" secondItem="9Aa-fM-1jv" secondAttribute="bottom" constant="10" id="QJI-RB-Ocl"/>
+                            <constraint firstItem="muG-w2-Vn9" firstAttribute="top" secondItem="ieW-bE-F42" secondAttribute="bottom" id="TBh-WK-TI6"/>
                             <constraint firstItem="mvw-AR-wn6" firstAttribute="top" secondItem="9Aa-fM-1jv" secondAttribute="bottom" constant="8" id="YhL-7F-y4R"/>
                             <constraint firstItem="9Aa-fM-1jv" firstAttribute="top" secondItem="nCp-qI-1m1" secondAttribute="top" id="arK-pT-tij"/>
                             <constraint firstAttribute="trailing" secondItem="9Aa-fM-1jv" secondAttribute="trailing" id="eQn-Kn-v73"/>
                             <constraint firstItem="mvw-AR-wn6" firstAttribute="leading" secondItem="nCp-qI-1m1" secondAttribute="leadingMargin" id="elv-tp-LQ4"/>
+                            <constraint firstItem="ieW-bE-F42" firstAttribute="top" secondItem="9Aa-fM-1jv" secondAttribute="bottom" id="gXx-OT-XzT"/>
                             <constraint firstItem="muG-w2-Vn9" firstAttribute="top" secondItem="mvw-AR-wn6" secondAttribute="bottom" constant="20" id="jct-VN-cU3"/>
+                            <constraint firstAttribute="trailing" secondItem="ieW-bE-F42" secondAttribute="trailing" id="vGx-7k-nA5"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -582,8 +600,10 @@
                     <tabBarItem key="tabBarItem" title="Learning" image="Book Stack-52" id="DGo-Ld-H8b"/>
                     <connections>
                         <outlet property="collectionView" destination="mvw-AR-wn6" id="WdS-a5-MJV"/>
+                        <outlet property="congrats" destination="fhq-rI-DQq" id="Lry-zm-PsY"/>
+                        <outlet property="congrats2" destination="Q96-49-4NH" id="tLp-uP-3yH"/>
                         <outlet property="editBtnOutlet" destination="nY2-4J-ypE" id="Uqm-gs-AAg"/>
-                        <outlet property="emptyCollectionViewLbl" destination="fhq-rI-DQq" id="kv4-sS-LI6"/>
+                        <outlet property="imgCongrats" destination="ieW-bE-F42" id="QYh-jL-ROC"/>
                         <segue destination="O0u-zc-82d" kind="presentation" identifier="collectionToWordDetail" modalPresentationStyle="overCurrentContext" id="ckf-ee-xI3"/>
                     </connections>
                 </viewController>
@@ -870,11 +890,11 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zww-hb-xjs">
-                                <rect key="frame" x="20" y="152" width="275" height="202"/>
+                                <rect key="frame" x="20" y="157" width="275" height="198"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCI-HP-uE0">
-                                <rect key="frame" x="305" y="152" width="275" height="202"/>
+                                <rect key="frame" x="305" y="157" width="275" height="198"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2d-eI-EpR">
@@ -886,27 +906,27 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fxd-m6-fxK">
-                                <rect key="frame" x="20" y="152" width="560" height="413"/>
+                                <rect key="frame" x="20" y="157" width="560" height="405"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QeK-WS-mnv">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="202"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="198"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kEX-Rn-YNA" customClass="matchImg" customModule="scrabbleTwoLetter" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="275" height="202"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="198"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0kV-8h-Jbp" customClass="matchImg" customModule="scrabbleTwoLetter" customModuleProvider="target">
-                                                <rect key="frame" x="285" y="0.0" width="275" height="202"/>
+                                                <rect key="frame" x="285" y="0.0" width="275" height="198"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jpR-Aa-LIc">
-                                        <rect key="frame" x="0.0" y="212" width="560" height="201"/>
+                                        <rect key="frame" x="0.0" y="208" width="560" height="197"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7t8-6l-XHA" customClass="matchImg" customModule="scrabbleTwoLetter" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="275" height="201"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="197"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IAm-Bd-adW" customClass="matchImg" customModule="scrabbleTwoLetter" customModuleProvider="target">
-                                                <rect key="frame" x="285" y="0.0" width="275" height="201"/>
+                                                <rect key="frame" x="285" y="0.0" width="275" height="197"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
@@ -948,17 +968,17 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qca-hN-Nfg" customClass="DragLabel" customModule="scrabbleTwoLetter" customModuleProvider="target">
-                                <rect key="frame" x="265" y="105" width="70" height="32"/>
+                                <rect key="frame" x="265" y="105" width="70" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="RGA-m8-LKA"/>
-                                    <constraint firstAttribute="height" constant="32" id="gXE-P9-iBy"/>
+                                    <constraint firstAttribute="height" constant="40" id="gXE-P9-iBy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhf-qe-CDa">
-                                <rect key="frame" x="20" y="104" width="34" height="34"/>
+                                <rect key="frame" x="20" y="108" width="34" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="1k4-jY-KZs"/>
                                     <constraint firstAttribute="width" constant="52" id="7BA-Ph-VVs"/>
@@ -1002,7 +1022,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Cm0-m1-mFv" secondAttribute="trailing" id="DAR-D1-aA9"/>
                             <constraint firstItem="Qca-hN-Nfg" firstAttribute="centerX" secondItem="osK-hP-Kfe" secondAttribute="centerX" id="HPe-aO-fdf"/>
                             <constraint firstItem="Cm0-m1-mFv" firstAttribute="top" secondItem="Ncl-db-hcK" secondAttribute="bottom" constant="66" id="Ley-aM-JQi"/>
-                            <constraint firstItem="fxd-m6-fxK" firstAttribute="top" secondItem="Qca-hN-Nfg" secondAttribute="bottom" constant="15" id="Men-rP-agD"/>
+                            <constraint firstItem="fxd-m6-fxK" firstAttribute="top" secondItem="Qca-hN-Nfg" secondAttribute="bottom" constant="12" id="Men-rP-agD"/>
                             <constraint firstItem="Ncl-db-hcK" firstAttribute="top" secondItem="osK-hP-Kfe" secondAttribute="top" id="Oe5-vT-qft"/>
                             <constraint firstItem="Dhf-qe-CDa" firstAttribute="centerY" secondItem="Qca-hN-Nfg" secondAttribute="centerY" id="OfS-Fd-4BG"/>
                             <constraint firstItem="Ncl-db-hcK" firstAttribute="leading" secondItem="osK-hP-Kfe" secondAttribute="leading" id="Qms-rU-owY"/>
@@ -1014,7 +1034,7 @@
                             <constraint firstItem="f2d-eI-EpR" firstAttribute="height" secondItem="7t8-6l-XHA" secondAttribute="height" id="a8o-YR-rVI"/>
                             <constraint firstItem="f2d-eI-EpR" firstAttribute="width" secondItem="7t8-6l-XHA" secondAttribute="width" id="a9M-eI-W55"/>
                             <constraint firstItem="Qca-hN-Nfg" firstAttribute="top" secondItem="Ncl-db-hcK" secondAttribute="bottom" constant="15" id="bdT-Kk-ed4"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="fxd-m6-fxK" secondAttribute="bottom" constant="35" id="cp5-FE-z0n"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="fxd-m6-fxK" secondAttribute="bottom" constant="38" id="cp5-FE-z0n"/>
                             <constraint firstItem="zww-hb-xjs" firstAttribute="height" secondItem="kEX-Rn-YNA" secondAttribute="height" id="dsc-HP-fYw"/>
                             <constraint firstItem="IAm-Bd-adW" firstAttribute="leading" secondItem="vp9-Bp-pXe" secondAttribute="trailing" constant="-115" id="iEs-fG-9d9"/>
                             <constraint firstItem="DCI-HP-uE0" firstAttribute="width" secondItem="0kV-8h-Jbp" secondAttribute="width" id="jfR-f7-tQN"/>
@@ -1781,7 +1801,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YyL-ju-2Ne">
                                 <rect key="frame" x="125" y="120" width="350" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No words have been yet been mastered." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="is8-mH-Qpt">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No words marked as mastered." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="is8-mH-Qpt">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="350" id="MUH-y0-qFZ"/>
@@ -2044,6 +2064,7 @@
         <image name="Book Stack-52" width="40" height="40"/>
         <image name="Brain Filled-50" width="30" height="30"/>
         <image name="Headphones Filled-50" width="50" height="50"/>
+        <image name="confetti" width="600" height="950"/>
         <image name="infoGrey" width="96" height="96"/>
         <image name="rightArrow" width="256" height="256"/>
         <image name="starCurved" width="43" height="43"/>
