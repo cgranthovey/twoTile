@@ -13,6 +13,6 @@ class matchImg: UIImageView {
     override func awakeFromNib() {
         clipsToBounds = true
         layer.cornerRadius = 7.0
-    }
+    } 
 
 }

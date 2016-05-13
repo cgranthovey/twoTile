@@ -16,7 +16,31 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Bc-9L-n1X">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
+                                <color key="backgroundColor" red="0.8862745098" green="0.23137254900000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="hGo-EK-ZF8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9Bc-9L-n1X" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="6XF-bg-M3d"/>
+                            <constraint firstItem="9Bc-9L-n1X" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Q6w-tf-aML"/>
+                            <constraint firstAttribute="trailing" secondItem="9Bc-9L-n1X" secondAttribute="trailing" id="Qjj-Ay-ZDh"/>
+                            <constraint firstItem="9Bc-9L-n1X" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="eI0-hy-R2N"/>
+                            <constraint firstAttribute="trailing" secondItem="9Bc-9L-n1X" secondAttribute="trailing" id="vdg-Wv-MmY"/>
+                            <constraint firstItem="9Bc-9L-n1X" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="x87-qY-6bZ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="eI0-hy-R2N"/>
+                                <exclude reference="vdg-Wv-MmY"/>
+                                <exclude reference="x87-qY-6bZ"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

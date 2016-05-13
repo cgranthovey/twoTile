@@ -40,6 +40,8 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
         didSelectIncorrectAnswer = false
         wrongAnswerCount = 0
         headphones(headphonesImg)
+        
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -188,15 +190,6 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
         
         button.backgroundColor = UIColor.redColor()
         sfxWrongAnswer.play()
-        
-        
-//        UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
-//            button.backgroundColor = UIColor.redColor()
-//            }, completion: { (finished: Bool) -> Void in
-//                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
-//                    button.backgroundColor = UIColor(red: 89.0/255.0, green: 133.0/255.0, blue: 203.0/255.0, alpha: 1.0)
-//                    }, completion: nil)
-//        })
     }
     
     

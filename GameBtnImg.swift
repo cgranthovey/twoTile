@@ -11,7 +11,7 @@ import UIKit
 class GameBtnImg: UIImageView {
 
     override func awakeFromNib() {
-        self.alpha = 0.5
+        self.alpha = 0.55
         self.clipsToBounds = true
     }
 

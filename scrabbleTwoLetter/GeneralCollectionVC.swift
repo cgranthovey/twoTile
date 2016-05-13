@@ -19,13 +19,14 @@ class GeneralCollectionVC: UIViewController {
         
         initAudio()
     }
+    
 
     
     func initAudio(){
         do{
             try sfxFadeOut = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fadeWord", ofType: "wav")!))
             sfxFadeOut.prepareToPlay()
-            sfxFadeOut.volume = 2.5
+            sfxFadeOut.volume = 5
         } catch let err as NSError{
             print(err.debugDescription)
         }

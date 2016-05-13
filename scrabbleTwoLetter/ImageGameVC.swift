@@ -54,8 +54,15 @@ class ImageGameVC: GeneralGameVC {
     @IBOutlet weak var numberOfWords: UILabel!
     @IBOutlet weak var percentCorrectLbl: UILabel!
 
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
     
-    
+    @IBOutlet weak var spinner1: UIActivityIndicatorView!
+    @IBOutlet weak var spinner2: UIActivityIndicatorView!
+    @IBOutlet weak var spinner3: UIActivityIndicatorView!
+    @IBOutlet weak var spinner4: UIActivityIndicatorView!
     
     
     
@@ -72,6 +79,27 @@ class ImageGameVC: GeneralGameVC {
         wrongAnswerCount = 0
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "timer", name: "correctDrop", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "badDropCounter", name: "wrongDrop", object: nil)
+        
+        
+        spinner1.startAnimating()
+        spinner2.startAnimating()
+        spinner3.startAnimating()
+        spinner4.startAnimating()
+        spinner1.color = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0)
+        spinner2.color = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0)
+        spinner3.color = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0)
+        spinner4.color = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0)
+        
+//        firstImg.userInteractionEnabled = true
+//        secondImg.userInteractionEnabled = true
+//        thirdImg.userInteractionEnabled = true
+//        fourthImg.userInteractionEnabled = true
+//        
+//        let tapGesture = UITapGestureRecognizer(target: self, action: "imageSelected:")
+//        firstImg.addGestureRecognizer(tapGesture)
+//        secondImg.addGestureRecognizer(tapGesture)
+//        thirdImg.addGestureRecognizer(tapGesture)
+//        fourthImg.addGestureRecognizer(tapGesture)
         
         headphones(headphonesImg)
     }
@@ -123,6 +151,64 @@ class ImageGameVC: GeneralGameVC {
         startTimer = NSTimer.scheduledTimerWithTimeInterval(0.6, target: self, selector: "reset", userInfo: nil, repeats: false)
     }
     
+    
+    
+    @IBAction func button1Action(sender: UIButton){
+        print("1 called")
+        if self.firstImg == self.imageArray[0]{
+            print("1 correct")
+            correctAnswer(sender)
+        } else{
+            print("1 incorrect")
+            wrongAnswer(sender)
+        }
+    }
+    
+    @IBAction func button2Action(sender: UIButton){
+        if self.secondImg == self.imageArray[0]{
+            correctAnswer(sender)
+        } else{
+            wrongAnswer(sender)
+        }
+    }
+    
+    @IBAction func button3Action(sender: UIButton){
+        if self.thirdImg == self.imageArray[0]{
+            correctAnswer(sender)
+        } else{
+            wrongAnswer(sender)
+        }
+    }
+    
+    @IBAction func button4Action(sender: UIButton){
+        if self.fourthImg == self.imageArray[0]{
+            correctAnswer(sender)
+        } else{
+            wrongAnswer(sender)
+        }
+    }
+    
+    
+    
+    
+    func correctAnswer(button: UIButton){
+        
+        deactivateButtons(button1, button2: button2, button3: button3, button4: button4)
+        firstWord.textColor = UIColor(red: 20.0/255.0, green: 255.0/255.0, blue: 34.0/255.0, alpha: 1.0)
+        sfxCorrectAnswer.play()
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "reset", userInfo: nil, repeats: false)
+    }
+    
+    
+    func wrongAnswer(button: UIButton){
+        
+        didSelectIncorrectAnswer = true
+        firstWord.textColor = UIColor.redColor()
+        sfxWrongAnswer.play()
+    }
+    
+    var imageArray: [UIImageView]!
+    
     func reset(){
         
         if didSelectIncorrectAnswer == true{
@@ -148,7 +234,7 @@ class ImageGameVC: GeneralGameVC {
         didSelectIncorrectAnswer = false
         
         numberOfWords.text = "\(numberOfPlays + 1)/\(gameWords.count)"
-
+        activateButtons(button1, button2: button2, button3: button3, button4: button4)
         
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             self.firstImg.alpha = 0
@@ -156,59 +242,87 @@ class ImageGameVC: GeneralGameVC {
             self.thirdImg.alpha = 0
             self.fourthImg.alpha = 0
             self.firstWord.alpha = 0
+            
+            
             }) { (Bool) -> Void in
-                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
-                    
-                    self.numberOfPlays = self.numberOfPlays + 1
-                    
-                    self.firstWord.textColor = UIColor.blackColor()
-                    self.firstWord.userInteractionEnabled = true
-                    
-                    self.allWordsMinusOne = self.allWords
-                    self.allWordsMinusOne.shuffleInPlace()
-                    let currentWord = self.gameWords[self.x]
-                    self.x = self.x + 1
-                    
-                    self.firstWord.text = currentWord.word
-                    var imageArray = [self.firstImg, self.secondImg, self.thirdImg, self.fourthImg]
-                    imageArray.shuffleInPlace()
-                    var y = 0
-                    for var x in self.allWordsMinusOne{
-                        if x.word == currentWord.word{
-                            self.allWordsMinusOne.removeAtIndex(y)
-                            
-                        }
-                        y = y + 1
+                
+                self.firstImg.alpha = 0
+                self.secondImg.alpha = 0
+                self.thirdImg.alpha = 0
+                self.fourthImg.alpha = 0
+                
+                self.numberOfPlays = self.numberOfPlays + 1
+                
+                self.firstWord.textColor = UIColor(red: 60.0/255.0, green: 60.0/255.0, blue: 60.0/255.0, alpha: 1.0)
+                self.firstWord.userInteractionEnabled = true
+                
+                self.allWordsMinusOne = self.allWords
+                self.allWordsMinusOne.shuffleInPlace()
+                let currentWord = self.gameWords[self.x]
+                self.x = self.x + 1
+                
+                self.firstWord.text = currentWord.word
+                self.imageArray = [self.firstImg, self.secondImg, self.thirdImg, self.fourthImg]
+                self.imageArray.shuffleInPlace()
+                var y = 0
+                for var x in self.allWordsMinusOne{
+                    if x.word == currentWord.word{
+                        self.allWordsMinusOne.removeAtIndex(y)
+                        
                     }
-                    self.postImgs(currentWord.image, imgView: imageArray[0])
-                    self.postImgs(self.allWordsMinusOne[0].image, imgView: imageArray[1])
-                    self.postImgs(self.allWordsMinusOne[1].image, imgView: imageArray[2])
-                    self.postImgs(self.allWordsMinusOne[2].image, imgView: imageArray[3])
+                    y = y + 1
+                }
+                self.postImgs(currentWord.image, imgView: self.imageArray[0])
+                self.postImgs(self.allWordsMinusOne[0].image, imgView: self.imageArray[1])
+                self.postImgs(self.allWordsMinusOne[1].image, imgView: self.imageArray[2])
+                self.postImgs(self.allWordsMinusOne[2].image, imgView: self.imageArray[3])
+                
+                if self.firstImg == self.imageArray[0]{
+                    self.firstWord.dropTarget = self.firstView
+                } else if self.secondImg == self.imageArray[0]{
+                    self.firstWord.dropTarget = self.secondView
+                } else if self.thirdImg == self.imageArray[0]{
+                    self.firstWord.dropTarget = self.thirdView
+                } else {
+                    self.firstWord.dropTarget = self.fourthView
+                }
+                
+                
+                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone,
                     
-                    if self.firstImg == imageArray[0]{
-                        self.firstWord.dropTarget = self.firstView
-                    } else if self.secondImg == imageArray[0]{
-                        self.firstWord.dropTarget = self.secondView
-                    } else if self.thirdImg == imageArray[0]{
-                        self.firstWord.dropTarget = self.thirdView
-                    } else {
-                        self.firstWord.dropTarget = self.fourthView
-                    }
+                    animations: { () -> Void in
                     
-                    self.firstImg.alpha = 1
-                    self.secondImg.alpha = 1
-                    self.thirdImg.alpha = 1
-                    self.fourthImg.alpha = 1
+//                    self.firstImg.alpha = 1
+//                    self.secondImg.alpha = 1
+//                    self.thirdImg.alpha = 1
+//                    self.fourthImg.alpha = 1
                     self.firstWord.alpha = 1
                     
                     }, completion: nil)
         }
     }
     
+
+    
+    
+    
+    
     func postImgs(image: String, imgView: UIImageView){
         ImageLoader.sharedLoader.imageForUrl(image, completionHandler: {(image: UIImage?, url: String)
             in
+            
             imgView.image = image!
+            
+            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone,
+                
+                animations: { () -> Void in
+                    
+                    imgView.alpha = 1.0
+                }, completion: nil)
+            
+            
+            
+            
     })
     }
 

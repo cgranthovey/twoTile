@@ -18,18 +18,27 @@ class GeneralGameVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initAudio()
+
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        sfxCorrectAnswer.volume = 0.4
+        sfxWrongAnswer.volume = 0.4
+    }
+    
     
     func initAudio(){
         do {
             try sfxCorrectAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correctAnswer", ofType: "mp3")!))
             try sfxWrongAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrongAnswer", ofType: "mp3")!))
             
-            sfxCorrectAnswer.volume = 0.0
-            sfxWrongAnswer.volume = 0.1
+
             
             sfxCorrectAnswer.prepareToPlay()
             sfxWrongAnswer.prepareToPlay()
+            
+
+            
         } catch let err as NSError{
             print(err.debugDescription)
         }
@@ -64,9 +73,9 @@ class GeneralGameVC: UIViewController {
         } else if percentage <= 90{
             label.text = "\(percentage)% - dang good job!"
         } else if percentage < 100{
-            label.text = "\(percentage)% - Wow!  A student!"
+            label.text = "\(percentage)% - Wow!  An 'A' student!"
         } else{
-            label.text = "100% - Awesome job!"
+            label.text = "100% - Perfect! Awesome job!"
         }
     }
     
@@ -79,7 +88,7 @@ class GeneralGameVC: UIViewController {
         label.center.x = self.view.center.x
         label.numberOfLines = 4
         label.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        label.textColor = UIColor.blackColor()
+        label.textColor = UIColor(red: 60.0/255.0, green: 60.0/255.0, blue: 60.0/255.0, alpha: 1.0)
         let font = UIFont(name: "Helvetica Neue", size: 18)
         label.font = font
         label.text = "You've already mastered all your two tile words!  Move words from the mastered tab to the learning tab to play."

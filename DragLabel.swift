@@ -30,6 +30,10 @@ class DragLabel: UILabel {
         } catch let err as NSError{
             print(err.debugDescription)
         }
+        
+        sfxCorrectAnswer.volume = 0.4
+        sfxWrongAnswer.volume = 0.4
+        
         sfxCorrectAnswer.prepareToPlay()
         sfxWrongAnswer.prepareToPlay()
         
@@ -61,6 +65,7 @@ class DragLabel: UILabel {
 
                 NSNotificationCenter.defaultCenter().postNotificationName("correctDrop", object: nil)
             } else{
+                self.textColor = UIColor.redColor()
                 sfxWrongAnswer.play()
                 NSNotificationCenter.defaultCenter().postNotificationName("wrongDrop", object: nil)
             }
