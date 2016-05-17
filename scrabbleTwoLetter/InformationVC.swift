@@ -40,6 +40,10 @@ class InformationVC: UIViewController {
         openLink("http://www.freepik.com/free-photos-vectors/background")  //Background vector designed by Kjpargeter - Freepik.com
     }
     
+    @IBAction func tairaKomori(sender: AnyObject){
+        openLink("http://taira-komori.jpn.org/freesounden.html")
+    }
+    
     func openLink(urlString: String){
         if let url = NSURL(string: urlString){
             UIApplication.sharedApplication().openURL(url)

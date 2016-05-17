@@ -28,9 +28,15 @@ class WordDetail: UIViewController {
     var tappedWord: ScrabbleWord!
     var sfxSwhooshUp: AVAudioPlayer!
     var sfxSwhooshDown: AVAudioPlayer!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        definition.layer.borderColor = UIColor.blackColor().CGColor
+        definition.layer.borderWidth = 1.0
+        
+        partOfSpeech.layer.borderColor = UIColor.blackColor().CGColor
+        partOfSpeech.layer.borderWidth = 1.0
         
         word.text = tappedWord.word
         
@@ -60,14 +66,17 @@ class WordDetail: UIViewController {
         initAudio()
         sfxSwhooshUp.play()
     }
-    
 
     
     
     func initAudio(){
         do{
-            try sfxSwhooshUp = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("up", ofType: "wav")!))
+            try sfxSwhooshUp = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("upSecond", ofType: "mp3")!))
             try sfxSwhooshDown = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("down", ofType: "wav")!))
+            
+            
+            sfxSwhooshUp.volume = 0.1
+            sfxSwhooshDown.volume = 2.0
             
             sfxSwhooshUp.prepareToPlay()
             sfxSwhooshDown.prepareToPlay()
@@ -93,5 +102,6 @@ class WordDetail: UIViewController {
         UIView.animateWithDuration(0.3, animations: {
             self.greyView.alpha = 0.4
         })
+
     }
 }

@@ -25,13 +25,13 @@ class DragLabel: UILabel {
     required init?(coder aDecoder: NSCoder) {
         
         do{
-            try sfxCorrectAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correctAnswer", ofType: "mp3")!))
-            try sfxWrongAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrongAnswer", ofType: "mp3")!))
+            try sfxCorrectAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correct3", ofType: "mp3")!))
+            try sfxWrongAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrong2", ofType: "mp3")!))
         } catch let err as NSError{
             print(err.debugDescription)
         }
         
-        sfxCorrectAnswer.volume = 0.4
+        sfxCorrectAnswer.volume = 0.3
         sfxWrongAnswer.volume = 0.4
         
         sfxCorrectAnswer.prepareToPlay()

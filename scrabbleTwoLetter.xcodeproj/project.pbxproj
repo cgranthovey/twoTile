@@ -42,6 +42,18 @@
 		A1DC84861CC2FCFA006C630D /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84851CC2FCFA006C630D /* GameVC.swift */; };
 		A1DC84881CC542A7006C630D /* GameBtnImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84871CC542A7006C630D /* GameBtnImg.swift */; };
 		A1DC848A1CC55C05006C630D /* ImageGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84891CC55C05006C630D /* ImageGameVC.swift */; };
+		A1FEEB811CEA744200FB2533 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB801CEA744200FB2533 /* correct.wav */; };
+		A1FEEB831CEA757300FB2533 /* sadTrombone.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB821CEA757300FB2533 /* sadTrombone.wav */; };
+		A1FEEB851CEA772100FB2533 /* happyDrum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB841CEA772100FB2533 /* happyDrum.mp3 */; };
+		A1FEEB871CEA79FA00FB2533 /* drumSad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB861CEA79FA00FB2533 /* drumSad.mp3 */; };
+		A1FEEB891CEA7BCA00FB2533 /* organSad.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB881CEA7BCA00FB2533 /* organSad.wav */; };
+		A1FEEB8B1CEA7C8600FB2533 /* crowdCheer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB8A1CEA7C8600FB2533 /* crowdCheer.mp3 */; };
+		A1FEEB8D1CEA7E3A00FB2533 /* drumSemiFun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB8C1CEA7E3A00FB2533 /* drumSemiFun.mp3 */; };
+		A1FEEB8F1CEA832300FB2533 /* upSecond.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB8E1CEA832300FB2533 /* upSecond.mp3 */; };
+		A1FEEB951CEA88EB00FB2533 /* correct2.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB941CEA88EB00FB2533 /* correct2.wav */; };
+		A1FEEB971CEA894A00FB2533 /* correct3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB961CEA894A00FB2533 /* correct3.mp3 */; };
+		A1FEEB991CEA8A3000FB2533 /* flashlightWrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB981CEA8A3000FB2533 /* flashlightWrong.mp3 */; };
+		A1FEEB9B1CEA8BC900FB2533 /* wrong2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB9A1CEA8BC900FB2533 /* wrong2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +94,18 @@
 		A1DC84851CC2FCFA006C630D /* GameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		A1DC84871CC542A7006C630D /* GameBtnImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBtnImg.swift; sourceTree = "<group>"; };
 		A1DC84891CC55C05006C630D /* ImageGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGameVC.swift; sourceTree = "<group>"; };
+		A1FEEB801CEA744200FB2533 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
+		A1FEEB821CEA757300FB2533 /* sadTrombone.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sadTrombone.wav; sourceTree = "<group>"; };
+		A1FEEB841CEA772100FB2533 /* happyDrum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = happyDrum.mp3; sourceTree = "<group>"; };
+		A1FEEB861CEA79FA00FB2533 /* drumSad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drumSad.mp3; sourceTree = "<group>"; };
+		A1FEEB881CEA7BCA00FB2533 /* organSad.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = organSad.wav; sourceTree = "<group>"; };
+		A1FEEB8A1CEA7C8600FB2533 /* crowdCheer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crowdCheer.mp3; sourceTree = "<group>"; };
+		A1FEEB8C1CEA7E3A00FB2533 /* drumSemiFun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drumSemiFun.mp3; sourceTree = "<group>"; };
+		A1FEEB8E1CEA832300FB2533 /* upSecond.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = upSecond.mp3; sourceTree = "<group>"; };
+		A1FEEB941CEA88EB00FB2533 /* correct2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct2.wav; sourceTree = "<group>"; };
+		A1FEEB961CEA894A00FB2533 /* correct3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct3.mp3; sourceTree = "<group>"; };
+		A1FEEB981CEA8A3000FB2533 /* flashlightWrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = flashlightWrong.mp3; sourceTree = "<group>"; };
+		A1FEEB9A1CEA8BC900FB2533 /* wrong2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrong2.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +205,20 @@
 			children = (
 				A118B9871CD4012A004F341A /* fadeWord.wav */,
 				A118B95A1CD293D2004F341A /* correctAnswer.mp3 */,
+				A1FEEB801CEA744200FB2533 /* correct.wav */,
+				A1FEEB821CEA757300FB2533 /* sadTrombone.wav */,
 				A118B95B1CD293D2004F341A /* wrongAnswer.mp3 */,
+				A1FEEB8E1CEA832300FB2533 /* upSecond.mp3 */,
 				A118B9811CD3F7D4004F341A /* up.wav */,
+				A1FEEB841CEA772100FB2533 /* happyDrum.mp3 */,
+				A1FEEB941CEA88EB00FB2533 /* correct2.wav */,
+				A1FEEB961CEA894A00FB2533 /* correct3.mp3 */,
+				A1FEEB881CEA7BCA00FB2533 /* organSad.wav */,
+				A1FEEB9A1CEA8BC900FB2533 /* wrong2.mp3 */,
+				A1FEEB981CEA8A3000FB2533 /* flashlightWrong.mp3 */,
+				A1FEEB8A1CEA7C8600FB2533 /* crowdCheer.mp3 */,
+				A1FEEB8C1CEA7E3A00FB2533 /* drumSemiFun.mp3 */,
+				A1FEEB861CEA79FA00FB2533 /* drumSad.mp3 */,
 				A118B9821CD3F7D4004F341A /* down.wav */,
 			);
 			name = Resources;
@@ -255,14 +291,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1FEEB8B1CEA7C8600FB2533 /* crowdCheer.mp3 in Resources */,
+				A1FEEB991CEA8A3000FB2533 /* flashlightWrong.mp3 in Resources */,
 				A118B9841CD3F7D4004F341A /* down.wav in Resources */,
+				A1FEEB891CEA7BCA00FB2533 /* organSad.wav in Resources */,
+				A1FEEB831CEA757300FB2533 /* sadTrombone.wav in Resources */,
+				A1FEEB811CEA744200FB2533 /* correct.wav in Resources */,
+				A1FEEB871CEA79FA00FB2533 /* drumSad.mp3 in Resources */,
+				A1FEEB971CEA894A00FB2533 /* correct3.mp3 in Resources */,
 				A111B9D01CBC4A7400A9104F /* REFUSETR.TTF in Resources */,
+				A1FEEB9B1CEA8BC900FB2533 /* wrong2.mp3 in Resources */,
 				A118B95C1CD293D2004F341A /* correctAnswer.mp3 in Resources */,
+				A1FEEB851CEA772100FB2533 /* happyDrum.mp3 in Resources */,
 				A111B9BF1CBC209500A9104F /* LaunchScreen.storyboard in Resources */,
 				A118B9831CD3F7D4004F341A /* up.wav in Resources */,
 				A111B9BC1CBC209500A9104F /* Assets.xcassets in Resources */,
+				A1FEEB951CEA88EB00FB2533 /* correct2.wav in Resources */,
 				A118B9881CD4012A004F341A /* fadeWord.wav in Resources */,
+				A1FEEB8D1CEA7E3A00FB2533 /* drumSemiFun.mp3 in Resources */,
 				A118B95D1CD293D2004F341A /* wrongAnswer.mp3 in Resources */,
+				A1FEEB8F1CEA832300FB2533 /* upSecond.mp3 in Resources */,
 				A111B9B71CBC209500A9104F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

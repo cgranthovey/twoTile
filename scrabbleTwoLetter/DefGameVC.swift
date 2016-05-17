@@ -218,6 +218,9 @@ class DefGameVC: GeneralGameVC {
     func wrongAnswer(button: UIButton){
         didSelectIncorrectAnswer = true
         button.backgroundColor = UIColor.redColor()
+        if sfxWrongAnswer.playing == true{
+            sfxWrongAnswer.stop()
+        }
         sfxWrongAnswer.play()
     }
     

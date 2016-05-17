@@ -178,7 +178,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     func correctAnswer(button: UIButton){
         
         deactivateButtons(button1, button2: button2, button3: button3, button4: button4)
-        button.backgroundColor = UIColor(red: 20.0/255.0, green: 255.0/255.0, blue: 34.0/255.0, alpha: 1.0)
+        button.backgroundColor = UIColor(red: 26.0/255.0, green: 250.0/255.0, blue: 21.0/255.0, alpha: 1.0)
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "resetGame", userInfo: nil, repeats: false)
         sfxCorrectAnswer.play()
     }
@@ -188,7 +188,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
         
         didSelectIncorrectAnswer = true
         
-        button.backgroundColor = UIColor.redColor()
+        button.backgroundColor = UIColor(red: 229.0/255.0, green: 81.0/255.0, blue: 86.0/255.0, alpha: 1.0)
         sfxWrongAnswer.play()
     }
     

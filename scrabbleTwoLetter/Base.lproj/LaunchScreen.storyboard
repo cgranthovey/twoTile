@@ -24,13 +24,23 @@
                                     <constraint firstAttribute="height" constant="90" id="hGo-EK-ZF8"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BlL-Ie-hN1">
+                                <rect key="frame" x="0.0" y="526" width="600" height="74"/>
+                                <color key="backgroundColor" red="0.42352941176470588" green="0.57647058823529407" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="KP9-Fg-ruX"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9Bc-9L-n1X" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="6XF-bg-M3d"/>
                             <constraint firstItem="9Bc-9L-n1X" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Q6w-tf-aML"/>
                             <constraint firstAttribute="trailing" secondItem="9Bc-9L-n1X" secondAttribute="trailing" id="Qjj-Ay-ZDh"/>
+                            <constraint firstAttribute="trailing" secondItem="BlL-Ie-hN1" secondAttribute="trailing" id="cnN-gL-nAT"/>
                             <constraint firstItem="9Bc-9L-n1X" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="eI0-hy-R2N"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="BlL-Ie-hN1" secondAttribute="bottom" id="h7B-ue-pAW"/>
+                            <constraint firstItem="BlL-Ie-hN1" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="u0f-el-txd"/>
                             <constraint firstAttribute="trailing" secondItem="9Bc-9L-n1X" secondAttribute="trailing" id="vdg-Wv-MmY"/>
                             <constraint firstItem="9Bc-9L-n1X" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="x87-qY-6bZ"/>
                         </constraints>
