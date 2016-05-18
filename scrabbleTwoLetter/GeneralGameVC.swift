@@ -29,14 +29,7 @@ class GeneralGameVC: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        sfxSadTrombone.volume = 0.4
-        sfxCorrectAnswer.volume = 0.4
-        sfxWrongAnswer.volume = 0.4
-        sfxHappyDrum.volume = 0.6
-        sfxSadDrum.volume = 0.4
-        sfxCrowdCheer.volume = 0.4
-        sfxOrganSad.volume = 0.4
-        sfxDrumSemiFun.volume = 0.5
+        resetSounds()
     }
     
     
@@ -146,20 +139,21 @@ class GeneralGameVC: UIViewController {
             sfxCrowdCheer.volume = 0.0
             sfxOrganSad.volume = 0.0
             sfxCorrectAnswer.volume = 0.0
-            button.alpha = 0.5
+            button.alpha = 0.3
         } else{
-            sfxSadTrombone.volume = 0.4
-            sfxCorrectAnswer.volume = 0.4
-            sfxWrongAnswer.volume = 0.4
-            sfxHappyDrum.volume = 0.6
-            sfxSadDrum.volume = 0.4
-            sfxCrowdCheer.volume = 0.4
-            sfxOrganSad.volume = 0.4
-            sfxCorrectAnswer.volume = 0.5
+            resetSounds()
             button.alpha = buttonAlpha
         }
     }
     
-
+    func resetSounds(){
+        sfxSadTrombone.volume = 0.4
+        sfxCorrectAnswer.volume = 0.3
+        sfxWrongAnswer.volume = 0.35
+        sfxHappyDrum.volume = 0.6
+        sfxSadDrum.volume = 0.4
+        sfxCrowdCheer.volume = 0.35
+        sfxOrganSad.volume = 0.6
+    }
 
 }

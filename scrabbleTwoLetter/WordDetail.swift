@@ -31,13 +31,7 @@ class WordDetail: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        definition.layer.borderColor = UIColor.blackColor().CGColor
-        definition.layer.borderWidth = 1.0
-        
-        partOfSpeech.layer.borderColor = UIColor.blackColor().CGColor
-        partOfSpeech.layer.borderWidth = 1.0
-        
+
         word.text = tappedWord.word
         
         definition.text = tappedWord.definition
@@ -45,7 +39,12 @@ class WordDetail: UIViewController {
         image.clipsToBounds = true
         
         ImageLoader.sharedLoader.imageForUrl(tappedWord.image, completionHandler:{(image: UIImage?, url: String) in
-            self.image.image = image!
+            if image != nil{
+                self.image.image = image!
+            } else {
+                self.image.image = UIImage(named: "diff3")
+            }
+            
             self.progressBar.hidden = true
         })
         progressBar.startAnimating()
@@ -75,8 +74,8 @@ class WordDetail: UIViewController {
             try sfxSwhooshDown = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("down", ofType: "wav")!))
             
             
-            sfxSwhooshUp.volume = 0.1
-            sfxSwhooshDown.volume = 2.0
+            sfxSwhooshUp.volume = 0.05
+            sfxSwhooshDown.volume = 1.5
             
             sfxSwhooshUp.prepareToPlay()
             sfxSwhooshDown.prepareToPlay()

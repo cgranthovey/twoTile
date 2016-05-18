@@ -42,6 +42,7 @@
 		A1DC84861CC2FCFA006C630D /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84851CC2FCFA006C630D /* GameVC.swift */; };
 		A1DC84881CC542A7006C630D /* GameBtnImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84871CC542A7006C630D /* GameBtnImg.swift */; };
 		A1DC848A1CC55C05006C630D /* ImageGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84891CC55C05006C630D /* ImageGameVC.swift */; };
+		A1EBDA0A1CEC489C00544874 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EBDA091CEC489C00544874 /* iAd.framework */; };
 		A1FEEB811CEA744200FB2533 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB801CEA744200FB2533 /* correct.wav */; };
 		A1FEEB831CEA757300FB2533 /* sadTrombone.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB821CEA757300FB2533 /* sadTrombone.wav */; };
 		A1FEEB851CEA772100FB2533 /* happyDrum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB841CEA772100FB2533 /* happyDrum.mp3 */; };
@@ -94,6 +95,7 @@
 		A1DC84851CC2FCFA006C630D /* GameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		A1DC84871CC542A7006C630D /* GameBtnImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBtnImg.swift; sourceTree = "<group>"; };
 		A1DC84891CC55C05006C630D /* ImageGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGameVC.swift; sourceTree = "<group>"; };
+		A1EBDA091CEC489C00544874 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A1FEEB801CEA744200FB2533 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		A1FEEB821CEA757300FB2533 /* sadTrombone.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sadTrombone.wav; sourceTree = "<group>"; };
 		A1FEEB841CEA772100FB2533 /* happyDrum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = happyDrum.mp3; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1EBDA0A1CEC489C00544874 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +125,7 @@
 		A111B9A51CBC209500A9104F = {
 			isa = PBXGroup;
 			children = (
+				A1EBDA091CEC489C00544874 /* iAd.framework */,
 				A111B9B01CBC209500A9104F /* scrabbleTwoLetter */,
 				A111B9AF1CBC209500A9104F /* Products */,
 			);
@@ -465,6 +469,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrishovey.scrabbleTwoLetter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -476,6 +481,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrishovey.scrabbleTwoLetter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

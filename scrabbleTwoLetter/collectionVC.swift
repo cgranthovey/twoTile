@@ -80,10 +80,9 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
             
             cell.configureCell(savedWords[indexPath.row])
 
-            myButton = UIButton(frame: CGRectMake(69, 3, 20, 20))
+            myButton = UIButton(frame: CGRectMake(50, -7, 49, 49))
             myButton.setBackgroundImage(UIImage(named: "cancelCircle"), forState: .Normal)
             myButton.tag = indexPath.row
-            myButton.alpha = 0.7
 
             if editBtnOutlet.titleForState(.Normal) == "Done"{
                 myButton.hidden = false

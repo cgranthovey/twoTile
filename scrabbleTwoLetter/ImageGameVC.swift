@@ -58,12 +58,7 @@ class ImageGameVC: GeneralGameVC {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
-    
-    @IBOutlet weak var spinner1: UIActivityIndicatorView!
-    @IBOutlet weak var spinner2: UIActivityIndicatorView!
-    @IBOutlet weak var spinner3: UIActivityIndicatorView!
-    @IBOutlet weak var spinner4: UIActivityIndicatorView!
-    
+
     
     
     override func viewDidLoad() {
@@ -81,14 +76,7 @@ class ImageGameVC: GeneralGameVC {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "badDropCounter", name: "wrongDrop", object: nil)
         
         
-        spinner1.startAnimating()
-        spinner2.startAnimating()
-        spinner3.startAnimating()
-        spinner4.startAnimating()
-        spinner1.color = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0)
-        spinner2.color = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0)
-        spinner3.color = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0)
-        spinner4.color = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0)
+
         
 //        firstImg.userInteractionEnabled = true
 //        secondImg.userInteractionEnabled = true
@@ -312,6 +300,13 @@ class ImageGameVC: GeneralGameVC {
             in
             
             imgView.image = image!
+            
+            if image != nil{
+                imgView.image = image!
+            } else {
+                imgView.image = UIImage(named: "diff3")
+            }
+            
             
             UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone,
                 

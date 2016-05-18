@@ -32,7 +32,7 @@ class DragLabel: UILabel {
         }
         
         sfxCorrectAnswer.volume = 0.3
-        sfxWrongAnswer.volume = 0.4
+        sfxWrongAnswer.volume = 0.35
         
         sfxCorrectAnswer.prepareToPlay()
         sfxWrongAnswer.prepareToPlay()

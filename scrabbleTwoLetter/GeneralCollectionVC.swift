@@ -26,7 +26,7 @@ class GeneralCollectionVC: UIViewController {
         do{
             try sfxFadeOut = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fadeWord", ofType: "wav")!))
             sfxFadeOut.prepareToPlay()
-            sfxFadeOut.volume = 5
+            sfxFadeOut.volume = 3
         } catch let err as NSError{
             print(err.debugDescription)
         }
