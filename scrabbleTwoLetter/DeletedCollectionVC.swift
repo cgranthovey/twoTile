@@ -91,10 +91,9 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
             cell.configureCell(deletedScrabbleWords[indexPath.row])
-            myButton = UIButton(frame: CGRectMake(50, -7, 49, 49))
+            myButton = UIButton(frame: CGRectMake(49, -7, 49, 49))
             myButton.setBackgroundImage(UIImage(named: "backArrowFilledBlack"), forState: .Normal)
             myButton.tag = indexPath.row
-            myButton.alpha = 0.8
             if editBtnOutlet.titleForState(.Normal) == "Done"{
                 myButton.hidden = false
             } else {

@@ -177,7 +177,7 @@
                                     <constraint firstAttribute="width" constant="460" id="VRa-ou-08i"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="Practice!">
+                                <state key="normal" title="Games!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -542,8 +542,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jag-JJ-UB7">
                                                     <rect key="frame" x="0.0" y="0.0" width="92" height="92"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XFT-yg-nOs">
-                                                            <rect key="frame" x="0.0" y="0.0" width="101" height="101"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XFT-yg-nOs">
+                                                            <rect key="frame" x="0.0" y="0.0" width="92" height="92"/>
                                                             <variation key="widthClass=compact" misplaced="YES">
                                                                 <rect key="frame" x="0.0" y="0.0" width="129" height="122"/>
                                                             </variation>
@@ -2199,6 +2199,6 @@
         <image name="whiteDownArrow" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sKm-SK-W2R"/>
+        <segue reference="MP0-Qr-5mL"/>
     </inferredMetricsTieBreakers>
 </document>

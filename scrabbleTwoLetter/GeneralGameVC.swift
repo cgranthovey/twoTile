@@ -83,13 +83,13 @@ class GeneralGameVC: UIViewController {
         if percentage == 0 {
             label.text = "0% - Hmmm.  You can do better than this!"
             sfxSadTrombone.play()
-        } else if percentage <= 50{
+        } else if percentage < 50{
             label.text = "\(percentage)% - maybe some more practice"
             sfxOrganSad.play()
-        } else if percentage <= 70{
+        } else if percentage < 70{
             label.text = "\(percentage)% - at least you're above 50%"
             sfxSadDrum.play()
-        } else if percentage <= 90{
+        } else if percentage < 90{
             sfxDrumSemiFun.play()
             label.text = "\(percentage)% - dang good job!"
         } else if percentage < 100{
