@@ -169,9 +169,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    @IBAction func learnWordBtn(sender: AnyObject){
-        performSegueWithIdentifier("learnWordBtn", sender: nil)
-    }
+//    @IBAction func learnWordBtn(sender: AnyObject){
+//        performSegueWithIdentifier("learnWordBtn", sender: nil)
+//    }
     
     @IBAction func informationBtn(sender: AnyObject){
         performSegueWithIdentifier("InformationVC", sender: nil)

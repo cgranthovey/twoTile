@@ -233,9 +233,9 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     }
     
     @IBAction func removeSomeWords(sender: AnyObject){
-        var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
-        self.navigationController?.popToViewController((jumpVC)!, animated: true)
-        jumpVC?.selectedIndex = 1
+//        var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
+        self.navigationController?.popViewControllerAnimated(true)
+//        jumpVC?.selectedIndex = 1
     }
     
     @IBAction func backButton(sender: AnyObject){

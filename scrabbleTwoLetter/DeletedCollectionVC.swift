@@ -88,9 +88,11 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
     var myButton: UIButton!
     var myDeleteButtonArray: [UIButton]!
     
+    var tempArray = [ScrabbleWord]()
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
-            cell.configureCell(deletedScrabbleWords[indexPath.row])
+            cell.configureCell(deletedScrabbleWords[indexPath.row], gameWords: tempArray)
             myButton = UIButton(frame: CGRectMake(49, -7, 49, 49))
             myButton.setBackgroundImage(UIImage(named: "backArrowFilledBlack"), forState: .Normal)
             myButton.tag = indexPath.row
@@ -149,26 +151,6 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
 
         DataService.instance.addWords(savedScrabbleWords, deletedWord: deletedScrabbleWords)
         self.collectionView.deleteItemsAtIndexPaths([i])
-        
-        
-        
-        
-        
-//        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
-//            
-//            button.superview?.alpha = 0
-//            
-//            }) { (finished: Bool) -> Void in
-//                
-//                let cell = button.superview as! UICollectionViewCell
-//                let i = self.collectionView.indexPathForCell(cell)!.item
-//                self.savedScrabbleWords.append(self.deletedScrabbleWords[i])
-//                self.deletedScrabbleWords.removeAtIndex(i)
-//                self.savedScrabbleWords.sortInPlace({$0.word < $1.word})
-//                
-//                DataService.instance.addWords(self.savedScrabbleWords, deletedWord: self.deletedScrabbleWords)
-//                self.collectionView.reloadData()
-//        }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {

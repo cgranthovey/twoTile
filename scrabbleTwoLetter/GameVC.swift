@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameVC: UIViewController, UITabBarDelegate {
+class GameVC: UIViewController{
 
     var allWords = [ScrabbleWord]()
     

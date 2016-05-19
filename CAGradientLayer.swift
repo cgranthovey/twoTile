@@ -56,6 +56,22 @@ extension CAGradientLayer {
         return gradientLayer
     }
     
+    
+    
+    func hotColors() -> CAGradientLayer{
+        let leftColor = UIColor(red: 50.0/255.0, green: 120.0/255.0, blue: 80.0/255.0, alpha: 1.0)
+        let rightColor = UIColor(red: 70/255.0, green: 210/255.0, blue: 100.0/255.0, alpha: 1.0)
+        
+        let gradientColors: [CGColor] = [leftColor.CGColor, rightColor.CGColor]
+        
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.startPoint = CGPointMake(0.0, 0.0)
+        gradientLayer.endPoint = CGPointMake(1.0, 1.0)
+        
+        return gradientLayer
+    }
+    
 }
 
 

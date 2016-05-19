@@ -248,9 +248,9 @@ class DefGameVC: GeneralGameVC {
     }
     
     @IBAction func removeSomeWords(sender: AnyObject){
-        let jumpVC = navigationController?.viewControllers[1] as? UITabBarController
-        self.navigationController?.popToViewController(jumpVC!, animated: true)
-        jumpVC?.selectedIndex = 1
+//        let jumpVC = navigationController?.viewControllers[1] as? UITabBarController
+        self.navigationController?.popViewControllerAnimated(true)
+//        jumpVC?.selectedIndex = 1
     }
     
     @IBAction func backButton(sender: AnyObject){

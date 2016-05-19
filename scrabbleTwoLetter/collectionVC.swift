@@ -23,6 +23,10 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     var myButton: UIButton!
     var myDeleteButtonArray: [UIButton]!
     
+    
+    var arrayOfGameWords = [ScrabbleWord]()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         myDeleteButtonArray = [UIButton]()
@@ -31,12 +35,16 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
         imgCongrats.clipsToBounds = true
+
     }
 
     
     
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+
+        
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
         myDeleteButtonArray = [UIButton]()
@@ -50,17 +58,16 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-
         return 1
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
         return DataService.instance.savedWords.count
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("collectionToWordDetail", sender: DataService.instance.savedWords[indexPath.row])
+        
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -75,10 +82,12 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
+        
+        
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
             
             
-            cell.configureCell(savedWords[indexPath.row])
+            cell.configureCell(savedWords[indexPath.row], gameWords: arrayOfGameWords)
 
             myButton = UIButton(frame: CGRectMake(50, -7, 49, 49))
             myButton.setBackgroundImage(UIImage(named: "cancelCircle"), forState: .Normal)
@@ -94,12 +103,65 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
             myDeleteButtonArray.append(myButton)
             cell.addSubview(myButton)
         
+            swipeRight = UISwipeGestureRecognizer(target: self, action: "changeColor:")
+            swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+            cell.addGestureRecognizer(swipeRight)
+            
+            swipeLeft = UISwipeGestureRecognizer(target: self, action: "changeWhite:")
+            swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+            cell.addGestureRecognizer(swipeLeft)
+            
             return cell
         } else {
             return UICollectionViewCell()
         }
 }
 
+
+    
+    var swipeLeft: UISwipeGestureRecognizer!
+    var swipeRight: UISwipeGestureRecognizer!
+    
+    func changeWhite(sender: UIGestureRecognizer){
+        
+        let cell = sender.view as! WordCell
+        let i = self.collectionView.indexPathForCell(cell)!
+        
+        var z = 0
+        for x in arrayOfGameWords{
+            if x.word == savedWords[i.item].word{
+                arrayOfGameWords.removeAtIndex(z)
+                cell.colorWhite()
+            }
+            z = z + 1
+        }
+        
+        
+    }
+    
+    
+    func changeColor(sender: UIGestureRecognizer){
+        print("green me")
+        
+        let cell = sender.view as! WordCell
+        let i = self.collectionView.indexPathForCell(cell)!
+        
+        for x in arrayOfGameWords{
+            if x.word == savedWords[i.item].word{
+                return
+            }
+        }
+        arrayOfGameWords.append(savedWords[i.item])
+        let cell1 = sender.view as! WordCell
+        cell1.colorBlue()
+    }
+    
+    
+    
+    
+    
+    
+    
     
     
     func editButtonOnAppear(){
