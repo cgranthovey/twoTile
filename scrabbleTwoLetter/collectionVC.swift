@@ -16,6 +16,8 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     @IBOutlet weak var congrats: UILabel!
     @IBOutlet weak var congrats2: UILabel!
     
+    @IBOutlet weak var instructionLbl: UILabel!
+    
     var savedWords = [ScrabbleWord]()
     var deletedWords = [ScrabbleWord]()
 
@@ -34,8 +36,11 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         collectionView.dataSource = self
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
+        arrayOfGameWords = DataService.instance.arrayOfGameWords
         imgCongrats.clipsToBounds = true
-
+        
+        instructionLbl.text = "Swipe right on tile to add to your bucket of words used during games.  Swipe left to remove"
+        
     }
 
     
@@ -54,7 +59,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     }
     
     override func viewDidAppear(animated: Bool) {
-        editButtonOnAppear()
+//        editButtonOnAppear()
     }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -131,12 +136,11 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         for x in arrayOfGameWords{
             if x.word == savedWords[i.item].word{
                 arrayOfGameWords.removeAtIndex(z)
-                cell.colorWhite()
+                cell.colorForGameRemove()
             }
             z = z + 1
         }
-        
-        
+        DataService.instance.saveGameWords(arrayOfGameWords)
     }
     
     
@@ -153,7 +157,8 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         }
         arrayOfGameWords.append(savedWords[i.item])
         let cell1 = sender.view as! WordCell
-        cell1.colorBlue()
+        cell1.colorForGame()
+        DataService.instance.saveGameWords(arrayOfGameWords)
     }
     
     
@@ -164,17 +169,17 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     
     
     
-    func editButtonOnAppear(){
-        if editBtnOutlet.titleForState(.Normal) == "Edit"{
-            for x in myDeleteButtonArray{
-                x.hidden = true
-            }
-        }else{
-            for x in myDeleteButtonArray{
-                x.hidden = false
-            }
-        }
-    }
+//    func editButtonOnAppear(){
+//        if editBtnOutlet.titleForState(.Normal) == "Edit"{
+//            for x in myDeleteButtonArray{
+//                x.hidden = true
+//            }
+//        }else{
+//            for x in myDeleteButtonArray{
+//                x.hidden = false
+//            }
+//        }
+//    }
     
     
     @IBAction func editBtn(sender: UIButton) {
@@ -184,12 +189,13 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
                 for x in myDeleteButtonArray{
                     x.hidden = false
                 }
+                instructionLbl.text = "Press X to move words you know from the Mastered to Learning tab.  These words will not be used in games."
             } else{
                 sender.setTitle("Edit", forState: .Normal)
                 for x in myDeleteButtonArray{
                     x.hidden = true
                 }
-//                updateCollectionView()
+                instructionLbl.text = "Swipe right on tile to add to your bucket of words used during games.  Swipe left to remove."
             }
     }
     
@@ -211,6 +217,15 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         
         let cell = button.superview as! UICollectionViewCell
         let i = self.collectionView.indexPathForCell(cell)!
+        
+        var y = 0
+        for x in arrayOfGameWords{
+            if x.word == savedWords[i.item].word{
+                arrayOfGameWords.removeAtIndex(y)
+            }
+            y = y + 1
+        }
+        
         self.deletedWords.append(self.savedWords[i.item])
         self.savedWords.removeAtIndex(i.item)
         self.deletedWords.sortInPlace({$0.word < $1.word})
@@ -271,7 +286,11 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
     }
-        
+    
+    @IBAction func backButton(sender: AnyObject){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     @IBAction func homeButton(sender: AnyObject){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }

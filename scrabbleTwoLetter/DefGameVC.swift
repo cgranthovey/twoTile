@@ -41,7 +41,7 @@ class DefGameVC: GeneralGameVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        memorizingWords = DataService.instance.savedWords
+        memorizingWords = DataService.instance.arrayOfGameWords
         memorizingWords.shuffleInPlace()
         x = 0
         memorizingWordsCount = memorizingWords.count

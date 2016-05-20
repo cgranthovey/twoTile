@@ -32,7 +32,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        memorizingWords = DataService.instance.savedWords
+        memorizingWords = DataService.instance.arrayOfGameWords
         memorizingWords.shuffleInPlace()
         fakeWords.shuffleInPlace()
         memorizingWordsCount = memorizingWords.count

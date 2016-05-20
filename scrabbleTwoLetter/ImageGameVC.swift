@@ -63,8 +63,17 @@ class ImageGameVC: GeneralGameVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "timer", name: "correctDrop", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "badDropCounter", name: "wrongDrop", object: nil)
         
-        gameWords = DataService.instance.savedWords
+        headphones(headphonesImg)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        
+        gameWords = DataService.instance.arrayOfGameWords
         
         allWords.shuffleInPlace()
         gameWords.shuffleInPlace()
@@ -72,28 +81,16 @@ class ImageGameVC: GeneralGameVC {
         numberOfPlays = 0
         didSelectIncorrectAnswer = false
         wrongAnswerCount = 0
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "timer", name: "correctDrop", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "badDropCounter", name: "wrongDrop", object: nil)
         
         
-
         
-//        firstImg.userInteractionEnabled = true
-//        secondImg.userInteractionEnabled = true
-//        thirdImg.userInteractionEnabled = true
-//        fourthImg.userInteractionEnabled = true
-//        
-//        let tapGesture = UITapGestureRecognizer(target: self, action: "imageSelected:")
-//        firstImg.addGestureRecognizer(tapGesture)
-//        secondImg.addGestureRecognizer(tapGesture)
-//        thirdImg.addGestureRecognizer(tapGesture)
-//        fourthImg.addGestureRecognizer(tapGesture)
         
-        headphones(headphonesImg)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
         if gameWords.count == 0 {
+            print("0 called")
+            button1.hidden = true
+            button2.hidden = true
+            button3.hidden = true
+            button4.hidden = true
             imageStackView.hidden = true
             firstView.hidden = true
             secondView.hidden = true
@@ -103,6 +100,11 @@ class ImageGameVC: GeneralGameVC {
             gameEnd.hidden = true
             zeroWords(true)
         } else{
+            print("else called")
+            button1.hidden = false
+            button2.hidden = false
+            button3.hidden = false
+            button4.hidden = false
             imageStackView.hidden = false
             firstView.hidden = false
             secondView.hidden = false

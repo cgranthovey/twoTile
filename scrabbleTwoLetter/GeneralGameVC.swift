@@ -22,10 +22,39 @@ class GeneralGameVC: UIViewController {
     
     var buttonStatus: Int!
     
+    
+    var label: UILabel!
+    var buttonToWords: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initAudio()
+        
+        label = UILabel(frame: CGRectMake(50, 145, 280, 350))
+        self.view.addSubview(label)
+        label.textAlignment = NSTextAlignment.Center
+        label.center.x = self.view.center.x
+        label.numberOfLines = 4
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.textColor = UIColor(red: 60.0/255.0, green: 60.0/255.0, blue: 60.0/255.0, alpha: 1.0)
+        let font = UIFont(name: "Helvetica Neue", size: 18)
+        label.font = font
+        label.text = "You currently have not selected any words to use in your games.  Move words from the mastered tab to the learning tab to play."
+        label.sizeToFit()
+        label.numberOfLines = 0
+        
+        buttonToWords = UIButton(type: UIButtonType.System) as UIButton
+        buttonToWords.frame = CGRectMake(10, 250, 120, 30)
+        buttonToWords.setTitle("Add Words", forState: UIControlState.Normal)
+        buttonToWords.addTarget(self, action: "buttonAction", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(buttonToWords)
+        
+        buttonToWords.center.x = self.view.center.x
+        let font1 = UIFont(name: "Helvetica Neue", size: 14)
+        buttonToWords.titleLabel?.font = font1
 
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -102,29 +131,29 @@ class GeneralGameVC: UIViewController {
     }
     
     func zeroWords(zeroWord: Bool){
-        var label:UILabel = UILabel(frame: CGRectMake(50, 145, 280, 350))
-        self.view.addSubview(label)
-        label.textAlignment = NSTextAlignment.Center
-        label.center.x = self.view.center.x
-        label.numberOfLines = 4
-        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        label.textColor = UIColor(red: 60.0/255.0, green: 60.0/255.0, blue: 60.0/255.0, alpha: 1.0)
-        let font = UIFont(name: "Helvetica Neue", size: 18)
-        label.font = font
-        label.text = "You've already mastered all your two tile words!  Move words from the mastered tab to the learning tab to play."
-        label.sizeToFit()
-        label.numberOfLines = 0
+
+        
+        
+        print("before 0")
         if zeroWord == true{
-            label.hidden = false
+            buttonToWords.alpha = 1
+            buttonToWords.userInteractionEnabled = true
+            label.alpha = 1
+            print("zerwoods true")
         } else {
-            label.hidden = true
+            print("else before 0")
+            buttonToWords.alpha = 0
+            buttonToWords.userInteractionEnabled = false
+            label.alpha = 0
         }
     }
 
     
     //            zeroSavedWordsLbl.text = "You've already mastered all your two tile words!  Move words from the mastered tab to the learning tab to play."
 
-    
+    func buttonAction(){
+        performSegueWithIdentifier("gameToAddWordsSegue", sender: nil)
+    }
     
     
     

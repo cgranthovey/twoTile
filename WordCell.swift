@@ -34,7 +34,13 @@ class WordCell: UICollectionViewCell {
         background.frame = shadow.bounds
         shadow.layer.insertSublayer(background, atIndex: 0)
         
-//        cell.textColor = UIColor.whiteColor()
+        
+        background2 = CAGradientLayer().hotColors()
+        background2.frame = shadow.bounds
+        background.insertSublayer(background2, atIndex: 0)
+        background2.opacity = 0.0
+        
+        cell.textColor = UIColor.whiteColor()
 
         
         shadow.layer.cornerRadius = 10.0
@@ -47,38 +53,34 @@ class WordCell: UICollectionViewCell {
     
     var background2 = CAGradientLayer!()
     
-    func colorBlue(){
-
-        background2 = CAGradientLayer().hotColors()
-        background2.frame = shadow.bounds
-        background.insertSublayer(background2, atIndex: 0)
-        
-        
-        cell.textColor = UIColor.greenColor()
-        img.backgroundColor = UIColor.greenColor()
+    func colorForGame(){
+        background2.opacity = 1.0
     }
     
-    func colorWhite(){
-        cell.textColor = UIColor.whiteColor()
-        background2.hidden = true
+    func colorForGameRemove(){
+        background2.opacity = 0
+       // background2.hidden = true
     }
 
     
     func configureCell(word: ScrabbleWord, gameWords: [ScrabbleWord]){
-        cell.textColor = UIColor.whiteColor()
-
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        
+        background2.opacity = 0.0
         for x in gameWords{
             if x.word == word.word{
-                
-                cell.textColor = UIColor.greenColor()
-                img.alpha = 0.0
-                img.backgroundColor = UIColor.yellowColor()
+                background2.opacity = 1.0
             }
         }
         
-        
+        CATransaction.commit()
         
         cell.text = word.word
+        
+        
+        
+        
 //        ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
 //            self.img.image = UIImage(named: "info")
 //            self.img.image = image!
