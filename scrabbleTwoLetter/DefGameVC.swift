@@ -41,18 +41,22 @@ class DefGameVC: GeneralGameVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        memorizingWords = DataService.instance.arrayOfGameWords
-        memorizingWords.shuffleInPlace()
-        x = 0
-        memorizingWordsCount = memorizingWords.count
-        didSelectIncorrectAnswer = false
-        wrongAnswerCount = 0
+
         headphones(headphonesImg)
 
         
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        memorizingWords = DataService.instance.arrayOfGameWords
+        memorizingWords.shuffleInPlace()
+        x = 0
+        memorizingWordsCount = memorizingWords.count
+        didSelectIncorrectAnswer = false
+        wrongAnswerCount = 0
+        
+        
         if memorizingWordsCount == 0 {
             button1.hidden = true
             button2.hidden = true
@@ -219,6 +223,7 @@ class DefGameVC: GeneralGameVC {
         didSelectIncorrectAnswer = true
         button.backgroundColor = UIColor.redColor()
         if sfxWrongAnswer.playing == true{
+            sfxWrongAnswer.currentTime = 0
             sfxWrongAnswer.stop()
         }
         sfxWrongAnswer.play()
@@ -248,9 +253,7 @@ class DefGameVC: GeneralGameVC {
     }
     
     @IBAction func removeSomeWords(sender: AnyObject){
-//        let jumpVC = navigationController?.viewControllers[1] as? UITabBarController
-        self.navigationController?.popViewControllerAnimated(true)
-//        jumpVC?.selectedIndex = 1
+        buttonAction()
     }
     
     @IBAction func backButton(sender: AnyObject){

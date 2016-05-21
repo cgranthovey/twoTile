@@ -16,8 +16,6 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     @IBOutlet weak var congrats: UILabel!
     @IBOutlet weak var congrats2: UILabel!
     
-    @IBOutlet weak var instructionLbl: UILabel!
-    
     var savedWords = [ScrabbleWord]()
     var deletedWords = [ScrabbleWord]()
 
@@ -38,8 +36,6 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         deletedWords = DataService.instance.deletedWords
         arrayOfGameWords = DataService.instance.arrayOfGameWords
         imgCongrats.clipsToBounds = true
-        
-        instructionLbl.text = "Swipe right on tile to add to your bucket of words used during games.  Swipe left to remove"
         
     }
 
@@ -71,8 +67,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("collectionToWordDetail", sender: DataService.instance.savedWords[indexPath.row])
-        
+        changeColor(indexPath)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -87,10 +82,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
-        
-        
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
-            
             
             cell.configureCell(savedWords[indexPath.row], gameWords: arrayOfGameWords)
 
@@ -108,78 +100,116 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
             myDeleteButtonArray.append(myButton)
             cell.addSubview(myButton)
         
-            swipeRight = UISwipeGestureRecognizer(target: self, action: "changeColor:")
+            swipeRight = UISwipeGestureRecognizer(target: self, action: "toWordDetail:")
             swipeRight.direction = UISwipeGestureRecognizerDirection.Right
             cell.addGestureRecognizer(swipeRight)
-            
-            swipeLeft = UISwipeGestureRecognizer(target: self, action: "changeWhite:")
-            swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
-            cell.addGestureRecognizer(swipeLeft)
+
             
             return cell
         } else {
             return UICollectionViewCell()
         }
 }
-
-
     
-    var swipeLeft: UISwipeGestureRecognizer!
     var swipeRight: UISwipeGestureRecognizer!
     
-    func changeWhite(sender: UIGestureRecognizer){
+    
+    func changeColor(indexPath: NSIndexPath){
         
-        let cell = sender.view as! WordCell
-        let i = self.collectionView.indexPathForCell(cell)!
-        
-        var z = 0
-        for x in arrayOfGameWords{
-            if x.word == savedWords[i.item].word{
-                arrayOfGameWords.removeAtIndex(z)
-                cell.colorForGameRemove()
+        if let cell = collectionView?.cellForItemAtIndexPath(indexPath) as? WordCell{
+            
+            var z = 0
+            for x in arrayOfGameWords{
+                if x.word == savedWords[indexPath.item].word{
+                    
+                    if sfxBubble.playing || sfxBubble2.playing{
+                        sfxBubble.stop()
+                        sfxBubble2.stop()
+                        sfxBubble.currentTime = 0
+                        sfxBubble2.currentTime = 0
+                    }
+                    sfxBubble2.play()
+                    
+                    
+                    arrayOfGameWords.removeAtIndex(z)
+                    cell.colorForGameRemove()
+                    DataService.instance.saveGameWords(arrayOfGameWords)
+                    return
+                }
+                z = z + 1
             }
-            z = z + 1
+            
+            if sfxBubble.playing || sfxBubble2.playing{
+                sfxBubble.stop()
+                sfxBubble2.stop()
+                sfxBubble.currentTime = 0
+                sfxBubble2.currentTime = 0
+            }
+            sfxBubble.play()
+            
+            arrayOfGameWords.append(savedWords[indexPath.item])
+            cell.colorForGame()
+            DataService.instance.saveGameWords(arrayOfGameWords)
+            
         }
-        DataService.instance.saveGameWords(arrayOfGameWords)
     }
     
     
-    func changeColor(sender: UIGestureRecognizer){
-        print("green me")
+    
+    
+    @IBAction func greenBucketPress(sender: UIButton){
         
-        let cell = sender.view as! WordCell
-        let i = self.collectionView.indexPathForCell(cell)!
-        
-        for x in arrayOfGameWords{
-            if x.word == savedWords[i.item].word{
-                return
-            }
+        rotateBucket(sender)
+        if sfxSplashShort.playing{
+            sfxSplashShort.stop()
+            sfxSplashShort.currentTime = 0
         }
-        arrayOfGameWords.append(savedWords[i.item])
-        let cell1 = sender.view as! WordCell
-        cell1.colorForGame()
+        sfxSplashShort.play()
+        arrayOfGameWords = [ScrabbleWord]()
+        arrayOfGameWords = savedWords
         DataService.instance.saveGameWords(arrayOfGameWords)
+        let cells = collectionView.visibleCells() as! [WordCell]
+        for cell in cells{
+            cell.colorForGame()
+        }
+            
+        
+    }
+    
+    @IBAction func blueBucketPress(sender: UIButton){
+        rotateBucket(sender)
+        if sfxSplashShort.playing{
+            sfxSplashShort.stop()
+            sfxSplashShort.currentTime = 0
+        }
+        sfxSplashShort.play()
+        arrayOfGameWords = [ScrabbleWord]()
+        DataService.instance.saveGameWords(arrayOfGameWords)
+        let cells = collectionView.visibleCells() as! [WordCell]
+        for cell in cells{
+            cell.colorForGameRemove()
+        }
+    }
+    
+    func rotateBucket(bucketImg: UIButton){
+        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 2.0, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            bucketImg.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
+            }) { (Bool) -> Void in
+                UIView.animateWithDuration(0.3, delay: 0.1, usingSpringWithDamping: 2.0, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+                    bucketImg.transform = CGAffineTransformMakeRotation(CGFloat(0))
+                    }, completion: nil)
+        }
     }
     
     
     
     
-    
-    
-    
-    
-    
-//    func editButtonOnAppear(){
-//        if editBtnOutlet.titleForState(.Normal) == "Edit"{
-//            for x in myDeleteButtonArray{
-//                x.hidden = true
-//            }
-//        }else{
-//            for x in myDeleteButtonArray{
-//                x.hidden = false
-//            }
-//        }
-//    }
+    func toWordDetail(sender: UIGestureRecognizer){
+        let cell = sender.view as! WordCell
+        let i = self.collectionView.indexPathForCell(cell)!
+        
+        performSegueWithIdentifier("collectionToWordDetail", sender: DataService.instance.savedWords[i.item])
+    }
     
     
     @IBAction func editBtn(sender: UIButton) {
@@ -189,13 +219,11 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
                 for x in myDeleteButtonArray{
                     x.hidden = false
                 }
-                instructionLbl.text = "Press X to move words you know from the Mastered to Learning tab.  These words will not be used in games."
             } else{
                 sender.setTitle("Edit", forState: .Normal)
                 for x in myDeleteButtonArray{
                     x.hidden = true
                 }
-                instructionLbl.text = "Swipe right on tile to add to your bucket of words used during games.  Swipe left to remove."
             }
     }
     
@@ -208,8 +236,6 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     
 
     var myDeleteButtonPressedArray = [UIButton]()
-    
-
     
     func reset(button: UIButton) {
         self.sfxFadeOut.play()
@@ -277,11 +303,6 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
             self.congrats2.hidden = true
         }
     }
-    
-    
-    
-    
-    
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)

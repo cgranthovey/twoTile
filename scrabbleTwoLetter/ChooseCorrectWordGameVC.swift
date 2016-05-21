@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import iAd
 
-class ChooseCorrectWordGameVC: GeneralGameVC {
+class ChooseCorrectWordGameVC: GeneralGameVC, ADBannerViewDelegate{
 
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -20,8 +21,10 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     @IBOutlet weak var numberOfWords: UILabel!
     @IBOutlet weak var percentCorrectLbl: UILabel!
     
+    @IBOutlet weak var banner: ADBannerView!
+    
     var memorizingWords = [ScrabbleWord]()
-    var fakeWords = ["Ac", "Af", "Ak", "Ap", "Av", "Br", "Ci", "Da", "Di", "Eg", "Ek", "Ew", "Fi", "Fo", "Ga", "Ge", "Gi", "Gu", "Hu", "Ia", "Ib", "Ie", "Ig", "Ik", "Il", "Im", "Io", "Ip", "Iz", "Ja", "Je", "Ji", "Ju", "Ke", "Ko", "Ku", "Le", "Lu", "Mr", "Ni", "Ny", "Oa", "Ob", "Og", "Ok", "Ot", "Oz", "Po", "Pu", "Py", "Qa", "Qo", "Ra", "Ri", "Ro", "Ru", "Ry", "Sa", "Se", "Sm", "Su", "Te", "Ts", "Tu", "Ub", "Ud", "Uf", "Ug", "Uk", "Ur", "Va", "Ve", "Vi", "Vo", "Vu", "Wa", "Wi", "Wy", "Wu", "Xa", "Xy", "Xo", "Yi", "Yu", "Ym", "Zo", "Zi"]
+    var fakeWords = ["Ac", "Af", "Ak", "Ap", "Av", "Br", "Ci", "Da", "Di", "Eg", "Ek", "Ew", "Fi", "Fo", "Ga", "Ge", "Gi", "Gu", "Hu", "Ia", "Ib", "Ie", "Ig", "Ik", "Il", "Im", "Io", "Ip", "Iz", "Ja", "Je", "Ji", "Ju", "Ke", "Ko", "Ku", "Le", "Lu", "Mr", "Ni", "Ny", "Oa", "Ob", "Og", "Ok", "Ot", "Po", "Pu", "Py", "Qa", "Qo", "Ra", "Ri", "Ro", "Ru", "Ry", "Sa", "Se", "Sm", "Su", "Te", "Ts", "Tu", "Ub", "Ud", "Uf", "Ug", "Uk", "Ur", "Va", "Ve", "Vi", "Vo", "Vu", "Wa", "Wi", "Wy", "Wu", "Xa", "Xy", "Xo", "Yi", "Yu", "Ym", "Zo", "Zi"]
     
     var x: Int = 0
     var shortArray: [UIButton]!
@@ -32,6 +35,17 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        banner.delegate = self
+        self.canDisplayBannerAds = true
+        headphones(headphonesImg)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        banner.hidden = true
+        
+        
+        
         memorizingWords = DataService.instance.arrayOfGameWords
         memorizingWords.shuffleInPlace()
         fakeWords.shuffleInPlace()
@@ -39,12 +53,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
         
         didSelectIncorrectAnswer = false
         wrongAnswerCount = 0
-        headphones(headphonesImg)
         
-
-    }
-    
-    override func viewWillAppear(animated: Bool) {
         
         if memorizingWords.count == 0{
             
@@ -72,7 +81,20 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
         }
     }
     
+    func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool {
+        return true
+    }
     
+    func bannerViewWillLoadAd(banner: ADBannerView!) {
+        
+    }
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        banner.hidden = false
+    }
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        NSLog("Error")
+        banner.hidden = true
+    }
     
     @IBAction func headphonesBtn (sender: UIButton){
         if DataService.instance.buttonAlphaLevel == 1{
@@ -189,6 +211,11 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
         didSelectIncorrectAnswer = true
         
         button.backgroundColor = UIColor(red: 229.0/255.0, green: 81.0/255.0, blue: 86.0/255.0, alpha: 1.0)
+        
+        if sfxWrongAnswer.playing{
+            sfxWrongAnswer.stop()
+            sfxWrongAnswer.currentTime = 0
+        }
         sfxWrongAnswer.play()
     }
     
@@ -233,9 +260,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC {
     }
     
     @IBAction func removeSomeWords(sender: AnyObject){
-//        var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
-        self.navigationController?.popViewControllerAnimated(true)
-//        jumpVC?.selectedIndex = 1
+        buttonAction()
     }
     
     @IBAction func backButton(sender: AnyObject){

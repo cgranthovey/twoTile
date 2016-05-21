@@ -30,7 +30,7 @@ class GeneralGameVC: UIViewController {
         super.viewDidLoad()
         initAudio()
         
-        label = UILabel(frame: CGRectMake(50, 145, 280, 350))
+        label = UILabel(frame: CGRectMake(50, 160, 250, 350))
         self.view.addSubview(label)
         label.textAlignment = NSTextAlignment.Center
         label.center.x = self.view.center.x
@@ -39,12 +39,12 @@ class GeneralGameVC: UIViewController {
         label.textColor = UIColor(red: 60.0/255.0, green: 60.0/255.0, blue: 60.0/255.0, alpha: 1.0)
         let font = UIFont(name: "Helvetica Neue", size: 18)
         label.font = font
-        label.text = "You currently have not selected any words to use in your games.  Move words from the mastered tab to the learning tab to play."
+        label.text = "No words are currently selected to practice in games."
         label.sizeToFit()
         label.numberOfLines = 0
         
         buttonToWords = UIButton(type: UIButtonType.System) as UIButton
-        buttonToWords.frame = CGRectMake(10, 250, 120, 30)
+        buttonToWords.frame = CGRectMake(10, 210, 120, 30)
         buttonToWords.setTitle("Add Words", forState: UIControlState.Normal)
         buttonToWords.addTarget(self, action: "buttonAction", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(buttonToWords)

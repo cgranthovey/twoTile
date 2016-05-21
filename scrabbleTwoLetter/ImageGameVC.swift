@@ -194,6 +194,10 @@ class ImageGameVC: GeneralGameVC {
         
         didSelectIncorrectAnswer = true
         firstWord.textColor = UIColor.redColor()
+        if sfxWrongAnswer.playing{
+            sfxWrongAnswer.stop()
+            sfxWrongAnswer.currentTime = 0
+        }
         sfxWrongAnswer.play()
     }
     
@@ -225,6 +229,12 @@ class ImageGameVC: GeneralGameVC {
         
         numberOfWords.text = "\(numberOfPlays + 1)/\(gameWords.count)"
         activateButtons(button1, button2: button2, button3: button3, button4: button4)
+        
+        
+        button1.userInteractionEnabled = false
+        button2.userInteractionEnabled = false
+        button3.userInteractionEnabled = false
+        button4.userInteractionEnabled = false
         
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             self.firstImg.alpha = 0
@@ -277,6 +287,10 @@ class ImageGameVC: GeneralGameVC {
                     self.firstWord.dropTarget = self.fourthView
                 }
                 
+                self.button1.userInteractionEnabled = true
+                self.button2.userInteractionEnabled = true
+                self.button3.userInteractionEnabled = true
+                self.button4.userInteractionEnabled = true
                 
                 UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone,
                     
@@ -340,9 +354,7 @@ class ImageGameVC: GeneralGameVC {
     }
     
     @IBAction func deleteWords(sender: AnyObject!){
-//        var jumpVC = navigationController?.viewControllers[1] as? UITabBarController
-        self.navigationController?.popViewControllerAnimated(true)
-//        jumpVC?.selectedIndex = 1
+        buttonAction()
     }
     
     @IBAction func backButton(sender: AnyObject!){

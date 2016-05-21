@@ -59,7 +59,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        NSLog("Error!")
         banner.hidden = true
     }
     
@@ -70,7 +69,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func bannerViewDidLoadAd(banner: ADBannerView!) {
         banner.hidden = false
     }
-
 
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
