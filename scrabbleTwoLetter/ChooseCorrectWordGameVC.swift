@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import iAd
 
-class ChooseCorrectWordGameVC: GeneralGameVC, ADBannerViewDelegate{
+class ChooseCorrectWordGameVC: GeneralGameVC{
 
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -21,7 +20,6 @@ class ChooseCorrectWordGameVC: GeneralGameVC, ADBannerViewDelegate{
     @IBOutlet weak var numberOfWords: UILabel!
     @IBOutlet weak var percentCorrectLbl: UILabel!
     
-    @IBOutlet weak var banner: ADBannerView!
     
     var memorizingWords = [ScrabbleWord]()
     var fakeWords = ["Ac", "Af", "Ak", "Ap", "Av", "Br", "Ci", "Da", "Di", "Eg", "Ek", "Ew", "Fi", "Fo", "Ga", "Ge", "Gi", "Gu", "Hu", "Ia", "Ib", "Ie", "Ig", "Ik", "Il", "Im", "Io", "Ip", "Iz", "Ja", "Je", "Ji", "Ju", "Ke", "Ko", "Ku", "Le", "Lu", "Mr", "Ni", "Ny", "Oa", "Ob", "Og", "Ok", "Ot", "Po", "Pu", "Py", "Qa", "Qo", "Ra", "Ri", "Ro", "Ru", "Ry", "Sa", "Se", "Sm", "Su", "Te", "Ts", "Tu", "Ub", "Ud", "Uf", "Ug", "Uk", "Ur", "Va", "Ve", "Vi", "Vo", "Vu", "Wa", "Wi", "Wy", "Wu", "Xa", "Xy", "Xo", "Yi", "Yu", "Ym", "Zo", "Zi"]
@@ -35,16 +33,10 @@ class ChooseCorrectWordGameVC: GeneralGameVC, ADBannerViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        banner.delegate = self
-        self.canDisplayBannerAds = true
         headphones(headphonesImg)
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        banner.hidden = true
-        
-        
         
         memorizingWords = DataService.instance.arrayOfGameWords
         memorizingWords.shuffleInPlace()
@@ -80,22 +72,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC, ADBannerViewDelegate{
             
         }
     }
-    
-    func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool {
-        return true
-    }
-    
-    func bannerViewWillLoadAd(banner: ADBannerView!) {
         
-    }
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-        banner.hidden = false
-    }
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        NSLog("Error")
-        banner.hidden = true
-    }
-    
     @IBAction func headphonesBtn (sender: UIButton){
         if DataService.instance.buttonAlphaLevel == 1{
             DataService.instance.updateButtonAlpha(0.5)

@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import iAd
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, ADBannerViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     
 
@@ -17,8 +16,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var bottomBorderBox: UIView!
     @IBOutlet weak var gradientViewTop: UIView!
-    
-    @IBOutlet var bannerView: ADBannerView!
     
     var words = [ScrabbleWord]()
     var filteredWords = [ScrabbleWord]()
@@ -32,44 +29,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchBar.returnKeyType = UIReturnKeyType.Done
         words = StoreWord().getWord()
         
-        bannerView.delegate = self
-        bannerView.hidden = true
-        self.canDisplayBannerAds = true
-        bannerView.translatesAutoresizingMaskIntoConstraints = true
-//        view.addSubview(bannerView)
-        
-//        bannerView.translatesAutoresizingMaskIntoConstraints = true
-//        bannerView = ADBannerView(adType: .Banner)
-//        self.bannerView.frame = CGRectMake(0, self.view.frame.size.height-self.bannerView.frame.size.height, self.bannerView.frame.size.width, self.bannerView.frame.size.height)
-
-        
-//        let viewsDictionary = ["bannerView": bannerView]
-//        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[bannerView]|", options: [], metrics: nil, views: viewsDictionary))
-//        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[bannerView]|", options: [], metrics: nil, views: viewsDictionary))
-        
-        
         let background1 = CAGradientLayer().whiteToRedColor()
         background1.frame = self.bottomBorderBox.bounds
         self.bottomBorderBox.layer.insertSublayer(background1, atIndex: 0)
         
     }
     
-    func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool {
-        return true
-    }
-    
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        banner.hidden = true
-    }
-    
-    func bannerViewWillLoadAd(banner: ADBannerView!) {
-        
-    }
-    
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-        banner.hidden = false
-    }
-
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

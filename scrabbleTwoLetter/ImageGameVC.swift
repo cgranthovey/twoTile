@@ -315,7 +315,6 @@ class ImageGameVC: GeneralGameVC {
         ImageLoader.sharedLoader.imageForUrl(image, completionHandler: {(image: UIImage?, url: String)
             in
             
-            imgView.image = image!
             
             if image != nil{
                 imgView.image = image!

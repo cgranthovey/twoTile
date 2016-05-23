@@ -6,19 +6,21 @@
 //  Copyright © 2016 Chris Hovey. All rights reserved.
 //
 
+// go ye(add quote) yo
+
 import Foundation
 
 class StoreWord {
     private var _aa = ScrabbleWord(word: "Aa", partOfSpeech: "noun", definition: "Basaltic lava", image: "http://res.cloudinary.com/di6su8dza/image/upload/c_scale,w_640/v1462995562/volcano-lava-magma_ytxtlg.jpg")
-    private var _ab = ScrabbleWord(word: "Ab", partOfSpeech: "noun", definition: "Stomach muscles", image: "https://pixabay.com/static/uploads/photo/2015/06/24/22/39/anatomy-820792_960_720.jpg")
-    private var _ad = ScrabbleWord(word: "Ad", partOfSpeech: "noun", definition: "Short for advertisement", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463001243/index_czsfie.jpg")
+    private var _ab = ScrabbleWord(word: "Ab", partOfSpeech: "noun", definition: "Stomach muscle", image: "https://pixabay.com/static/uploads/photo/2015/06/24/22/39/anatomy-820792_960_720.jpg")
+    private var _ad = ScrabbleWord(word: "Ad", partOfSpeech: "noun", definition: "Advertisement", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463001243/index_czsfie.jpg")
     private var _ae = ScrabbleWord(word: "Ae", partOfSpeech: "adjective", definition: "One", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463372803/bagger_gxpvql.jpg")//https://pixabay.com/en/bagpiper-loch-ness-kilt-tartan-1319161/
     private var _ag = ScrabbleWord(word: "Ag", partOfSpeech: "adjective", definition: "Relating to agriculture", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463002341/wheat_wdc1te.jpg")
     private var _ah = ScrabbleWord(word: "Ah", partOfSpeech: "interjection", definition: "An exclamation used to express realization or happiness", image: "https://pixabay.com/static/uploads/photo/2016/04/08/00/28/notion-1315284_960_720.jpg")
     private var _ai = ScrabbleWord(word: "Ai", partOfSpeech: "noun", definition: "Three clawed sloth", image: "http://res.cloudinary.com/di6su8dza/image/upload/c_scale,w_640/v1462998990/pexels-photo-24380_wget0x.jpg")
     private var _al = ScrabbleWord(word: "Al", partOfSpeech: "noun", definition: "Indian shrub", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463002894/index_rwqjhn.jpg")
     private var _am = ScrabbleWord(word: "Am", partOfSpeech: "verb", definition: "To exist", image: "https://upload.wikimedia.org/wikipedia/commons/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg")
-    private var _an = ScrabbleWord(word: "An", partOfSpeech: "indefinite article", definition: "indefinite article placed before words beginning with a vowel sound", image: "https://pixabay.com/static/uploads/photo/2016/01/19/17/39/starry-night-1149815_960_720.jpg")
+    private var _an = ScrabbleWord(word: "An", partOfSpeech: "indefinite article", definition: "indefinite article placed before words beginning with a vowel sound", image: "http://res.cloudinary.com/di6su8dza/image/upload/q_100/v1463869182/anAnt_ievylw.jpg")//https://pixabay.com/en/ant-cistus-flowers-1203494/
     private var _ar = ScrabbleWord(word: "Ar", partOfSpeech: "noun", definition: "Letter R", image: "https://pixabay.com/static/uploads/photo/2014/09/18/22/42/letters-451521_960_720.jpg")//https://upload.wikimedia.org/wikipedia/commons/b/be/Bonney%2C_Anne_%281697-1720%29.jpg
     private var _as = ScrabbleWord(word: "As", partOfSpeech: "adverb", definition: "Used in comparing", image: "https://pixabay.com/static/uploads/photo/2015/10/11/19/34/scales-of-justice-982903_960_720.jpg")
     private var _at = ScrabbleWord (word: "At", partOfSpeech: "preposition", definition: "Expressing time or place", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463006635/fashion-man-person-hand_1_vw0d6s.jpg")
@@ -29,7 +31,7 @@ class StoreWord {
     private var _be = ScrabbleWord(word: "Be", partOfSpeech: "verb", definition: "Exist, first person singular", image: "https://pixabay.com/static/uploads/photo/2014/03/12/09/24/art-painting-285919_960_720.jpg")
     private var _bi = ScrabbleWord(word: "Bi", partOfSpeech: "noun", definition: "Bisexual", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463172773/bixsexual2_yel3wt.jpg")
     private var _bo = ScrabbleWord(word: "Bo", partOfSpeech: "noun", definition: "Pal", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463010341/lake-animals-dogs-pets_radvt7.jpg")
-    private var _by = ScrabbleWord(word: "By", partOfSpeech: "adverb", definition: "Near or through", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463011049/eilean-donan-castle-650681_1280_klpiom.jpg")
+    private var _by = ScrabbleWord(word: "By", partOfSpeech: "adverb", definition: "Near or through", image: "https://pixabay.com/static/uploads/photo/2015/12/07/12/11/sea-1080696_960_720.jpg")
     private var _de = ScrabbleWord(word: "De", partOfSpeech: "preposition", definition: "From, used in names", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463175345/miguel_c2lyw6.jpg")//https://en.wikipedia.org/wiki/Miguel_de_Cervantes
     private var _do = ScrabbleWord(word: "Do", partOfSpeech: "verb", definition: "To perform an action", image: "https://pixabay.com/static/uploads/photo/2014/04/05/11/40/poster-316691_960_720.jpg")
     private var _ed = ScrabbleWord(word: "Ed", partOfSpeech: "noun", definition: "Education", image: "https://pixabay.com/static/uploads/photo/2015/10/30/09/18/square-academic-cap-1013557_960_720.jpg")
@@ -103,7 +105,7 @@ class StoreWord {
     private var _up = ScrabbleWord(word: "Up", partOfSpeech: "adverb", definition: "To a higher position", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463374182/rockClimbing1_ipxzkw.jpg")//https://pixabay.com/en/rock-climbing-fitness-sports-cliff-924842/
     private var _us = ScrabbleWord(word: "Us", partOfSpeech: "pronoun", definition: "Refers to speaker and other person(s) as object of a verb or preposition", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463375115/us_zs452c.jpg")//https://pixabay.com/en/group-people-teens-young-friends-1262146/
     private var _ut = ScrabbleWord(word: "Ut", partOfSpeech: "noun", definition: "The original first note in music scale, now replaced by 'do'", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463375697/ut_original_abtcta.jpg")
-    private var _we = ScrabbleWord(word: "We", partOfSpeech: "pronoun", definition: "Used to indicate oneself and another person or persons", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463421350/wekidsFInal_xszsia.jpg")//https://pixabay.com/en/children-smiling-asian-filipino-597471/
+    private var _we = ScrabbleWord(word: "We", partOfSpeech: "pronoun", definition: "Used to indicate oneself and another person or persons", image: "http://res.cloudinary.com/di6su8dza/image/upload/q_80/v1463421350/wekidsFInal_xszsia.jpg")//https://pixabay.com/en/children-smiling-asian-filipino-597471/
     private var _wo = ScrabbleWord(word: "Wo", partOfSpeech: "noun", definition: "Woe, great affliction", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463377508/wo_l5hvuo.jpg")//https://www.pexels.com/photo/man-person-portrait-old-9824/
     private var _xi = ScrabbleWord(word: "Xi", partOfSpeech: "noun", definition: "14th letter of Greek alphabet", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463378033/xifinal1_ctzlfb.jpg") //https://commons.wikimedia.org/wiki/File:Xi_uc_lc.svg
     private var _xu = ScrabbleWord(word: "Xu", partOfSpeech: "noun", definition: "Vietnamese monetary unit, worth one hundredth of a dong", image: "http://res.cloudinary.com/di6su8dza/image/upload/v1463379951/xu1_e9vb5n.jpg")//https://commons.wikimedia.org/wiki/File:Vietnam_1_dong.jpg

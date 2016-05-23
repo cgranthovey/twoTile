@@ -44,6 +44,10 @@ class InformationVC: UIViewController {
         openLink("http://taira-komori.jpn.org/freesounden.html")
     }
     
+    @IBAction func theNounProject(sender: AnyObject){
+        openLink("https://thenounproject.com/")
+    }
+    
     func openLink(urlString: String){
         if let url = NSURL(string: urlString){
             UIApplication.sharedApplication().openURL(url)
