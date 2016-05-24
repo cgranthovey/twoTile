@@ -140,8 +140,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegueWithIdentifier("InformationVC", sender: nil)
     }
     
+    @IBAction func homeButton(sender: AnyObject){
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
     
-    
+    @IBAction func gamesButton(sender: AnyObject){
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
     
     
     

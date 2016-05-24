@@ -15,7 +15,7 @@ class WordDetail: UIViewController {
     @IBOutlet weak var word: UILabel!
     @IBOutlet weak var definition: UILabel!
     @IBOutlet weak var partOfSpeech: UILabel!
-    
+    @IBOutlet weak var wikiBtn: UIButton!
     @IBOutlet weak var progressBar: UIActivityIndicatorView!
     
     @IBOutlet weak var greyView: UIView!
@@ -28,25 +28,22 @@ class WordDetail: UIViewController {
     var tappedWord: ScrabbleWord!
     var sfxSwhooshUp: AVAudioPlayer!
     var sfxSwhooshDown: AVAudioPlayer!
-        
+    var urlString: String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         word.text = tappedWord.word
+        urlString = tappedWord.wiki
+        if urlString == ""{
+            wikiBtn.hidden = true
+        }
         
         definition.text = tappedWord.definition
         partOfSpeech.text = "   " + tappedWord.partOfSpeech
         image.clipsToBounds = true
         
-        ImageLoader.sharedLoader.imageForUrl(tappedWord.image, completionHandler:{(image: UIImage?, url: String) in
-            if image != nil{
-                self.image.image = image!
-            } else {
-                self.image.image = UIImage(named: "diff3")
-            }
-            
-            self.progressBar.hidden = true
-        })
+        bringUpPhoto()
+
         progressBar.startAnimating()
         progressBar.color = UIColor(red: 226.0/255.0, green: 59.0/255.0, blue: 64.0/255.0, alpha: 1.0)
         
@@ -59,14 +56,34 @@ class WordDetail: UIViewController {
         arrowContainer.alpha = 0.8
         arrowContainer.backgroundColor = UIColor.lightGrayColor()
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: "dismissThisView")
-        arrowContainer.addGestureRecognizer(tapGesture)
-        arrowContainer.userInteractionEnabled = true
         initAudio()
         sfxSwhooshUp.play()
     }
 
+
     
+    @IBAction func openLink (sender: AnyObject){
+        if let url = NSURL(string: urlString){
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
+    func bringUpPhoto(){
+        
+        if Reachability.isConnectedToNetwork() == false{
+            self.image.image = UIImage(named: "diff3")
+        } else{
+            ImageLoader.sharedLoader.imageForUrl(tappedWord.image, completionHandler:{(image: UIImage?, url: String) in
+                if image != nil{
+                    self.image.image = image!
+                } else {
+                    self.image.image = UIImage(named: "diff3")
+                }
+                
+                self.progressBar.hidden = true
+            })
+        }
+    }
     
     func initAudio(){
         do{
@@ -84,12 +101,14 @@ class WordDetail: UIViewController {
         }
     }
     
-    
-    
     func handleSwipe(sender: UISwipeGestureRecognizer){
         if sender.direction == .Down{
             dismissThisView()
         }
+    }
+    
+    @IBAction func dismissViewControllerBtn(sender: UIButton){
+        dismissThisView()
     }
     
     func dismissThisView(){

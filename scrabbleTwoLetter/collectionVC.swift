@@ -16,6 +16,9 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     @IBOutlet weak var congrats: UILabel!
     @IBOutlet weak var congrats2: UILabel!
     
+    @IBOutlet weak var tapExplain: UIView!
+    @IBOutlet weak var xExplain: UILabel!
+    
     var savedWords = [ScrabbleWord]()
     var deletedWords = [ScrabbleWord]()
 
@@ -69,6 +72,21 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         changeColor(indexPath)
     }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let sizeOfScreen = self.view.bounds.size
+        
+        if sizeOfScreen.height <= 568{
+            return CGSizeMake(92, 92)
+        } else if sizeOfScreen.height <= 667{
+            print("yes it's me")
+            return CGSizeMake(105, 105)
+        } else if sizeOfScreen.height <= 736{
+            return CGSizeMake(115, 115)
+        } else{
+            return CGSizeMake(140, 140)
+        }
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "collectionToWordDetail"{
@@ -86,7 +104,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
             
             cell.configureCell(savedWords[indexPath.row], gameWords: arrayOfGameWords)
 
-            myButton = UIButton(frame: CGRectMake(50, -7, 49, 49))
+            myButton = UIButton(frame: CGRectMake(xPlacementOfX, -7, 49, 49))
             myButton.setBackgroundImage(UIImage(named: "cancelCircle"), forState: .Normal)
             myButton.tag = indexPath.row
 
@@ -216,10 +234,14 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
 
             if sender.titleForState(.Normal) == "Edit"{
                 sender.setTitle("Done", forState: .Normal)
+                tapExplain.hidden = true
+                xExplain.hidden = false
                 for x in myDeleteButtonArray{
                     x.hidden = false
                 }
             } else{
+                tapExplain.hidden = false
+                xExplain.hidden = true
                 sender.setTitle("Edit", forState: .Normal)
                 for x in myDeleteButtonArray{
                     x.hidden = true
@@ -309,7 +331,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     }
     
     @IBAction func backButton(sender: AnyObject){
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     @IBAction func homeButton(sender: AnyObject){

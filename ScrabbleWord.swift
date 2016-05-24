@@ -13,6 +13,7 @@ class ScrabbleWord: NSObject, NSCoding {
     private var _partOfSpeech: String!
     private var _definition: String!
     private var _image: String!
+    private var _wiki: String!
     
     var word: String{
         return _word
@@ -30,11 +31,16 @@ class ScrabbleWord: NSObject, NSCoding {
         return _image
     }
     
-    init(word: String, partOfSpeech: String, definition: String, image: String){
+    var wiki: String{
+        return _wiki
+    }
+    
+    init(word: String, partOfSpeech: String, definition: String, image: String, wiki: String){
         self._word = word
         self._partOfSpeech = partOfSpeech
         self._definition = definition
         self._image = image
+        self._wiki = wiki
     }
     
     override init(){
@@ -47,6 +53,7 @@ class ScrabbleWord: NSObject, NSCoding {
         self._partOfSpeech = aDecoder.decodeObjectForKey("partOfSpeech") as? String
         self._definition = aDecoder.decodeObjectForKey("def") as? String
         self._image = aDecoder.decodeObjectForKey("img") as? String
+        self._wiki = aDecoder.decodeObjectForKey("wiki") as? String
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -54,5 +61,6 @@ class ScrabbleWord: NSObject, NSCoding {
         aCoder.encodeObject(self.partOfSpeech, forKey: "partOfSpeech")
         aCoder.encodeObject(self._definition, forKey: "def")
         aCoder.encodeObject(self._image, forKey: "img")
+        aCoder.encodeObject(self._wiki, forKey: "wiki")
     }
 }

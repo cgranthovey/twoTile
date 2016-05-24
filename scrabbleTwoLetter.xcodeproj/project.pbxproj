@@ -28,6 +28,9 @@
 		A118B9841CD3F7D4004F341A /* down.wav in Resources */ = {isa = PBXBuildFile; fileRef = A118B9821CD3F7D4004F341A /* down.wav */; };
 		A118B9881CD4012A004F341A /* fadeWord.wav in Resources */ = {isa = PBXBuildFile; fileRef = A118B9871CD4012A004F341A /* fadeWord.wav */; };
 		A118B98A1CD40A62004F341A /* GeneralCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118B9891CD40A62004F341A /* GeneralCollectionVC.swift */; };
+		A177EE981CF3940200F13890 /* pebbleDrop1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A177EE971CF3940200F13890 /* pebbleDrop1.mp3 */; };
+		A177EE9A1CF3945200F13890 /* waterDropSlash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A177EE991CF3945200F13890 /* waterDropSlash.mp3 */; };
+		A177EE9C1CF3B74700F13890 /* connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177EE9B1CF3B74700F13890 /* connectivity.swift */; };
 		A1834A781CC97EE1000CE61D /* DefGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1834A771CC97EE1000CE61D /* DefGameVC.swift */; };
 		A1A245181CEFBFBF006E7E7C /* splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1A245171CEFBFBF006E7E7C /* splash.mp3 */; };
 		A1A2451A1CEFC4F2006E7E7C /* rockSplash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1A245191CEFC4F2006E7E7C /* rockSplash.mp3 */; };
@@ -48,7 +51,6 @@
 		A1DC84861CC2FCFA006C630D /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84851CC2FCFA006C630D /* GameVC.swift */; };
 		A1DC84881CC542A7006C630D /* GameBtnImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84871CC542A7006C630D /* GameBtnImg.swift */; };
 		A1DC848A1CC55C05006C630D /* ImageGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DC84891CC55C05006C630D /* ImageGameVC.swift */; };
-		A1EBDA0A1CEC489C00544874 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EBDA091CEC489C00544874 /* iAd.framework */; };
 		A1FEEB811CEA744200FB2533 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB801CEA744200FB2533 /* correct.wav */; };
 		A1FEEB831CEA757300FB2533 /* sadTrombone.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB821CEA757300FB2533 /* sadTrombone.wav */; };
 		A1FEEB851CEA772100FB2533 /* happyDrum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1FEEB841CEA772100FB2533 /* happyDrum.mp3 */; };
@@ -87,6 +89,9 @@
 		A118B9821CD3F7D4004F341A /* down.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = down.wav; sourceTree = "<group>"; };
 		A118B9871CD4012A004F341A /* fadeWord.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fadeWord.wav; sourceTree = "<group>"; };
 		A118B9891CD40A62004F341A /* GeneralCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralCollectionVC.swift; sourceTree = "<group>"; };
+		A177EE971CF3940200F13890 /* pebbleDrop1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pebbleDrop1.mp3; path = "../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/pebbleDrop1.mp3"; sourceTree = "<group>"; };
+		A177EE991CF3945200F13890 /* waterDropSlash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = waterDropSlash.mp3; path = "../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/waterDropSlash.mp3"; sourceTree = "<group>"; };
+		A177EE9B1CF3B74700F13890 /* connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = connectivity.swift; sourceTree = "<group>"; };
 		A1834A771CC97EE1000CE61D /* DefGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefGameVC.swift; sourceTree = "<group>"; };
 		A1A245171CEFBFBF006E7E7C /* splash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = splash.mp3; path = "../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/splash.mp3"; sourceTree = "<group>"; };
 		A1A245191CEFC4F2006E7E7C /* rockSplash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = rockSplash.mp3; path = "../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/rockSplash.mp3"; sourceTree = "<group>"; };
@@ -107,7 +112,6 @@
 		A1DC84851CC2FCFA006C630D /* GameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		A1DC84871CC542A7006C630D /* GameBtnImg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBtnImg.swift; sourceTree = "<group>"; };
 		A1DC84891CC55C05006C630D /* ImageGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGameVC.swift; sourceTree = "<group>"; };
-		A1EBDA091CEC489C00544874 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A1FEEB801CEA744200FB2533 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		A1FEEB821CEA757300FB2533 /* sadTrombone.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sadTrombone.wav; sourceTree = "<group>"; };
 		A1FEEB841CEA772100FB2533 /* happyDrum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = happyDrum.mp3; sourceTree = "<group>"; };
@@ -127,7 +131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1EBDA0A1CEC489C00544874 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +140,6 @@
 		A111B9A51CBC209500A9104F = {
 			isa = PBXGroup;
 			children = (
-				A1EBDA091CEC489C00544874 /* iAd.framework */,
 				A111B9B01CBC209500A9104F /* scrabbleTwoLetter */,
 				A111B9AF1CBC209500A9104F /* Products */,
 			);
@@ -213,6 +215,7 @@
 				A1DBA51D1CC6C8D9004659B2 /* ChooseCorrectWordGameVC.swift */,
 				A1834A771CC97EE1000CE61D /* DefGameVC.swift */,
 				A118B95E1CD2971B004F341A /* GeneralGameVC.swift */,
+				A177EE9B1CF3B74700F13890 /* connectivity.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -223,9 +226,11 @@
 				A1A245171CEFBFBF006E7E7C /* splash.mp3 */,
 				A118B9871CD4012A004F341A /* fadeWord.wav */,
 				A118B95A1CD293D2004F341A /* correctAnswer.mp3 */,
+				A177EE971CF3940200F13890 /* pebbleDrop1.mp3 */,
 				A1FEEB801CEA744200FB2533 /* correct.wav */,
 				A1FEEB821CEA757300FB2533 /* sadTrombone.wav */,
 				A118B95B1CD293D2004F341A /* wrongAnswer.mp3 */,
+				A177EE991CF3945200F13890 /* waterDropSlash.mp3 */,
 				A1A2451B1CEFC587006E7E7C /* rockSplashShort.mp3 */,
 				A1A2451F1CEFD458006E7E7C /* bubbleVariant.mp3 */,
 				A1FEEB8E1CEA832300FB2533 /* upSecond.mp3 */,
@@ -316,6 +321,7 @@
 				A1FEEB8B1CEA7C8600FB2533 /* crowdCheer.mp3 in Resources */,
 				A1A2451A1CEFC4F2006E7E7C /* rockSplash.mp3 in Resources */,
 				A1FEEB991CEA8A3000FB2533 /* flashlightWrong.mp3 in Resources */,
+				A177EE981CF3940200F13890 /* pebbleDrop1.mp3 in Resources */,
 				A118B9841CD3F7D4004F341A /* down.wav in Resources */,
 				A1FEEB891CEA7BCA00FB2533 /* organSad.wav in Resources */,
 				A1FEEB831CEA757300FB2533 /* sadTrombone.wav in Resources */,
@@ -337,6 +343,7 @@
 				A1FEEB951CEA88EB00FB2533 /* correct2.wav in Resources */,
 				A118B9881CD4012A004F341A /* fadeWord.wav in Resources */,
 				A1FEEB8D1CEA7E3A00FB2533 /* drumSemiFun.mp3 in Resources */,
+				A177EE9A1CF3945200F13890 /* waterDropSlash.mp3 in Resources */,
 				A118B95D1CD293D2004F341A /* wrongAnswer.mp3 in Resources */,
 				A1FEEB8F1CEA832300FB2533 /* upSecond.mp3 in Resources */,
 				A111B9B71CBC209500A9104F /* Main.storyboard in Resources */,
@@ -358,6 +365,7 @@
 				A118B95F1CD2971B004F341A /* GeneralGameVC.swift in Sources */,
 				A1DA8E0A1CD05D4500A99C42 /* LearnWordBtn.swift in Sources */,
 				A1DBA51C1CC58FAE004659B2 /* DragLabel.swift in Sources */,
+				A177EE9C1CF3B74700F13890 /* connectivity.swift in Sources */,
 				A111B9B41CBC209500A9104F /* ViewController.swift in Sources */,
 				A1DC848A1CC55C05006C630D /* ImageGameVC.swift in Sources */,
 				A1834A781CC97EE1000CE61D /* DefGameVC.swift in Sources */,

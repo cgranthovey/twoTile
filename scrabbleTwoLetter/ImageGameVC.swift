@@ -312,28 +312,34 @@ class ImageGameVC: GeneralGameVC {
     
     
     func postImgs(image: String, imgView: UIImageView){
-        ImageLoader.sharedLoader.imageForUrl(image, completionHandler: {(image: UIImage?, url: String)
-            in
-            
-            
-            if image != nil{
-                imgView.image = image!
-            } else {
-                imgView.image = UIImage(named: "diff3")
-            }
-            
-            
+        
+        if Reachability.isConnectedToNetwork() == false{
+            print("diff3 from reachability")
+            imgView.image = UIImage(named: "diff3")
             UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone,
                 
                 animations: { () -> Void in
                     
                     imgView.alpha = 1.0
                 }, completion: nil)
-            
-            
-            
-            
-    })
+        } else{
+            ImageLoader.sharedLoader.imageForUrl(image, completionHandler: {(image: UIImage?, url: String)
+                in
+                
+                if image != nil{
+                    imgView.image = image!
+                } else {
+                    print("diff3 from other")
+                    imgView.image = UIImage(named: "diff3")
+                }
+                
+                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone,
+                    
+                    animations: { () -> Void in
+                        imgView.alpha = 1.0
+                    }, completion: nil)
+            })
+        }
     }
 
     

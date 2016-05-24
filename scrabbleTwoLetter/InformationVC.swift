@@ -58,6 +58,10 @@ class InformationVC: UIViewController {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
+    @IBAction func backButton(sender: AnyObject){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     
     
 

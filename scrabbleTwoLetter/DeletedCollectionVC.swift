@@ -70,6 +70,21 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
         return 1
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let sizeOfScreen = self.view.bounds.size
+        
+        if sizeOfScreen.height <= 568{
+            return CGSizeMake(92, 92)
+        } else if sizeOfScreen.height <= 667{
+            print("yes it's me")
+            return CGSizeMake(105, 105)
+        } else if sizeOfScreen.height <= 736{
+            return CGSizeMake(115, 115)
+        } else{
+            return CGSizeMake(140, 140)
+        }
+    }
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("collectionToWordDetail2", sender: DataService.instance.deletedWords[indexPath.row])
     }
@@ -93,7 +108,7 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
             cell.configureCell(deletedScrabbleWords[indexPath.row], gameWords: tempArray)
-            myButton = UIButton(frame: CGRectMake(49, -7, 49, 49))
+            myButton = UIButton(frame: CGRectMake(xPlacementOfX, -7, 49, 49))
             myButton.setBackgroundImage(UIImage(named: "backArrowFilledBlack"), forState: .Normal)
             myButton.tag = indexPath.row
             if editBtnOutlet.titleForState(.Normal) == "Done"{

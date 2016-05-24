@@ -20,6 +20,9 @@ class WordCell: UICollectionViewCell {
     
     override func awakeFromNib() {
 
+        
+
+        
         self.layer.shadowColor = UIColor.darkGrayColor().CGColor
         self.backgroundColor = UIColor.clearColor()
         self.layer.shadowOffset = CGSize(width: 2, height: 2)
@@ -31,14 +34,33 @@ class WordCell: UICollectionViewCell {
         img.backgroundColor = UIColor.whiteColor()
         
         background = CAGradientLayer().collectionButtonBlue()
-        background.frame = shadow.bounds
+  //      background.frame = shadow.bounds
+        
+        var tempSize = CGSizeMake(150, 150)
+        let sizeOfScreen = UIScreen.mainScreen().bounds.height
+        if sizeOfScreen <= 568{
+            tempSize =  CGSizeMake(92, 92)
+        } else if sizeOfScreen <= 667{
+            tempSize = CGSizeMake(105, 105)
+        } else if sizeOfScreen <= 736{
+            tempSize =  CGSizeMake(115, 115)
+        } else{
+            tempSize = CGSizeMake(140, 140)
+        }
+        
+        
+        
+        background.frame = CGRect(origin: CGPointZero, size: tempSize)
         shadow.layer.insertSublayer(background, atIndex: 0)
         
         
         background2 = CAGradientLayer().hotColors()
-        background2.frame = shadow.bounds
+        background2.frame = background.bounds
         background.insertSublayer(background2, atIndex: 0)
         background2.opacity = 0.0
+        
+        
+        
         
         cell.textColor = UIColor.whiteColor()
 

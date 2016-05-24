@@ -16,10 +16,21 @@ class GeneralCollectionVC: UIViewController {
     var sfxBubble: AVAudioPlayer!
     var sfxBubble2: AVAudioPlayer!
     
+    var xPlacementOfX: CGFloat!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initAudio()
+    
+        var screenSize = UIScreen.mainScreen().bounds.height
+        if screenSize <= 568{
+            xPlacementOfX = 50
+        } else if screenSize <= 667{
+            xPlacementOfX = 63
+        } else{
+            xPlacementOfX = 71
+        }
     }
     
 
@@ -29,8 +40,8 @@ class GeneralCollectionVC: UIViewController {
             try sfxFadeOut = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fadeWord", ofType: "wav")!))
 
             try sfxSplashShort = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("rockSplashShort", ofType: "mp3")!))
-            try sfxBubble = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("bubble", ofType: "mp3")!))
-            try sfxBubble2 = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("bubbleVariant", ofType: "mp3")!))
+            try sfxBubble = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("waterDropSlash", ofType: "mp3")!))
+            try sfxBubble2 = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pebbleDrop1", ofType: "mp3")!))
 
             sfxFadeOut.prepareToPlay()
             sfxFadeOut.volume = 3
