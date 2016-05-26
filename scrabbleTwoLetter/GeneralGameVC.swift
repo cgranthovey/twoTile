@@ -21,8 +21,6 @@ class GeneralGameVC: UIViewController {
     var sfxDrumSemiFun: AVAudioPlayer!
     
     var buttonStatus: Int!
-    
-    
     var label: UILabel!
     var buttonToWords: UIButton!
     
@@ -52,15 +50,11 @@ class GeneralGameVC: UIViewController {
         buttonToWords.center.x = self.view.center.x
         let font1 = UIFont(name: "Helvetica Neue", size: 14)
         buttonToWords.titleLabel?.font = font1
-
-        
-        
     }
     
     override func viewDidAppear(animated: Bool) {
-        resetSounds()
+        soundStatus()
     }
-    
     
     func initAudio(){
         do {
@@ -81,9 +75,6 @@ class GeneralGameVC: UIViewController {
             sfxSadTrombone.prepareToPlay()
             sfxCorrectAnswer.prepareToPlay()
             sfxWrongAnswer.prepareToPlay()
-            
-
-            
         } catch let err as NSError{
             print(err.debugDescription)
         }
@@ -104,9 +95,7 @@ class GeneralGameVC: UIViewController {
     }
     
     func percentCorrect(memorizingWordCount: Int, wrongWordsCount: Int, label: UILabel){
-        
         let percentCorrectOverTotal: Double = Double(memorizingWordCount - wrongWordsCount) / Double(memorizingWordCount)
-
         let percentage = Int(round(percentCorrectOverTotal * 100))
         
         if percentage == 0 {
@@ -131,9 +120,6 @@ class GeneralGameVC: UIViewController {
     }
     
     func zeroWords(zeroWord: Bool){
-
-        
-        
         print("before 0")
         if zeroWord == true{
             buttonToWords.alpha = 1
@@ -148,18 +134,20 @@ class GeneralGameVC: UIViewController {
         }
     }
 
-    
-    //            zeroSavedWordsLbl.text = "You've already mastered all your two tile words!  Move words from the mastered tab to the learning tab to play."
-
     func buttonAction(){
         performSegueWithIdentifier("gameToAddWordsSegue", sender: nil)
     }
     
-    
-    
-    func headphones(button: UIButton){
-        let buttonAlpha = DataService.instance.buttonAlphaLevel
-        if buttonAlpha != 1{
+    func soundStatus(){
+        if DataService.instance.volumeOn == true{
+            sfxSadTrombone.volume = 0.4
+            sfxCorrectAnswer.volume = 0.3
+            sfxWrongAnswer.volume = 0.35
+            sfxHappyDrum.volume = 0.6
+            sfxSadDrum.volume = 0.4
+            sfxCrowdCheer.volume = 0.35
+            sfxOrganSad.volume = 0.6
+        } else {
             sfxSadTrombone.volume = 0.0
             sfxCorrectAnswer.volume = 0.0
             sfxWrongAnswer.volume = 0.0
@@ -168,21 +156,6 @@ class GeneralGameVC: UIViewController {
             sfxCrowdCheer.volume = 0.0
             sfxOrganSad.volume = 0.0
             sfxCorrectAnswer.volume = 0.0
-            button.alpha = 0.3
-        } else{
-            resetSounds()
-            button.alpha = buttonAlpha
         }
     }
-    
-    func resetSounds(){
-        sfxSadTrombone.volume = 0.4
-        sfxCorrectAnswer.volume = 0.3
-        sfxWrongAnswer.volume = 0.35
-        sfxHappyDrum.volume = 0.6
-        sfxSadDrum.volume = 0.4
-        sfxCrowdCheer.volume = 0.35
-        sfxOrganSad.volume = 0.6
-    }
-
 }

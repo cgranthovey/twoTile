@@ -10,13 +10,11 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    
-
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var bottomBorderBox: UIView!
     @IBOutlet weak var gradientViewTop: UIView!
-    
+
     var words = [ScrabbleWord]()
     var filteredWords = [ScrabbleWord]()
     var inSearchMode = false
@@ -34,7 +32,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.bottomBorderBox.layer.insertSublayer(background1, atIndex: 0)
         
     }
-    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -78,15 +75,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     }
     
-    
-//    func dismissKeyboard() {
-//        view.endEditing(true)
-//    }
-//    
-//    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-//    view.addGestureRecognizer(tap)
-    
-    
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
     }
@@ -107,7 +95,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         view.endEditing(true)
     }
-    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let word: ScrabbleWord!
@@ -132,10 +119,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-//    @IBAction func learnWordBtn(sender: AnyObject){
-//        performSegueWithIdentifier("learnWordBtn", sender: nil)
-//    }
-    
     @IBAction func informationBtn(sender: AnyObject){
         performSegueWithIdentifier("InformationVC", sender: nil)
     }
@@ -147,27 +130,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func gamesButton(sender: AnyObject){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -22,9 +22,4 @@ class PostCell: UITableViewCell {
         self.word.text = scrabWord.word
         self.definition.text = scrabWord.definition
     }
-    
-    
-    
-
-
 }

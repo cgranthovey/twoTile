@@ -23,39 +23,27 @@ class DefGameVC: GeneralGameVC {
     @IBOutlet weak var label4: UILabel!
     
     @IBOutlet weak var gameEnd: UIStackView!
-    
-    @IBOutlet weak var headphonesImg: UIButton!
-    
     @IBOutlet weak var numberOfWords: UILabel!
     @IBOutlet weak var percentCorrectLbl: UILabel!
-    
     
     var memorizingWords = [ScrabbleWord]()
     var x: Int!
     var buttonArray = [UILabel]()
     var memorizingWordsCount: Int!
     var wrongAnswerCount: Int!
-
     var didSelectIncorrectAnswer: Bool!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        headphones(headphonesImg)
-
-        
     }
     
     override func viewWillAppear(animated: Bool) {
-        
         memorizingWords = DataService.instance.arrayOfGameWords
         memorizingWords.shuffleInPlace()
         x = 0
         memorizingWordsCount = memorizingWords.count
         didSelectIncorrectAnswer = false
         wrongAnswerCount = 0
-        
         
         if memorizingWordsCount == 0 {
             button1.hidden = true
@@ -86,22 +74,7 @@ class DefGameVC: GeneralGameVC {
             
             zeroWords(false)
             resetGame()
-
         }
-    }
-    
-
-    
-    
-    
-    
-    @IBAction func headphonesBtn (sender: UIButton){
-        if DataService.instance.buttonAlphaLevel == 1{
-            DataService.instance.updateButtonAlpha(0.5)
-        } else{
-            DataService.instance.updateButtonAlpha(1.0)
-        }
-        headphones(sender)
     }
     
     func resetGame(){
@@ -112,7 +85,6 @@ class DefGameVC: GeneralGameVC {
         
         if x == memorizingWordsCount{
             x = 0
-            
             memorizingWords.shuffleInPlace()
             button1.hidden = true
             button2.hidden = true
@@ -126,24 +98,18 @@ class DefGameVC: GeneralGameVC {
             numberOfWords.hidden = true
             
             percentCorrect(memorizingWordsCount, wrongWordsCount: wrongAnswerCount, label: percentCorrectLbl)
-            
             wrongAnswerCount = 0
             didSelectIncorrectAnswer = false
-            
             gameEnd.hidden = false
-            
         }
-        
 
-        
         numberOfWords.text = "\(x + 1)/\(memorizingWordsCount)"
         didSelectIncorrectAnswer = false
         
         activateButtons(button1, button2: button2, button3: button3, button4: button4)
-        var currentWord = memorizingWords[x]
         
-        
-        var allWords = StoreWord().getWord()
+        let currentWord = memorizingWords[x]
+        let allWords = StoreWord().getWord()
         var allWordsMinusOne = allWords
         var y = 0
         for x in allWords{
@@ -202,7 +168,6 @@ class DefGameVC: GeneralGameVC {
         }
     }
 
-    
     func resetButtonColors(){
         button1.backgroundColor = UIColor(red: 89.0/255.0, green: 133.0/255.0, blue: 203.0/255.0, alpha: 1.0)
         button2.backgroundColor = UIColor(red: 89.0/255.0, green: 133.0/255.0, blue: 203.0/255.0, alpha: 1.0)
@@ -213,11 +178,11 @@ class DefGameVC: GeneralGameVC {
     func correctAnswer(button: UIButton){
         button.backgroundColor = UIColor(red: 20.0/255.0, green: 255.0/255.0, blue: 34.0/255.0, alpha: 1.0)
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "resetGame", userInfo: nil, repeats: false)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "resetGame", userInfo: nil, repeats: false)
+        print(timer)
         sfxCorrectAnswer.play()
         deactivateButtons(button1, button2: button2, button3: button3, button4: button4)
     }
-
     
     func wrongAnswer(button: UIButton){
         didSelectIncorrectAnswer = true
@@ -232,7 +197,7 @@ class DefGameVC: GeneralGameVC {
     @IBAction func homeButton(sender: AnyObject){
         self.navigationController?.popToRootViewControllerAnimated(false)
     }
-    
+
     @IBAction func playAgain(sender: AnyObject){
         button1.hidden = false
         button2.hidden = false
@@ -244,7 +209,6 @@ class DefGameVC: GeneralGameVC {
         label4.hidden = false
         tileWord.hidden = false
         numberOfWords.hidden = false
-        
         gameEnd.hidden = true
     }
     
@@ -259,7 +223,4 @@ class DefGameVC: GeneralGameVC {
     @IBAction func backButton(sender: AnyObject){
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    
-
 }

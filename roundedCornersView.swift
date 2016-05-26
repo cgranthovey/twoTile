@@ -14,7 +14,6 @@ class roundedCornersView: UIView {
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
     }
-    
 }
 
 class ImgShadow: UIView{

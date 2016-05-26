@@ -23,7 +23,6 @@ class DragLabel: UILabel {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        
         do{
             try sfxCorrectAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correct3", ofType: "mp3")!))
             try sfxWrongAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrong2", ofType: "mp3")!))
@@ -31,17 +30,21 @@ class DragLabel: UILabel {
             print(err.debugDescription)
         }
         
-        sfxCorrectAnswer.volume = 0.3
-        sfxWrongAnswer.volume = 0.35
-        
         sfxCorrectAnswer.prepareToPlay()
         sfxWrongAnswer.prepareToPlay()
-        
-        
         super.init(coder: aDecoder)
+        isVolumeOn()
     }
     
-
+    func isVolumeOn(){
+        if DataService.instance.volumeOn == true{
+            sfxCorrectAnswer.volume = 0.3
+            sfxWrongAnswer.volume = 0.35
+        } else {
+            sfxCorrectAnswer.volume = 0
+            sfxWrongAnswer.volume = 0
+        }
+    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         originalPosition = self.center
@@ -73,5 +76,4 @@ class DragLabel: UILabel {
         }
         self.center = originalPosition
     }
-    
 }

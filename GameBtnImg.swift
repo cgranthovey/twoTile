@@ -14,5 +14,4 @@ class GameBtnImg: UIImageView {
         self.alpha = 0.5
         self.clipsToBounds = true
     }
-
 }

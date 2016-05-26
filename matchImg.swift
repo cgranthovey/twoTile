@@ -14,5 +14,4 @@ class matchImg: UIImageView {
         clipsToBounds = true
         layer.cornerRadius = 7.0
     } 
-
 }

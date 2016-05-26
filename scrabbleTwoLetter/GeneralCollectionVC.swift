@@ -15,15 +15,16 @@ class GeneralCollectionVC: UIViewController {
     var sfxSplashShort: AVAudioPlayer!
     var sfxBubble: AVAudioPlayer!
     var sfxBubble2: AVAudioPlayer!
-    
     var xPlacementOfX: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initAudio()
+        screenSizeForButton()
+    }
     
-        var screenSize = UIScreen.mainScreen().bounds.height
+    func screenSizeForButton(){
+        let screenSize = UIScreen.mainScreen().bounds.height
         if screenSize <= 568{
             xPlacementOfX = 50
         } else if screenSize <= 667{
@@ -32,9 +33,7 @@ class GeneralCollectionVC: UIViewController {
             xPlacementOfX = 71
         }
     }
-    
 
-    
     func initAudio(){
         do{
             try sfxFadeOut = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fadeWord", ofType: "wav")!))
@@ -44,19 +43,26 @@ class GeneralCollectionVC: UIViewController {
             try sfxBubble2 = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pebbleDrop1", ofType: "mp3")!))
 
             sfxFadeOut.prepareToPlay()
-            sfxFadeOut.volume = 3
             sfxSplashShort.prepareToPlay()
-            sfxSplashShort.volume = 0.2
-            sfxBubble.volume = 0.1
             sfxBubble.prepareToPlay()
-            sfxBubble2.volume = 0.1
             sfxBubble2.prepareToPlay()
-
+            volume()
         } catch let err as NSError{
             print(err.debugDescription)
         }
     }
     
-
-
+    func volume(){
+        if DataService.instance.volumeOn == true{
+            sfxFadeOut.volume = 3
+            sfxSplashShort.volume = 0.2
+            sfxBubble.volume = 0.1
+            sfxBubble2.volume = 0.1
+        } else {
+            sfxFadeOut.volume = 0
+            sfxSplashShort.volume = 0
+            sfxBubble.volume = 0
+            sfxBubble2.volume = 0
+        }
+    }
 }

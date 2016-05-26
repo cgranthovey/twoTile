@@ -32,6 +32,7 @@ class ImageGameVC: GeneralGameVC {
     var startTimer: NSTimer!
     var wrongAnswerCount: Int!
     var didSelectIncorrectAnswer: Bool!
+    var imageArray: [UIImageView]!
 
     
     @IBOutlet weak var firstWord: DragLabel!
@@ -45,34 +46,25 @@ class ImageGameVC: GeneralGameVC {
     @IBOutlet weak var secondView: UIView!
     @IBOutlet weak var thirdView: UIView!
     @IBOutlet weak var fourthView: UIView!
-    
-    @IBOutlet weak var imageStackView: UIStackView!
-    
-    @IBOutlet weak var gameEnd: UIStackView!
-    
-    @IBOutlet weak var headphonesImg: UIButton!
-    @IBOutlet weak var numberOfWords: UILabel!
-    @IBOutlet weak var percentCorrectLbl: UILabel!
 
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
-
     
+    @IBOutlet weak var imageStackView: UIStackView!
+    @IBOutlet weak var gameEnd: UIStackView!
+    @IBOutlet weak var numberOfWords: UILabel!
+    @IBOutlet weak var percentCorrectLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "timer", name: "correctDrop", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "badDropCounter", name: "wrongDrop", object: nil)
-        
-        headphones(headphonesImg)
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        
         gameWords = DataService.instance.arrayOfGameWords
         
         allWords.shuffleInPlace()
@@ -81,9 +73,6 @@ class ImageGameVC: GeneralGameVC {
         numberOfPlays = 0
         didSelectIncorrectAnswer = false
         wrongAnswerCount = 0
-        
-        
-        
         
         if gameWords.count == 0 {
             print("0 called")
@@ -117,19 +106,7 @@ class ImageGameVC: GeneralGameVC {
 
         }
     }
-    
-    
-    
-    
-    @IBAction func headphonesBtn (sender: UIButton){
-        if DataService.instance.buttonAlphaLevel == 1{
-            DataService.instance.updateButtonAlpha(0.5)
-        } else{
-            DataService.instance.updateButtonAlpha(1.0)
-        }
-        headphones(sender)
-    }
-    
+
     func badDropCounter(){
         didSelectIncorrectAnswer = true
     }
@@ -140,8 +117,6 @@ class ImageGameVC: GeneralGameVC {
         }
         startTimer = NSTimer.scheduledTimerWithTimeInterval(0.6, target: self, selector: "reset", userInfo: nil, repeats: false)
     }
-    
-    
     
     @IBAction func button1Action(sender: UIButton){
         print("1 called")
@@ -178,17 +153,14 @@ class ImageGameVC: GeneralGameVC {
         }
     }
     
-    
-    
-    
     func correctAnswer(button: UIButton){
         
         deactivateButtons(button1, button2: button2, button3: button3, button4: button4)
         firstWord.textColor = UIColor(red: 20.0/255.0, green: 255.0/255.0, blue: 34.0/255.0, alpha: 1.0)
         sfxCorrectAnswer.play()
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "reset", userInfo: nil, repeats: false)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "reset", userInfo: nil, repeats: false)
+        print(timer)
     }
-    
     
     func wrongAnswer(button: UIButton){
         
@@ -200,8 +172,6 @@ class ImageGameVC: GeneralGameVC {
         }
         sfxWrongAnswer.play()
     }
-    
-    var imageArray: [UIImageView]!
     
     func reset(){
         
@@ -230,7 +200,6 @@ class ImageGameVC: GeneralGameVC {
         numberOfWords.text = "\(numberOfPlays + 1)/\(gameWords.count)"
         activateButtons(button1, button2: button2, button3: button3, button4: button4)
         
-        
         button1.userInteractionEnabled = false
         button2.userInteractionEnabled = false
         button3.userInteractionEnabled = false
@@ -242,8 +211,7 @@ class ImageGameVC: GeneralGameVC {
             self.thirdImg.alpha = 0
             self.fourthImg.alpha = 0
             self.firstWord.alpha = 0
-            
-            
+
             }) { (Bool) -> Void in
                 
                 self.firstImg.alpha = 0
@@ -265,7 +233,7 @@ class ImageGameVC: GeneralGameVC {
                 self.imageArray = [self.firstImg, self.secondImg, self.thirdImg, self.fourthImg]
                 self.imageArray.shuffleInPlace()
                 var y = 0
-                for var x in self.allWordsMinusOne{
+                for x in self.allWordsMinusOne{
                     if x.word == currentWord.word{
                         self.allWordsMinusOne.removeAtIndex(y)
                         
@@ -295,22 +263,11 @@ class ImageGameVC: GeneralGameVC {
                 UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone,
                     
                     animations: { () -> Void in
-                    
-//                    self.firstImg.alpha = 1
-//                    self.secondImg.alpha = 1
-//                    self.thirdImg.alpha = 1
-//                    self.fourthImg.alpha = 1
-                    self.firstWord.alpha = 1
-                    
+                        self.firstWord.alpha = 1
                     }, completion: nil)
         }
     }
-    
 
-    
-    
-    
-    
     func postImgs(image: String, imgView: UIImageView){
         
         if Reachability.isConnectedToNetwork() == false{
@@ -342,7 +299,6 @@ class ImageGameVC: GeneralGameVC {
         }
     }
 
-    
     @IBAction func homeButton(sender: AnyObject!){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
@@ -365,5 +321,4 @@ class ImageGameVC: GeneralGameVC {
     @IBAction func backButton(sender: AnyObject!){
         self.navigationController?.popViewControllerAnimated(true)
     }
-
 }

@@ -15,20 +15,16 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     @IBOutlet weak var imgCongrats: UIImageView!
     @IBOutlet weak var congrats: UILabel!
     @IBOutlet weak var congrats2: UILabel!
-    
     @IBOutlet weak var tapExplain: UIView!
     @IBOutlet weak var xExplain: UILabel!
     
     var savedWords = [ScrabbleWord]()
     var deletedWords = [ScrabbleWord]()
-
     var sortedDeletedWords = [ScrabbleWord]()
     var myButton: UIButton!
     var myDeleteButtonArray: [UIButton]!
-    
-    
     var arrayOfGameWords = [ScrabbleWord]()
-
+    var swipeRight: UISwipeGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,26 +35,20 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         deletedWords = DataService.instance.deletedWords
         arrayOfGameWords = DataService.instance.arrayOfGameWords
         imgCongrats.clipsToBounds = true
-        
     }
 
-    
-    
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
 
-        
         savedWords = DataService.instance.savedWords
         deletedWords = DataService.instance.deletedWords
         myDeleteButtonArray = [UIButton]()
 
-        collectionView.reloadData()                        //   this line was causing data to load twice, I think collection view auto reloads each time viewDidAppear.  This caused images to flash
+        collectionView.reloadData()       // this line was causing data to load twice, I think collection view auto reloads each time viewDidAppear.  This caused images to flash
         congratsStatus()
     }
     
     override func viewDidAppear(animated: Bool) {
-//        editButtonOnAppear()
     }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -121,15 +111,12 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
             swipeRight = UISwipeGestureRecognizer(target: self, action: "toWordDetail:")
             swipeRight.direction = UISwipeGestureRecognizerDirection.Right
             cell.addGestureRecognizer(swipeRight)
-
             
             return cell
         } else {
             return UICollectionViewCell()
         }
 }
-    
-    var swipeRight: UISwipeGestureRecognizer!
     
     
     func changeColor(indexPath: NSIndexPath){
@@ -164,16 +151,11 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
                 sfxBubble2.currentTime = 0
             }
             sfxBubble.play()
-            
             arrayOfGameWords.append(savedWords[indexPath.item])
             cell.colorForGame()
             DataService.instance.saveGameWords(arrayOfGameWords)
-            
         }
     }
-    
-    
-    
     
     @IBAction func greenBucketPress(sender: UIButton){
         
@@ -190,8 +172,6 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         for cell in cells{
             cell.colorForGame()
         }
-            
-        
     }
     
     @IBAction func blueBucketPress(sender: UIButton){
@@ -218,17 +198,13 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
                     }, completion: nil)
         }
     }
-    
-    
-    
-    
+
     func toWordDetail(sender: UIGestureRecognizer){
         let cell = sender.view as! WordCell
         let i = self.collectionView.indexPathForCell(cell)!
         
         performSegueWithIdentifier("collectionToWordDetail", sender: DataService.instance.savedWords[i.item])
     }
-    
     
     @IBAction func editBtn(sender: UIButton) {
 
@@ -255,13 +231,10 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
         }
     }
     
-    
-
     var myDeleteButtonPressedArray = [UIButton]()
     
     func reset(button: UIButton) {
         self.sfxFadeOut.play()
-        
         
         let cell = button.superview as! UICollectionViewCell
         let i = self.collectionView.indexPathForCell(cell)!
@@ -288,11 +261,9 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     func animateCongrats(){
         congratsStatus()
         
-        
         let holdPositionImgCongrats = imgCongrats.center.y
-        var holdPositionCongrats = congrats.center.x
-        var holdPositionCongrats2 = congrats2.center.x
-        
+        let holdPositionCongrats = congrats.center.x
+        let holdPositionCongrats2 = congrats2.center.x
         
         self.imgCongrats.center.y = self.view.frame.height * 1.5
         self.congrats.center.x = -self.view.frame.width * 1.5
@@ -310,7 +281,6 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
                 UIView.animateWithDuration(0.5, delay: 0.1, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
                     self.congrats2.center.x = holdPositionCongrats2
                     }, completion: nil)
-                
         })
     }
     

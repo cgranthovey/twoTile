@@ -15,9 +15,8 @@ class DataService{
     
     private var _savedWords = [ScrabbleWord]()
     private var _deletedWords: [ScrabbleWord]!
-    private var _buttonAlphaLevel: CGFloat!
+    private var _volumeOn: Bool = true
     private var _arrayOfGameWords = [ScrabbleWord]()
-    
     
     let KEY_SAVED = "saved"
     let KEY_DELETED = "deleted"
@@ -34,24 +33,16 @@ class DataService{
         }
     }
     
-    var buttonAlphaLevel: CGFloat{
-        if _buttonAlphaLevel != nil{
-            return _buttonAlphaLevel
-        } else{
-            return 1.0
-        }
-    }
-    
     var arrayOfGameWords: [ScrabbleWord]{
         return _arrayOfGameWords
     }
     
+    var volumeOn: Bool{
+        return _volumeOn
+    }
     
-    
-    
-    
-    func updateButtonAlpha(level: CGFloat){
-        _buttonAlphaLevel = level
+    func updateVolumeOn(newValue: Bool){
+        _volumeOn = newValue
     }
     
     func savePosts(){
@@ -87,6 +78,4 @@ class DataService{
         savePosts()
         loadPosts()
     }
-    
-    
 }

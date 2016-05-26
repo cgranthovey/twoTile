@@ -33,7 +33,7 @@ class InformationVC: UIViewController {
     }
     
     @IBAction func freeSound(sender: AnyObject){
-        openLink("http://www.freesound.org")        //http://www.freesound.org/people/DrMinky/sounds/174435/
+        openLink("http://www.freesound.org/people/DrMinky/sounds/174435/")        //http://www.freesound.org/people/DrMinky/sounds/174435/
     }
     
     @IBAction func freepic(sender: AnyObject){
@@ -61,8 +61,4 @@ class InformationVC: UIViewController {
     @IBAction func backButton(sender: AnyObject){
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    
-    
-
 }

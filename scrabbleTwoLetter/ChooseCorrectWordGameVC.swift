@@ -16,10 +16,8 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
     @IBOutlet weak var button4: UIButton!
     @IBOutlet weak var whichIsAWordLbl: UILabel!
     @IBOutlet weak var gameEnd: UIStackView!
-    @IBOutlet weak var headphonesImg: UIButton!
     @IBOutlet weak var numberOfWords: UILabel!
     @IBOutlet weak var percentCorrectLbl: UILabel!
-    
     
     var memorizingWords = [ScrabbleWord]()
     var fakeWords = ["Ac", "Af", "Ak", "Ap", "Av", "Br", "Ci", "Da", "Di", "Eg", "Ek", "Ew", "Fi", "Fo", "Ga", "Ge", "Gi", "Gu", "Hu", "Ia", "Ib", "Ie", "Ig", "Ik", "Il", "Im", "Io", "Ip", "Iz", "Ja", "Je", "Ji", "Ju", "Ke", "Ko", "Ku", "Le", "Lu", "Mr", "Ni", "Ny", "Oa", "Ob", "Og", "Ok", "Ot", "Po", "Pu", "Py", "Qa", "Qo", "Ra", "Ri", "Ro", "Ru", "Ry", "Sa", "Se", "Sm", "Su", "Te", "Ts", "Tu", "Ub", "Ud", "Uf", "Ug", "Uk", "Ur", "Va", "Ve", "Vi", "Vo", "Vu", "Wa", "Wi", "Wy", "Wu", "Xa", "Xy", "Xo", "Yi", "Yu", "Ym", "Zo", "Zi"]
@@ -33,7 +31,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        headphones(headphonesImg)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,13 +40,11 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
         memorizingWords.shuffleInPlace()
         fakeWords.shuffleInPlace()
         memorizingWordsCount = memorizingWords.count
-        
+                
         didSelectIncorrectAnswer = false
         wrongAnswerCount = 0
         
-        
         if memorizingWords.count == 0{
-            
             button1.hidden = true
             button2.hidden = true
             button3.hidden = true
@@ -56,7 +52,6 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
             whichIsAWordLbl.hidden = true
             numberOfWords.hidden = true
             gameEnd.hidden = true
-
             zeroWords(true)
         } else{
             self.button1.hidden = false
@@ -65,26 +60,13 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
             self.button4.hidden = false
             self.whichIsAWordLbl.hidden = false
             numberOfWords.hidden = false
-            
             gameEnd.hidden = true
             zeroWords(false)
             resetGame()
-            
         }
     }
-        
-    @IBAction func headphonesBtn (sender: UIButton){
-        if DataService.instance.buttonAlphaLevel == 1{
-            DataService.instance.updateButtonAlpha(0.5)
-        } else{
-            DataService.instance.updateButtonAlpha(1.0)
-        }
-        headphones(sender)
-    }
-    
     
     func resetGame(){
-        
         
         if didSelectIncorrectAnswer == true{
             wrongAnswerCount = wrongAnswerCount + 1
@@ -103,7 +85,6 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
             gameEnd.hidden = false
             
             percentCorrect(memorizingWordsCount, wrongWordsCount: wrongAnswerCount, label: percentCorrectLbl)
-            
             wrongAnswerCount = 0
             didSelectIncorrectAnswer = false
         }
@@ -172,21 +153,17 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
             wrongAnswer(sender)
         }
     }
-
     
     func correctAnswer(button: UIButton){
-        
         deactivateButtons(button1, button2: button2, button3: button3, button4: button4)
         button.backgroundColor = UIColor(red: 26.0/255.0, green: 250.0/255.0, blue: 21.0/255.0, alpha: 1.0)
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "resetGame", userInfo: nil, repeats: false)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "resetGame", userInfo: nil, repeats: false)
+        print(timer)
         sfxCorrectAnswer.play()
     }
     
-    
     func wrongAnswer(button: UIButton){
-        
         didSelectIncorrectAnswer = true
-        
         button.backgroundColor = UIColor(red: 229.0/255.0, green: 81.0/255.0, blue: 86.0/255.0, alpha: 1.0)
         
         if sfxWrongAnswer.playing{
@@ -195,8 +172,6 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
         }
         sfxWrongAnswer.play()
     }
-    
-    
     
     @IBAction func playAgain(sender: AnyObject){
         
@@ -207,26 +182,8 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
         self.button4.hidden = false
         self.whichIsAWordLbl.hidden = false
         numberOfWords.hidden = false
-        
-//
-//        UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
-//            self.gameEnd.alpha = 0
-//            }) { (finished: Bool) -> Void in
-//                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
-//                    self.button1.hidden = false
-//                    self.button2.hidden = false
-//                    self.button3.hidden = false
-//                    self.button4.hidden = false
-//                    self.whichIsAWordLbl.hidden = false
-//                    
-//                    }, completion: nil)
-//        }
     }
-    
-    
-    
-    
-    
+
     @IBAction func gameScreen(sender: AnyObject){
         self.navigationController?.popViewControllerAnimated(true)
         
@@ -243,28 +200,4 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
     @IBAction func backButton(sender: AnyObject){
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

@@ -16,7 +16,9 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
     
     var deletedScrabbleWords = [ScrabbleWord]()
     var savedScrabbleWords = [ScrabbleWord]()
-    
+    var myButton: UIButton!
+    var myDeleteButtonArray: [UIButton]!
+    var tempArray = [ScrabbleWord]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,6 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
         savedScrabbleWords = DataService.instance.savedWords
         
     }
-
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
@@ -60,7 +61,6 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
             }
         }
     }
-   
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return DataService.instance.deletedWords.count
@@ -99,12 +99,6 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
         }
     }
     
-    
-    var myButton: UIButton!
-    var myDeleteButtonArray: [UIButton]!
-    
-    var tempArray = [ScrabbleWord]()
-    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WordCell", forIndexPath: indexPath) as? WordCell{
             cell.configureCell(deletedScrabbleWords[indexPath.row], gameWords: tempArray)
@@ -121,10 +115,7 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
             print(myButton)
             myDeleteButtonArray.append(myButton)
             cell.addSubview(myButton)
-            
-            
             return cell
-            
         } else {
             return UICollectionViewCell()
         }
@@ -153,10 +144,7 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
     }
     
     func moveImg(button: UIButton){
-
-        
         self.sfxFadeOut.play()
-        
         
         let cell = button.superview as! UICollectionViewCell
         let i = self.collectionView.indexPathForCell(cell)!
@@ -175,5 +163,4 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
     @IBAction func homeButton(sender: AnyObject){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-
 }

@@ -15,4 +15,5 @@ class TopView: UIView {
         background.frame = self.bounds
         self.layer.insertSublayer(background, atIndex: 0)
     }
+    
 }

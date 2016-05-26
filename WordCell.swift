@@ -13,16 +13,12 @@ import Foundation
 class WordCell: UICollectionViewCell {
     @IBOutlet weak var cell: UILabel!
     @IBOutlet weak var img: UIImageView!
-    
     @IBOutlet weak var shadow: UIView!
     
     var background = CAGradientLayer!()
     
     override func awakeFromNib() {
 
-        
-
-        
         self.layer.shadowColor = UIColor.darkGrayColor().CGColor
         self.backgroundColor = UIColor.clearColor()
         self.layer.shadowOffset = CGSize(width: 2, height: 2)
@@ -34,7 +30,6 @@ class WordCell: UICollectionViewCell {
         img.backgroundColor = UIColor.whiteColor()
         
         background = CAGradientLayer().collectionButtonBlue()
-  //      background.frame = shadow.bounds
         
         var tempSize = CGSizeMake(150, 150)
         let sizeOfScreen = UIScreen.mainScreen().bounds.height
@@ -48,23 +43,16 @@ class WordCell: UICollectionViewCell {
             tempSize = CGSizeMake(140, 140)
         }
         
-        
-        
         background.frame = CGRect(origin: CGPointZero, size: tempSize)
         shadow.layer.insertSublayer(background, atIndex: 0)
-        
         
         background2 = CAGradientLayer().hotColors()
         background2.frame = background.bounds
         background.insertSublayer(background2, atIndex: 0)
         background2.opacity = 0.0
         
-        
-        
-        
         cell.textColor = UIColor.whiteColor()
 
-        
         shadow.layer.cornerRadius = 10.0
         shadow.layer.borderColor = UIColor.blackColor().CGColor
         shadow.layer.borderWidth = 1.0
@@ -97,17 +85,7 @@ class WordCell: UICollectionViewCell {
         }
         
         CATransaction.commit()
-        
         cell.text = word.word
-        
-        
-        
-        
-//        ImageLoader.sharedLoader.imageForUrl(word.image, completionHandler:{(image: UIImage?, url: String) in
-//            self.img.image = UIImage(named: "info")
-//            self.img.image = image!
-//        })
     }
 
 }
-

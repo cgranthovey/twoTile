@@ -17,18 +17,16 @@ class WordDetail: UIViewController {
     @IBOutlet weak var partOfSpeech: UILabel!
     @IBOutlet weak var wikiBtn: UIButton!
     @IBOutlet weak var progressBar: UIActivityIndicatorView!
-    
     @IBOutlet weak var greyView: UIView!
     @IBOutlet weak var containerView: UIView!
-    
     @IBOutlet weak var wordDetailContainer: UIView!
-    
     @IBOutlet weak var arrowContainer: UIView!
     
     var tappedWord: ScrabbleWord!
     var sfxSwhooshUp: AVAudioPlayer!
     var sfxSwhooshDown: AVAudioPlayer!
     var urlString: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,8 +58,6 @@ class WordDetail: UIViewController {
         sfxSwhooshUp.play()
     }
 
-
-    
     @IBAction func openLink (sender: AnyObject){
         if let url = NSURL(string: urlString){
             UIApplication.sharedApplication().openURL(url)
@@ -69,7 +65,6 @@ class WordDetail: UIViewController {
     }
     
     func bringUpPhoto(){
-        
         if Reachability.isConnectedToNetwork() == false{
             self.image.image = UIImage(named: "diff3")
         } else{
@@ -89,15 +84,22 @@ class WordDetail: UIViewController {
         do{
             try sfxSwhooshUp = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("upSecond", ofType: "mp3")!))
             try sfxSwhooshDown = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("down", ofType: "wav")!))
-            
-            
-            sfxSwhooshUp.volume = 0.05
-            sfxSwhooshDown.volume = 1.5
-            
             sfxSwhooshUp.prepareToPlay()
             sfxSwhooshDown.prepareToPlay()
+            volume()
+
         } catch let err as NSError{
             print(err.debugDescription)
+        }
+    }
+    
+    func volume(){
+        if DataService.instance.volumeOn == true{
+            sfxSwhooshUp.volume = 0.05
+            sfxSwhooshDown.volume = 1.0
+        } else{
+            sfxSwhooshUp.volume = 0
+            sfxSwhooshDown.volume = 0
         }
     }
     
@@ -120,6 +122,5 @@ class WordDetail: UIViewController {
         UIView.animateWithDuration(0.3, animations: {
             self.greyView.alpha = 0.4
         })
-
     }
 }
