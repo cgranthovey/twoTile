@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class GeneralGameVC: UIViewController {
+class GeneralGameVC: genVC {
 
     var sfxCorrectAnswer: AVAudioPlayer!
     var sfxWrongAnswer: AVAudioPlayer!
@@ -58,7 +58,7 @@ class GeneralGameVC: UIViewController {
     
     func initAudio(){
         do {
-            try sfxCorrectAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correct2", ofType: "wav")!))
+            try sfxCorrectAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("correct", ofType: "wav")!))
             try sfxWrongAnswer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("wrong2", ofType: "mp3")!))
             try sfxSadTrombone = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("sadTrombone", ofType: "wav")!))
             try sfxHappyDrum = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("happyDrum", ofType: "mp3")!))
@@ -98,16 +98,16 @@ class GeneralGameVC: UIViewController {
         let percentCorrectOverTotal: Double = Double(memorizingWordCount - wrongWordsCount) / Double(memorizingWordCount)
         let percentage = Int(round(percentCorrectOverTotal * 100))
         
-        if percentage == 0 {
+        if percentage < 20 {
             label.text = "0% - Hmmm.  You can do better than this!"
             sfxSadTrombone.play()
-        } else if percentage < 50{
+        } else if percentage < 40{
             label.text = "\(percentage)% - maybe some more practice"
             sfxOrganSad.play()
-        } else if percentage < 70{
-            label.text = "\(percentage)% - at least you're above 50%"
+        } else if percentage < 60{
+            label.text = "\(percentage)% - Let's get better"
             sfxSadDrum.play()
-        } else if percentage < 90{
+        } else if percentage < 80{
             sfxDrumSemiFun.play()
             label.text = "\(percentage)% - dang good job!"
         } else if percentage < 100{
@@ -143,10 +143,11 @@ class GeneralGameVC: UIViewController {
             sfxSadTrombone.volume = 0.4
             sfxCorrectAnswer.volume = 0.3
             sfxWrongAnswer.volume = 0.35
-            sfxHappyDrum.volume = 0.6
+            sfxHappyDrum.volume = 0.55
+            sfxDrumSemiFun.volume = 0.65
             sfxSadDrum.volume = 0.4
             sfxCrowdCheer.volume = 0.35
-            sfxOrganSad.volume = 0.6
+            sfxOrganSad.volume = 0.45
         } else {
             sfxSadTrombone.volume = 0.0
             sfxCorrectAnswer.volume = 0.0
@@ -155,7 +156,7 @@ class GeneralGameVC: UIViewController {
             sfxSadDrum.volume = 0.0
             sfxCrowdCheer.volume = 0.0
             sfxOrganSad.volume = 0.0
-            sfxCorrectAnswer.volume = 0.0
+            sfxDrumSemiFun.volume = 0.0
         }
     }
 }

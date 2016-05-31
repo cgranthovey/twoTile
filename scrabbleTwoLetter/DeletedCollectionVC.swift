@@ -160,6 +160,10 @@ class DeletedCollectionVC: GeneralCollectionVC, UICollectionViewDataSource, UICo
         return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
     }
     
+    @IBAction func backBtn(sender: AnyObject){
+        self.navigationController!.popToViewController(navigationController!.viewControllers[1], animated: true)
+    }
+    
     @IBAction func homeButton(sender: AnyObject){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }

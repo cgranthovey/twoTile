@@ -188,11 +188,15 @@ class ImageGameVC: GeneralGameVC {
             gameEnd.hidden = false
             numberOfWords.hidden = true
 
+            button1.userInteractionEnabled = false
+            button2.userInteractionEnabled = false
+            button3.userInteractionEnabled = false
+            button4.userInteractionEnabled = false
+            
             numberOfPlays = 0
             wrongAnswerCount = 0
             gameWords.shuffleInPlace()
             x = 0
-            
         }
         
         didSelectIncorrectAnswer = false
@@ -255,10 +259,13 @@ class ImageGameVC: GeneralGameVC {
                     self.firstWord.dropTarget = self.fourthView
                 }
                 
-                self.button1.userInteractionEnabled = true
-                self.button2.userInteractionEnabled = true
-                self.button3.userInteractionEnabled = true
-                self.button4.userInteractionEnabled = true
+                
+                if self.gameEnd.hidden == true{
+                    self.button1.userInteractionEnabled = true
+                    self.button2.userInteractionEnabled = true
+                    self.button3.userInteractionEnabled = true
+                    self.button4.userInteractionEnabled = true
+                }
                 
                 UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone,
                     
@@ -270,33 +277,33 @@ class ImageGameVC: GeneralGameVC {
 
     func postImgs(image: String, imgView: UIImageView){
         
-        if Reachability.isConnectedToNetwork() == false{
-            print("diff3 from reachability")
-            imgView.image = UIImage(named: "diff3")
-            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone,
-                
-                animations: { () -> Void in
-                    
-                    imgView.alpha = 1.0
-                }, completion: nil)
-        } else{
-            ImageLoader.sharedLoader.imageForUrl(image, completionHandler: {(image: UIImage?, url: String)
-                in
-                
-                if image != nil{
-                    imgView.image = image!
-                } else {
-                    print("diff3 from other")
-                    imgView.image = UIImage(named: "diff3")
-                }
-                
+//        if Reachability.isConnectedToNetwork() == false{
+//            print("diff3 from reachability")
+//            imgView.image = UIImage(named: "diff3")
+//            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone,
+//                
+//                animations: { () -> Void in
+//                    
+//                    imgView.alpha = 1.0
+//                }, completion: nil)
+//        } else{
+//            ImageLoader.sharedLoader.imageForUrl(image, completionHandler: {(image: UIImage?, url: String)
+//                in
+//                
+//                if image != nil{
+//                    imgView.image = image!
+//                } else {
+//                    print("diff3 from other")
+//                    imgView.image = UIImage(named: "diff3")
+//                }
+                imgView.image = UIImage(named: image)
                 UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.TransitionNone,
                     
                     animations: { () -> Void in
                         imgView.alpha = 1.0
                     }, completion: nil)
-            })
-        }
+//            })
+//        }
     }
 
     @IBAction func homeButton(sender: AnyObject!){
@@ -308,6 +315,11 @@ class ImageGameVC: GeneralGameVC {
         firstWord.hidden = false
         numberOfWords.hidden = false
         gameEnd.hidden = true
+        
+        button1.userInteractionEnabled = true
+        button2.userInteractionEnabled = true
+        button3.userInteractionEnabled = true
+        button4.userInteractionEnabled = true
     }
     
     @IBAction func gameScreen(sender: AnyObject!){

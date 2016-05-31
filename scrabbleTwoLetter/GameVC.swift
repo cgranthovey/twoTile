@@ -8,13 +8,11 @@
 
 import UIKit
 
-class GameVC: UIViewController{
+class GameVC: genVC{
 
     var allWords = [ScrabbleWord]()
     
     @IBOutlet weak var gameWords: UIButton!
-    @IBOutlet weak var wordList: UIButton!
-    @IBOutlet weak var volumeBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,39 +25,8 @@ class GameVC: UIViewController{
         }
         
         buttonInfo(gameWords)
-        buttonInfo(wordList)
-
         gameWords.backgroundColor = UIColor(red: 102.0/255.0, green: 255.0/255.0, blue: 51.0/255.0, alpha: 1.0)
-        wordList.backgroundColor = UIColor(red: 108.0/255.0, green: 147.0/255.0, blue: 209.0/255.0, alpha: 1.0)
-        
-        volumeOnLoad(volumeBtn)
 }
-    
-    @IBAction func volumeBtnPress(sender: UIButton){
-        if DataService.instance.volumeOn == true{
-            DataService.instance.updateVolumeOn(false)
-            if let image = UIImage(named: "mute"){
-                sender.setImage(image, forState: .Normal)
-            }
-        } else{
-            DataService.instance.updateVolumeOn(true)
-            if let image = UIImage(named: "highVolume"){
-                sender.setImage(image, forState: .Normal)
-            }
-        }
-    }
-    
-    func volumeOnLoad(button: UIButton){
-        if DataService.instance.volumeOn == true{
-            if let image = UIImage(named: "highVolume"){
-                button.setImage(image, forState: .Normal)
-            }
-        } else {
-            if let image = UIImage(named: "mute"){
-                button.setImage(image, forState: .Normal)
-            }
-        }
-    }
     
     func buttonInfo(sender: UIButton){
 
@@ -72,12 +39,15 @@ class GameVC: UIViewController{
         sender.superview!.layer.masksToBounds = false
         
         sender.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        
         sender.layer.cornerRadius = 5
         sender.clipsToBounds = true
     }
     
-    @IBAction func homeButton(sender: AnyObject){
+    @IBAction func backBtn(sender: UIButton){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func homeBtn(sender: UIButton){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }

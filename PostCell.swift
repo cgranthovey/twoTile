@@ -12,6 +12,7 @@ class PostCell: UITableViewCell {
 
     @IBOutlet weak var word: UILabel!
     @IBOutlet weak var definition: UILabel!
+    @IBOutlet weak var tapIcon: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,5 +22,12 @@ class PostCell: UITableViewCell {
     func configureCell(scrabWord: ScrabbleWord) {
         self.word.text = scrabWord.word
         self.definition.text = scrabWord.definition
+        
+        if scrabWord.word == "Aa"{
+            tapIcon.hidden = false
+        } else {
+            tapIcon.hidden = true
+        }
+        
     }
 }

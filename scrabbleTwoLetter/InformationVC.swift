@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InformationVC: UIViewController {
+class InformationVC: genVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,9 +56,5 @@ class InformationVC: UIViewController {
     
     @IBAction func homeButton(sender: AnyObject){
         self.navigationController?.popToRootViewControllerAnimated(true)
-    }
-    
-    @IBAction func backButton(sender: AnyObject){
-        self.navigationController?.popViewControllerAnimated(true)
     }
 }

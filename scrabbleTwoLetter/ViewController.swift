@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class ViewController: genVC, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var bottomBorderBox: UIView!
     @IBOutlet weak var gradientViewTop: UIView!
 
     var words = [ScrabbleWord]()
@@ -26,11 +25,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.Done
         words = StoreWord().getWord()
-        
-        let background1 = CAGradientLayer().whiteToRedColor()
-        background1.frame = self.bottomBorderBox.bounds
-        self.bottomBorderBox.layer.insertSublayer(background1, atIndex: 0)
-        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -55,6 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             } else{
                 tempWord = words[indexPath.row]
             }
+
             cell.configureCell(tempWord)
             return cell
         } else {
@@ -105,8 +100,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             word = words[indexPath.row]
         }
         
-        performSegueWithIdentifier("WordDetail", sender: word)
-        
+        performSegueWithIdentifier("WordDetail", sender: word)        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -127,7 +121,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    @IBAction func gamesButton(sender: AnyObject){
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
+    
 }

@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class GeneralCollectionVC: UIViewController {
+class GeneralCollectionVC: genVC {
 
     var sfxFadeOut: AVAudioPlayer!
     var sfxSplashShort: AVAudioPlayer!

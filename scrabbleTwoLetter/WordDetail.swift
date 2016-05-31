@@ -65,19 +65,24 @@ class WordDetail: UIViewController {
     }
     
     func bringUpPhoto(){
-        if Reachability.isConnectedToNetwork() == false{
-            self.image.image = UIImage(named: "diff3")
-        } else{
-            ImageLoader.sharedLoader.imageForUrl(tappedWord.image, completionHandler:{(image: UIImage?, url: String) in
-                if image != nil{
-                    self.image.image = image!
-                } else {
-                    self.image.image = UIImage(named: "diff3")
-                }
-                
-                self.progressBar.hidden = true
-            })
-        }
+        
+        self.image.image = UIImage(named: tappedWord.image)
+        
+// Below is for loading images from internet if I decide to change
+        
+//        if Reachability.isConnectedToNetwork() == false{
+//            self.image.image = UIImage(named: "diff3")
+//        } else{
+//            ImageLoader.sharedLoader.imageForUrl(tappedWord.image, completionHandler:{(image: UIImage?, url: String) in
+//                if image != nil{
+//                    self.image.image = image!
+//                } else {
+//                    self.image.image = UIImage(named: "diff3")
+//                }
+//                
+//                self.progressBar.hidden = true
+//            })
+//        }
     }
     
     func initAudio(){

@@ -24,7 +24,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     var myButton: UIButton!
     var myDeleteButtonArray: [UIButton]!
     var arrayOfGameWords = [ScrabbleWord]()
-    var swipeRight: UISwipeGestureRecognizer!
+    var swipeLeft: UISwipeGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,9 +108,9 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
             myDeleteButtonArray.append(myButton)
             cell.addSubview(myButton)
         
-            swipeRight = UISwipeGestureRecognizer(target: self, action: "toWordDetail:")
-            swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-            cell.addGestureRecognizer(swipeRight)
+            swipeLeft = UISwipeGestureRecognizer(target: self, action: "toWordDetail:")
+            swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+            cell.addGestureRecognizer(swipeLeft)
             
             return cell
         } else {
@@ -134,8 +134,6 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
                         sfxBubble2.currentTime = 0
                     }
                     sfxBubble2.play()
-                    
-                    
                     arrayOfGameWords.removeAtIndex(z)
                     cell.colorForGameRemove()
                     DataService.instance.saveGameWords(arrayOfGameWords)
@@ -245,6 +243,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
                 arrayOfGameWords.removeAtIndex(y)
             }
             y = y + 1
+            DataService.instance.saveGameWords(arrayOfGameWords)
         }
         
         self.deletedWords.append(self.savedWords[i.item])
@@ -301,7 +300,7 @@ class collectionVC: GeneralCollectionVC, UICollectionViewDelegate, UICollectionV
     }
     
     @IBAction func backButton(sender: AnyObject){
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController!.popToViewController(navigationController!.viewControllers[1], animated: true)
     }
     
     @IBAction func homeButton(sender: AnyObject){
