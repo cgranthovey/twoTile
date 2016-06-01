@@ -43,10 +43,6 @@ class GameVC: genVC{
         sender.clipsToBounds = true
     }
     
-    @IBAction func backBtn(sender: UIButton){
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
     @IBAction func homeBtn(sender: UIButton){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
