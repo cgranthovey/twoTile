@@ -45,15 +45,18 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
         wrongAnswerCount = 0
         
         if memorizingWords.count == 0{
-            button1.hidden = true
-            button2.hidden = true
-            button3.hidden = true
-            button4.hidden = true
-            whichIsAWordLbl.hidden = true
-            numberOfWords.hidden = true
-            gameEnd.hidden = true
-            zeroWords(true)
-        } else{
+            
+            memorizingWords = random20()
+            memorizingWordsCount = memorizingWords.count
+//            button1.hidden = true
+//            button2.hidden = true
+//            button3.hidden = true
+//            button4.hidden = true
+//            whichIsAWordLbl.hidden = true
+//            numberOfWords.hidden = true
+//            gameEnd.hidden = true
+//            zeroWords(true)
+        } 
             self.button1.hidden = false
             self.button2.hidden = false
             self.button3.hidden = false
@@ -63,7 +66,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
             gameEnd.hidden = true
             zeroWords(false)
             resetGame()
-        }
+        
     }
     
     func resetGame(){
@@ -157,7 +160,7 @@ class ChooseCorrectWordGameVC: GeneralGameVC{
     func correctAnswer(button: UIButton){
         deactivateButtons(button1, button2: button2, button3: button3, button4: button4)
         button.backgroundColor = UIColor(red: 26.0/255.0, green: 250.0/255.0, blue: 21.0/255.0, alpha: 1.0)
-        let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "resetGame", userInfo: nil, repeats: false)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ChooseCorrectWordGameVC.resetGame), userInfo: nil, repeats: false)
         print(timer)
         sfxCorrectAnswer.play()
     }

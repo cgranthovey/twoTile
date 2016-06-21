@@ -44,7 +44,7 @@ class GeneralGameVC: genVC {
         buttonToWords = UIButton(type: UIButtonType.System) as UIButton
         buttonToWords.frame = CGRectMake(10, 210, 120, 30)
         buttonToWords.setTitle("Add Words", forState: UIControlState.Normal)
-        buttonToWords.addTarget(self, action: "buttonAction", forControlEvents: UIControlEvents.TouchUpInside)
+        buttonToWords.addTarget(self, action: #selector(GeneralGameVC.buttonAction), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(buttonToWords)
         
         buttonToWords.center.x = self.view.center.x
@@ -109,10 +109,10 @@ class GeneralGameVC: genVC {
             sfxSadDrum.play()
         } else if percentage < 80{
             sfxDrumSemiFun.play()
-            label.text = "\(percentage)% - dang good job!"
+            label.text = "\(percentage)% - You're getting the hang of this!"
         } else if percentage < 100{
             sfxHappyDrum.play()
-            label.text = "\(percentage)% - Wow!  An 'A' student!"
+            label.text = "\(percentage)% - Wow!  You're doing great!"
         } else{
             sfxCrowdCheer.play()
             label.text = "100% - Perfect! Awesome job!"
@@ -120,18 +120,23 @@ class GeneralGameVC: genVC {
     }
     
     func zeroWords(zeroWord: Bool){
-        print("before 0")
         if zeroWord == true{
             buttonToWords.alpha = 1
             buttonToWords.userInteractionEnabled = true
             label.alpha = 1
-            print("zerwoods true")
         } else {
-            print("else before 0")
             buttonToWords.alpha = 0
             buttonToWords.userInteractionEnabled = false
             label.alpha = 0
         }
+    }
+    
+    func random20() -> [ScrabbleWord]{
+        var holdWords = [ScrabbleWord]()
+        holdWords = StoreWord().getWord()
+        holdWords.shuffleInPlace()
+        let returnWords: [ScrabbleWord] = Array(holdWords.prefix(20))
+        return returnWords
     }
 
     func buttonAction(){

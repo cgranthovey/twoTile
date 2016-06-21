@@ -38,19 +38,6 @@ extension CAGradientLayer {
         return gradientLayer
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     func whiteToRedColor() -> CAGradientLayer{
         let topColor = UIColor(red: 108.0/255.0, green: 147.0/255.0, blue: 209.0/255.0, alpha: 1.0)
         let bottomColor = UIColor(red: 57.0/255.0, green: 106.0/255.0, blue: 184.0/255.0, alpha: 1.0)

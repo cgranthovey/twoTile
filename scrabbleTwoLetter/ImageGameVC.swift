@@ -60,8 +60,8 @@ class ImageGameVC: GeneralGameVC {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "timer", name: "correctDrop", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "badDropCounter", name: "wrongDrop", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ImageGameVC.timer), name: "correctDrop", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ImageGameVC.badDropCounter), name: "wrongDrop", object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -75,20 +75,22 @@ class ImageGameVC: GeneralGameVC {
         wrongAnswerCount = 0
         
         if gameWords.count == 0 {
-            print("0 called")
-            button1.hidden = true
-            button2.hidden = true
-            button3.hidden = true
-            button4.hidden = true
-            imageStackView.hidden = true
-            firstView.hidden = true
-            secondView.hidden = true
-            thirdView.hidden = true
-            fourthView.hidden = true
-            numberOfWords.hidden = true
-            gameEnd.hidden = true
-            zeroWords(true)
-        } else{
+            
+            gameWords = random20()
+            
+//            button1.hidden = true
+//            button2.hidden = true
+//            button3.hidden = true
+//            button4.hidden = true
+//            imageStackView.hidden = true
+//            firstView.hidden = true
+//            secondView.hidden = true
+//            thirdView.hidden = true
+//            fourthView.hidden = true
+//            numberOfWords.hidden = true
+//            gameEnd.hidden = true
+//            zeroWords(true)
+        }
             print("else called")
             button1.hidden = false
             button2.hidden = false
@@ -104,7 +106,6 @@ class ImageGameVC: GeneralGameVC {
             zeroWords(false)
             reset()
 
-        }
     }
 
     func badDropCounter(){
@@ -115,7 +116,7 @@ class ImageGameVC: GeneralGameVC {
         if startTimer != nil{
             startTimer.invalidate()
         }
-        startTimer = NSTimer.scheduledTimerWithTimeInterval(0.6, target: self, selector: "reset", userInfo: nil, repeats: false)
+        startTimer = NSTimer.scheduledTimerWithTimeInterval(0.6, target: self, selector: #selector(ImageGameVC.reset), userInfo: nil, repeats: false)
     }
     
     @IBAction func button1Action(sender: UIButton){
@@ -158,7 +159,7 @@ class ImageGameVC: GeneralGameVC {
         deactivateButtons(button1, button2: button2, button3: button3, button4: button4)
         firstWord.textColor = UIColor(red: 20.0/255.0, green: 255.0/255.0, blue: 34.0/255.0, alpha: 1.0)
         sfxCorrectAnswer.play()
-        let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "reset", userInfo: nil, repeats: false)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ImageGameVC.reset), userInfo: nil, repeats: false)
         print(timer)
     }
     

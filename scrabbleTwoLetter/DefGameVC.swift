@@ -46,20 +46,23 @@ class DefGameVC: GeneralGameVC {
         wrongAnswerCount = 0
         
         if memorizingWordsCount == 0 {
-            button1.hidden = true
-            button2.hidden = true
-            button3.hidden = true
-            button4.hidden = true
-            label1.hidden = true
-            label2.hidden = true
-            label3.hidden = true
-            label4.hidden = true
-            numberOfWords.hidden = true
-            tileWord.hidden = true
-            gameEnd.hidden = true
             
-            zeroWords(true)
-        } else{
+            memorizingWords = random20()
+            memorizingWordsCount = memorizingWords.count
+//            button1.hidden = true
+//            button2.hidden = true
+//            button3.hidden = true
+//            button4.hidden = true
+//            label1.hidden = true
+//            label2.hidden = true
+//            label3.hidden = true
+//            label4.hidden = true
+//            numberOfWords.hidden = true
+//            tileWord.hidden = true
+//            gameEnd.hidden = true
+//            
+//            zeroWords(true)
+        }
             button1.hidden = false
             button2.hidden = false
             button3.hidden = false
@@ -74,7 +77,7 @@ class DefGameVC: GeneralGameVC {
             
             zeroWords(false)
             resetGame()
-        }
+        
     }
     
     func resetGame(){
@@ -178,7 +181,7 @@ class DefGameVC: GeneralGameVC {
     func correctAnswer(button: UIButton){
         button.backgroundColor = UIColor(red: 20.0/255.0, green: 255.0/255.0, blue: 34.0/255.0, alpha: 1.0)
         
-        let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "resetGame", userInfo: nil, repeats: false)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(DefGameVC.resetGame), userInfo: nil, repeats: false)
         print(timer)
         sfxCorrectAnswer.play()
         deactivateButtons(button1, button2: button2, button3: button3, button4: button4)
